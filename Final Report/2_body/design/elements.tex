@@ -145,25 +145,78 @@ This mapping allows the controller outputs to directly control motor speeds, whi
 % Test Result Analysis 
 % Describe in which case the test is passed and what aspects of the test have to be included into a test report as deliverable. Discuss the impact of an error or test fail case. 
 
-The testing phase was conducted to validate the design elements, demonstrate proof of concept, and identify areas requiring modification. Testing was split into \textit{Initial Stationary Testing}, which assessed sensors, communication, and basic control logic without flight, and \textit{Dynamic Testing}, which evaluated flight performance, stability, and PID control during lift-off and hovering.
+The testing provided a validation of the drone's hardware and firmware subsystems, serving both as proof of concept and as a diagnostic tool. Testing was conducted in two stages: \textit{Initial Stationary Testing} evaluated sensor functionality, communication protocols, and control logic without flight, while \textit{Dynamic Testing} assessed flight performance, stability, and PID control during lift-off and hovering. The Verification and Validation of for this project can be found in Appendix~\temp{V\&V To-do}.
+
+Stationary testing confirmed that the MPU6050 IMU and VLX distance sensors functioned correctly and produced consistent readings. Integration with the Espressif EPSDrone firmware and CFClient verified reliable data acquisition and sensor interfacing. IMU calibration highlighted minor deviations in gravity measurements, which could be compensated via bias correction. The WebSocket interface was successfully implemented, enabling wireless command and telemetry communication in accordance with R.25 (User Interface). State estimation algorithms were verified visually, demonstrating accurate correspondence between estimated and actual orientation.
+
+Concurrent development of PID control and motor command modules enabled preliminary assessment of flight dynamics. PCB integration was completed and tested to resolve hardware issues prior to flight trials. Initial motor tests on a fixed rig revealed erratic behavior, suggesting potential misalignment or calibration inconsistencies. Early hovering attempts indicated that motor instability and resource constraints limited sustained flight, emphasizing the need for further tuning of control gains and motor performance. 
+
+Overall, the testing process validated core system functionality, identified critical limitations in motor performance and control, and provided essential data to guide subsequent design iterations and control algorithm optimization.
 
 \subsubsection{Initial Stationary Testing} \leavevmode
 
-Initial testing did not involve flight but focused on validating core hardware and firmware components:
+Initial testing did not involve flight but focused on validating hardware and firmware components:
 
-\begin{enumerate}
-    \item MPU6050 IMU and VLX distance sensors were tested separately to verify functionality and accurate readings.
-    \item Sensors were integrated with the Espressif EPSDrone firmware to check compatibility and basic data retrieval via CFClient.
-    \item IMU calibration and testing confirmed gyroscope and accelerometer measurements, noting minor inconsistencies that could be compensated through bias correction.
-    \item WebSocket interface development enabled wireless command and telemetry communication, progressively tested to ensure correct reception and feedback (linked to R.25 - User Interface).
-    \item State estimation algorithms were implemented and verified visually to confirm correspondence between actual and estimated orientation.
-    \item PID control and motor command modules were developed concurrently while awaiting PCB delivery.
-    \item PCB issues were addressed, ensuring proper hardware integration before flight tests.
-    \item Initial motor testing on a fixed rig revealed erratic behaviour, indicating potential motor alignment or calibration issues.
-    \item Early hovering attempts were limited by motor instability and resource constraints, providing insight into control tuning requirements.
-\end{enumerate}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, \temp{XX}} & \textbf{Sensor Functionality Test} \\ \hline
 
-%-------------------------------%
+\textbf{Test Specification} & 
+Verify that all onboard sensors (MPU6050 IMU and VLX distance sensor) provide accurate and consistent readings. \\ \hline
+
+\textbf{Test Description} & 
+1. Power up the drone and connect via CFClient or firmware interface. \newline
+2. Read accelerometer, gyroscope, and distance values while the drone remains stationary. \newline
+3. Compare readings against expected physical conditions (e.g., gravity orientation for IMU, known distance for VLX). \\ \hline
+
+\textbf{Test Result Analysis} & 
+Sensors produced consistent readings within expected tolerances. Minor IMU biases were observed and could be corrected in firmware. Successful verification confirms sensors are ready for integration with control algorithms. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, \temp{XX}} & \textbf{Motor Command Verification} \\ \hline
+
+\textbf{Test Specification} & 
+Validate that motor control commands are correctly transmitted and executed without flight. \\ \hline
+
+\textbf{Test Description} & 
+1. Connect the drone to WebSocket interface. \newline
+2. Send incremental motor thrust commands while drone is fixed to a test rig. \newline
+3. Monitor motor responses via telemetry and visually confirm expected rotation or PWM feedback. \\ \hline
+
+\textbf{Test Result Analysis} & 
+All motor commands were received and executed appropriately. Erratic behaviour was observed only under high throttle, suggesting a need for calibration. This confirms that motor control signals are correctly delivered by the firmware. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, \temp{XX}} & \textbf{IMU Data Validation} \\ \hline
+
+\textbf{Test Specification} & 
+Confirm the accuracy of accelerometer and gyroscope data for use in state estimation and control algorithms. \\ \hline
+
+\textbf{Test Description} & 
+1. Keep the drone stationary and log accelerometer and gyroscope outputs. \newline
+2. Tilt and rotate the drone slowly to produce controlled changes in orientation. \newline
+3. Compare logged sensor data against expected physical motion and orientation. \\ \hline
+
+\textbf{Test Result Analysis} & 
+Sensor data corresponded closely with expected motion profiles. Small offsets were observed and noted for bias correction in the firmware. This validates that IMU measurements are reliable for state estimation and PID control integration. \\ \hline
+\end{tabular}
+\end{table}
+
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -205,11 +258,11 @@ The algorithm accurately tracked the drone's orientation under moderate movement
 \end{tabular}
 \end{table}
 
+%-------------------------------%
 \subsubsection{Dynamic Testing} \leavevmode
 
 Dynamic testing focused on lift-off, hovering, altitude maintenance, and PID stabilisation.
 
-%-------------------------------%
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -231,7 +284,6 @@ The drone achieved lift-off; however, uneven thrust caused flipping tendencies a
 \end{tabular}
 \end{table}
 
-%-------------------------------%
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -250,7 +302,6 @@ Hover could not be maintained due to instability. This prevented altitude evalua
 \end{tabular}
 \end{table}
 
-%-------------------------------%
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -271,4 +322,5 @@ Hover could not be achieved, limiting assessment. Control signals were active an
 
 \subsubsection{Outcome of Testing} \leavevmode
 
-The testing process successfully validated key hardware and firmware components, including sensors, communication, motor control, and state estimation. Initial stationary tests confirmed that sensors and WebSocket communication functioned as intended. Dynamic tests demonstrated that while lift-off was achievable, full hover and altitude stability were limited by motor calibration and thrust inconsistencies. PID control operated correctly but could not compensate for underlying hardware issues. Overall, the tests identified areas requiring refinement before reliable autonomous flight could be achieved.
+\temp{To-do}
+

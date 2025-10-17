@@ -22,21 +22,22 @@
 \contentsline {paragraph}{\numberline {2.3.1.5}\textbf {WebSocket} \textit {websocket.c}}{16}{paragraph.2.3.1.5}%
 \contentsline {paragraph}{\numberline {2.3.1.6}\textbf {Motors} \textit {motors.c}}{17}{paragraph.2.3.1.6}%
 \contentsline {subsection}{\numberline {2.4}Testing}{17}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Initial Stationary Testing}{17}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Dynamic Testing}{18}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Outcome of Testing}{19}{subsubsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.5}System Integration}{20}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Stakeholder Engagement}{20}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Safety Issues}{20}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Ethical Issues}{21}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}Top 5 Risks and Mitigations}{22}{subsection.2.9}%
-\contentsline {subsection}{\numberline {2.10}Design Outputs}{24}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}Final Costs}{24}{subsection.2.11}%
-\contentsline {section}{\numberline {3}Recommendations}{25}{section.3}%
-\contentsline {section}{\numberline {4}Manual}{26}{section.4}%
-\contentsline {section}{\numberline {5}References}{27}{section.5}%
-\contentsline {section}{\numberline {A}Appendices}{27}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Constraints}{27}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Additional Requirements}{28}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Code}{28}{subsection.A.3}%
-\contentsline {subsubsection}{\numberline {A.3.1}sensor.c}{28}{subsubsection.A.3.1}%
+\contentsline {subsubsection}{\numberline {2.4.1}Initial Stationary Testing}{18}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Dynamic Testing}{19}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Outcome of Testing}{20}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}System Integration}{21}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Stakeholder Engagement}{21}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Safety Issues}{21}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Ethical Issues}{22}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Top 5 Risks and Mitigations}{23}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Process of Assembly}{26}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Design Outputs}{29}{subsection.2.11}%
+\contentsline {subsection}{\numberline {2.12}Final Costs}{29}{subsection.2.12}%
+\contentsline {section}{\numberline {3}Recommendations}{30}{section.3}%
+\contentsline {section}{\numberline {4}Manual}{31}{section.4}%
+\contentsline {section}{\numberline {5}References}{32}{section.5}%
+\contentsline {section}{\numberline {A}Appendices}{32}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Constraints}{32}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Additional Requirements}{33}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Code}{33}{subsection.A.3}%
+\contentsline {subsubsection}{\numberline {A.3.1}sensor.c}{33}{subsubsection.A.3.1}%
