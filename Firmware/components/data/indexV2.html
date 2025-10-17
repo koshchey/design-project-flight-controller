@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Autonomous Flight Controller UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      margin: 20px;
+      background: #f7f9fc;
+      color: #333;
+    }
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #2c3e50;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 4px;
+    }
+    .row {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+    .label {
+      min-width: 160px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    .value {
+      display: inline-block;
+      min-width: 50px;
+      text-align: right;
+      font-family: monospace;
+      color: #1a5276;
+    }
+    .slider-group {
+      margin: 10px 0;
+      max-width: 400px;
+    }
+    .slider-label {
+      font-size: 13px;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+      color: #2c3e50;
+    }
+    .slider {
+      width: 100%;
+    }
+    .slider-value {
+      font-size: 12px;
+      margin-left: 8px;
+      color: #555;
+    }
+    button {
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      margin: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    #enable-motors {
+      background-color: #27ae60;
+      color: #fff;
+    }
+    #reset {
+      background-color: #3498db;
+      color: #fff;
+    }
+    #toggle-setpoint-send {
+      background-color: #8e44ad;
+      color: #fff;
+    }
+    #deactivate {
+      background-color: #7f8c8d;
+      color: #fff;
+    }
+    #statusBox {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff;
+      margin-top: 15px;
+      font-size: 13px;
+      width: 260px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    #statusBox b {
+      font-size: 14px;
+      color: #2c3e50;
+    }
+    canvas {
+      margin-top: 15px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      display: block;
+    }
+    pre#log {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      background: #272822;
+      color: #f8f8f2;
+      font-size: 12px;
+      overflow-y: auto;
+      max-height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>IMU Data</h2>
+  <div class="row"><span class="label">Accelerometer (m/s²):</span> X: <span id="acce_x" class="value"></span> Y: <span id="acce_y" class="value"></span> Z: <span id="acce_z" class="value"></span></div>
+  <div class="row"><span class="label">Gyroscope (°/s):</span> X: <span id="gyro_x" class="value"></span> Y: <span id="gyro_y" class="value"></span> Z: <span id="gyro_z" class="value"></span></div>
+  <div class="row"><span class="label">Attitude (°):</span> Roll: <span id="roll" class="value"></span> Pitch: <span id="pitch" class="value"></span> Yaw: <span id="yaw" class="value"></span></div>
+  <div class="row"><span class="label">Position (m):</span> Z: <span id="pos_z" class="value"></span></div>
+
+  <h2>Control</h2>
+  <div class="row"><span class="label">Attitude Control Values:</span> Roll: <span id="croll" class="value"></span> Pitch: <span id="cpitch" class="value"></span> Yaw: <span id="cyaw" class="value"></span> Thrust: <span id="cthrust" class="value"></span></div>
+  <div class="row"><span class="label">Real Motor Control:</span> Motor 1: <span id="m1" class="value"></span> Motor 2: <span id="m2" class="value"></span> Motor 3: <span id="m3" class="value"></span> Motor 4: <span id="m4" class="value"></span></div>
+
+  <h2>Manual Control</h2>
+  <div class="slider-group">
+    <label class="slider-label">Roll (°): <span class="slider-value" id="rollSlider-value"></span></label>
+    <input type="range" min="-90" max="90" value="0" class="slider" id="rollSlider">
+  </div>
+  <div class="slider-group">
+    <label class="slider-label">Pitch (°): <span class="slider-value" id="pitchSlider-value"></span></label>
+    <input type="range" min="-90" max="90" value="0" class="slider" id="pitchSlider">
+  </div>
+  <div class="slider-group">
+    <label class="slider-label">Yaw (°/s): <span class="slider-value" id="yawSlider-value"></span></label>
+    <input type="range" min="-180" max="180" value="0" class="slider" id="yawSlider">
+  </div>
+  <div class="slider-group">
+    <label class="slider-label">Thrust (%): <span class="slider-value" id="thrustSlider-value"></span></label>
+    <input type="range" min="0" max="100" value="0" class="slider" id="thrustSlider">
+  </div>
+
+  <div id="statusBox">
+    <b>Status</b><br>
+    Motors: <span id="motorStatus">Disabled</span><br>
+    Roll: <span id="statusRoll">0</span><br>
+    Pitch: <span id="statusPitch">0</span><br>
+    Yaw Rate: <span id="statusYaw">0</span><br>
+    Thrust: <span id="statusThrust">0</span>
+  </div>
+
+  <h2>Controls</h2>
+  <button id="enable-motors" onclick="enableMotors(false)">Enable Motors</button>
+  <button id="deactivate" onclick="sendSetpointBinary(true)">Deactivate</button>
+  <button id="reset">Reset Sliders</button>
+  <button id="toggle-setpoint-send">Disconnect</button>
+  <br>
+  <button onclick="sendMessage('hello')">Hello</button>
+  <button id="toggle-att-visual">Start Visual</button>
+  <button onclick="sendMessage('rpy')">Request attitude</button>
+
+  <canvas id="rpyCanvas" width="300" height="300"></canvas>
+  <pre id="log"></pre>
+</body>
+
+<!-- JS SCRIPT ------------------------------------------>
+<script>
+  /* Handle the websocket opening and closing */
+
+  const SEND_INTERVAL_SET = 20;
+  const POLL_INTERVAL_VIS = 20; // default: 50 (20 Hz)
+
+  var gateway = `ws://10.90.14.54/ws`;
+  var socket;
+
+  window.addEventListener('load', onLoad);
+
+  function onLoad(event) {
+    log('Trying to open a WebSocket connection...');
+    socket = new WebSocket(gateway);
+    socket.onmessage = onMessage;
+    socket.onopen = () => {
+      log("WebSocket connected");
+      worker.postMessage({ action: 'start', interval: SEND_INTERVAL_SET });
+    };
+    socket.onclose = () => {
+      log("WebSocket closed");
+      worker.postMessage({ action: 'stop' });
+    };
+  }
+
+
+  /* Parse data from imu or state estimator */
+  /* Otherwise just log the message */
+  function limitUint16(val) {
+    return Math.min(65535, Math.max(0, Math.round(val)));
+  }
+
+  function updateMotorOutputs() {
+    const roll = parseFloat(document.getElementById("croll").textContent)  || 0;
+    const pitch = parseFloat(document.getElementById("cpitch").textContent) || 0;
+    const yaw = parseFloat(document.getElementById("cyaw").textContent)   || 0;
+    const thrust = parseFloat(document.getElementById("cthrust").textContent)|| 0;
+
+    const m1 = limitUint16(thrust - roll + pitch + yaw);
+    const m2 = limitUint16(thrust - roll - pitch - yaw);
+    const m3 = limitUint16(thrust + roll - pitch + yaw);
+    const m4 = limitUint16(thrust + roll + pitch - yaw);
+
+    document.getElementById("m1").textContent = m1;
+    document.getElementById("m2").textContent = m2;
+    document.getElementById("m3").textContent = m3;
+    document.getElementById("m4").textContent = m4;
+  }
+
+  const imu_labels = ["acce_x", "acce_y", "acce_z", "gyro_x", "gyro_y", "gyro_z"];
+  const imu_elements = imu_labels.map(id => document.getElementById(id));
+
+  const rpy_labels = ["roll", "pitch", "yaw", "pos_z", "croll", "cpitch", "cyaw", "cthrust"];
+  const rpy_elements = rpy_labels.map(id => document.getElementById(id));
+
+  function onMessage(event) {
+    const data = event.data;
+    if (data.startsWith("imu")) {
+      let offset = 3;
+
+      for (let i = 0; i < imu_elements.length; i++) {
+        const rawStr = data.substr(offset, 6);
+        const value = parseFloat(rawStr);
+        imu_elements[i].textContent = value;
+        offset += 6;
+      }
+    } else if (data.startsWith("rpy")) {
+      let offset = 3;
+
+      for (let i = 0; i < rpy_elements.length; i++) {
+        const rawStr = data.substr(offset, 6);
+        const value = parseFloat(rawStr);
+        rpy_elements[i].textContent = value;
+        offset += 6;
+      }
+
+      updateMotorOutputs();
+    } else {
+      log(event.data);
+    }
+  }
+
+  /* Request data from websocket */
+  function sendMessage(msg) { 
+    switch (msg) {
+      case "hello":
+        socket.send("Hello from browser!");
+        break;
+      case "rpy":
+        socket.send("request rpy");
+        break;
+      default:
+        break;
+    }
+  }
+
+  function log(msg) {
+      document.getElementById("log").textContent += msg + "\n";
+  }
+  
+  /* Canvas visual *********************************************************/
+  const canvas = document.getElementById('rpyCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width / 2;
+  const h = canvas.height / 2;
+
+  const cube = [
+    [-1, -1, -1],
+    [ 1, -1, -1],
+    [ 1,  1, -1],
+    [-1,  1, -1],
+    [-1, -1,  1],
+    [ 1, -1,  1],
+    [ 1,  1,  1],
+    [-1,  1,  1]
+  ];
+
+  const edges = [
+    [0,1],[1,2],[2,3],[3,0],
+    [4,5],[5,6],[6,7],[7,4],
+    [0,4],[1,5],[2,6],[3,7]
+  ];
+
+  function deg2rad(deg) { return deg * Math.PI / 180; }
+
+  function drawCube(roll, pitch, yaw) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const sinR = Math.sin(deg2rad(roll));
+    const cosR = Math.cos(deg2rad(roll));
+    const sinP = Math.sin(deg2rad(pitch));
+    const cosP = Math.cos(deg2rad(pitch));
+    const sinY = Math.sin(deg2rad(yaw));
+    const cosY = Math.cos(deg2rad(yaw));
+
+    // rotation + projection
+    function rotateAndProject([x, y, z]) {
+      // these come from rotation martices:
+      // roll
+      let y1 = y*cosR + z*sinR;
+      let z1 = -y*sinR + z*cosR;
+      let x1 = x;
+      // pitch
+      let x2 = x1*cosP + z1*sinP;
+      let z2 = -x1*sinP + z1*cosP;
+      let y2 = y1;
+      // yaw
+      let x3 = x2*cosY - y2*sinY;
+      let y3 = x2*sinY + y2*cosY;
+      let z3 = z2;
+
+      const depth = y3 + 5; // create depth based on the x, y input
+      const scale = 200 / depth; // scale (further object appear smaller)
+
+      // map to canvas: x = left/right, z = up/down, y = depth
+      return [x3 * scale + w, -z3 * scale + h]; // [x, y] on canvas
+    }
+
+    // draw edges
+    ctx.strokeStyle = "black";
+    edges.forEach(([i, j]) => {
+      const [x1, y1] = rotateAndProject(cube[i]); // map corner by edge
+      const [x2, y2] = rotateAndProject(cube[j]);
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    });
+
+    const cornerX = canvas.width - 50;
+    const cornerY = 50;
+
+    function drawStaticAxis([dx, dy], color, label) {
+        ctx.strokeStyle = color;
+        ctx.beginPath();
+        ctx.moveTo(cornerX, cornerY);
+        ctx.lineTo(cornerX + dx, cornerY - dy);
+        ctx.stroke();
+
+        ctx.fillStyle = color;
+        ctx.font = "12px Monospace";
+        ctx.fillText(label, cornerX + dx + 2, cornerY - dy + 2);
+    }
+
+    drawStaticAxis([20, 0], "red", "R");   // X = Roll
+    drawStaticAxis([0, 20], "green", "P"); // Y = Pitch
+    drawStaticAxis([14, 14], "blue", "Y"); // Z = Yaw (diagonal)    
+  }
+
+  // update cube with RPY values
+  function updateCube() {
+    const r = parseFloat(document.getElementById('roll').textContent) || 0;
+    const p = parseFloat(document.getElementById('pitch').textContent) || 0;
+    const y = parseFloat(document.getElementById('yaw').textContent) || 0;
+    drawCube(r, p, y);
+    requestAnimationFrame(updateCube);
+  }
+
+  updateCube();
+
+  /* State estimator poll ***********************************************/
+  let pollTimerVis = null; // holds interval ID, if null stop polling
+
+  function startPollingVis() {
+    if (pollTimerVis) return; // already polling
+    pollTimerVis = setInterval(() => {
+      sendMessage("rpy");
+    }, POLL_INTERVAL_VIS);
+    document.getElementById("toggle-att-visual").textContent = "Stop Visual";
+  }
+
+  function stopPollingVis() {
+    if (!pollTimerVis) return;
+    clearInterval(pollTimerVis);
+    pollTimerVis = null;
+    document.getElementById("toggle-att-visual").textContent = "Start Visual";
+  }
+
+  document.getElementById("toggle-att-visual").addEventListener("click", () => {
+    if (pollTimerVis) {
+      stopPollingVis();
+    } else {
+      startPollingVis();
+    }
+  });
+
+  /* Setpoint Send ***********************************************/
+  const workerCode = `
+    let interval;
+    onmessage = function(e) {
+        if (e.data.action === 'start') {
+            interval = setInterval(() => {
+                postMessage('send');
+            }, e.data.interval);
+        } else if (e.data.action === 'stop') {
+            clearInterval(interval);
+        }
+    };
+  `;
+  
+  const blob = new Blob([workerCode], { type: 'application/javascript' });
+  const worker = new Worker(URL.createObjectURL(blob));
+
+  worker.onmessage = (e) => {
+    if (e.data === 'send') {
+        sendSetpointBinary(false);
+    }
+  };
+
+  let sendingActive = true; // initially sending on connect
+
+  document.getElementById("toggle-setpoint-send").addEventListener("click", () => {
+      if (sendingActive) {
+          worker.postMessage({ action: 'stop' });
+          document.getElementById("toggle-setpoint-send").textContent = "Connect";
+      } else {
+          worker.postMessage({ action: 'start', interval: SEND_INTERVAL_SET });
+          document.getElementById("toggle-setpoint-send").textContent = "Disconnect";
+      }
+      sendingActive = !sendingActive;
+  });
+  /* Setpoint **********************************************************/
+  let motorsEnabled = false; 
+
+  const sliders = ['rollSlider', 'pitchSlider', 'yawSlider', 'thrustSlider'];
+  const sliderDefaults = {
+    rollSlider: 0,   // -90 to 90
+    pitchSlider: 0,  // -90 to 90
+    yawSlider: 0,    // -180 to 180    
+    thrustSlider: 0  // 0 to 100 
+  };
+
+  // init
+  sliders.forEach(id => {
+    const slider = document.getElementById(id);
+    const display = document.getElementById(id + '-value');
+    slider.value = sliderDefaults[id];
+    display.textContent = slider.value;
+
+    // when the slider moves the setpoint is sent
+    slider.addEventListener('input', () => {
+      display.textContent = slider.value;
+      sendSetpointBinary(false);
+    });
+  });
+
+  // reset sliders
+  document.getElementById('reset').addEventListener('click', () => {
+    sliders.forEach(id => {
+      const slider = document.getElementById(id);
+      const display = document.getElementById(id + '-value');
+      slider.value = sliderDefaults[id];
+      display.textContent = sliderDefaults[id];
+    });
+    sendSetpointBinary(false);
+  });
+
+  // motor enable button
+  function enableMotors(off = false) {
+    if (off == false) {
+      motorsEnabled = !motorsEnabled;
+    } else {
+      motorsEnabled = false;
+    }
+    
+    log("Motors " + (motorsEnabled ? "enabled" : "disabled"));
+
+    const btn = document.getElementById("enable-motors");
+    if (motorsEnabled) {
+      btn.textContent = "Disable Motors";
+      btn.style.backgroundColor = "darkgray";
+      btn.style.color = "white";
+    } else {
+      btn.textContent = "Enable Motors";
+      btn.style.backgroundColor = "green";
+      btn.style.color = "white";
+    }
+  
+    sendSetpointBinary(false); // immediately send update with new enable flag
+  }
+
+  // deactivate 
+  document.getElementById("deactivate").addEventListener("click", () => {
+    sendSetpointBinary(true);
+  });
+  
+  // status
+  function updateStatus(roll, pitch, yaw, thrust) {
+    document.getElementById("motorStatus").textContent = motorsEnabled ? "Enabled" : "Disabled";
+    document.getElementById("motorStatus").style.color = motorsEnabled ? "green" : "darkred";
+    document.getElementById("statusRoll").textContent = roll.toFixed(1);
+    document.getElementById("statusPitch").textContent = pitch.toFixed(1);
+    document.getElementById("statusYaw").textContent = yaw.toFixed(1);
+    document.getElementById("statusThrust").textContent = thrust.toFixed(1);
+  }
+  
+  function sendSetpointBinary(deactivate = false) {
+    if (!socket || socket.readyState !== WebSocket.OPEN) return;
+
+    const structBytes = 71;
+    const prefixBytes = 3;  // "set"
+    const buffer = new ArrayBuffer(prefixBytes + structBytes);
+    const view = new DataView(buffer);
+    let offset = 0;
+
+    // write "set" ASCII
+    view.setUint8(offset++, 's'.charCodeAt(0));
+    view.setUint8(offset++, 'e'.charCodeAt(0));
+    view.setUint8(offset++, 't'.charCodeAt(0));
+
+    function writeFloat(val) {
+        view.setFloat32(offset, val, true); // little-endian (LSB first)
+        offset += 4;
+    }
+
+    function writeUint32(val) {
+        view.setUint32(offset, val, true);
+        offset += 4;
+    }
+
+    // enable 
+    if (!motorsEnabled || deactivate) {
+      view.setUint8(offset++, 0);
+    } else {
+      view.setUint8(offset++, 1);
+    }
+
+    // timestamp
+    writeUint32(0);
+
+    if (deactivate) {
+        // all zeroes for deactivate
+        for (let i = 0; i < 14; i++) writeFloat(0);
+        enableMotors(true);
+        log("Deactivate sent");
+    } else {
+        // roll, pitch, yaw (absolute attitude)
+        writeFloat(parseFloat(document.getElementById('rollSlider').value));
+        writeFloat(parseFloat(document.getElementById('pitchSlider').value));
+        writeFloat(0);
+        // attitudeRate (rollRate, pitchRate, yawRate)
+        writeFloat(0);
+        writeFloat(0); 
+        writeFloat(parseFloat(document.getElementById('yawSlider').value));
+        // thrust
+        writeFloat(parseFloat(document.getElementById('thrustSlider').value));
+        // x, y, z
+        writeFloat(0);
+        writeFloat(0);
+        writeFloat(0);
+        // vx, vy, vz
+        writeFloat(0);
+        writeFloat(0);
+        writeFloat(0);
+        // ax, ay, az
+        writeFloat(0);
+        writeFloat(0);
+        writeFloat(0);
+        // log("Setpoint sent");
+    }
+    socket.send(buffer);
+
+    let readOffset = 3; // skip "set"
+    const enableFlag = view.getUint8(readOffset++);
+    readOffset += 4; // skip timestamp
+    const roll = view.getFloat32(readOffset, true); readOffset += 4;
+    const pitch = view.getFloat32(readOffset, true); readOffset += 16;
+    const yaw = view.getFloat32(readOffset, true); readOffset += 4;
+    const thrust = view.getFloat32(readOffset, true);
+
+    updateStatus(roll, pitch, yaw, thrust);
+  }
+
+</script>
+</body>
+</html>

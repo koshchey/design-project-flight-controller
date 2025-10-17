@@ -1,0 +1,111 @@
+\usepackage[utf8]{inputenc}
+\usepackage[x11names,dvipsnames,svgnames,table]{xcolor}
+
+\usepackage[export]{adjustbox}
+\usepackage{afterpage}
+
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{pdfpages}
+\usepackage{algorithm2e}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[most]{tcolorbox}
+\usepackage{caption}
+\usepackage{datetime}
+\usepackage{dblfnote}
+\usepackage{dirtytalk}
+\usepackage{dsfont}
+\usepackage{etex}
+\usepackage{fancyhdr}
+\usepackage{fix-cm}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp, gensymb}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{transparent}
+\usepackage{makecell}
+\usepackage[everyline=true,framemethod=tikz]{mdframed}
+\usepackage{mparhack}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{parskip}
+\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage{placeins}
+\usepackage[document]{ragged2e}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage[normalem]{ulem}
+\usepackage{verbatim}
+\usepackage{soul}
+\usepackage{tabularx}
+
+\usepackage[titletoc,title,header]{appendix}
+
+\usepackage[utf8]{inputenc}
+\usepackage[australian]{babel}
+\usepackage{csquotes}
+
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{lastpage}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage{adjustbox} 
+
+\setcounter{secnumdepth}{5}
+
+\usepackage{enumitem}
+
+\usepackage[backgroundcolor=yellow]{todonotes}
+
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{3_footer/ref.bib}
+
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+
+\usepackage[acronym,nonumberlist,toc,section=subsection,numberedsection=nolabel]{glossaries} 
+\makeglossaries
+\input{1_header/glossary}
+
+\linespread{1.25}
+
+\definecolor{vscodeBg}{RGB}{30,30,30}
+\definecolor{vscodeGray}{RGB}{40,40,40}
+\definecolor{vscodeBlue}{RGB}{86,156,214}
+\definecolor{vscodeGreen}{RGB}{87,166,74}
+\definecolor{vscodeOrange}{RGB}{214,157,133}
+\definecolor{vscodeCommentGray}{RGB}{106,153,85}
+\lstset{
+    language=C,
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\footnotesize\color{black},
+    keywordstyle=\color{vscodeBlue}\bfseries,
+    commentstyle=\color{vscodeCommentGray}\itshape,
+    stringstyle=\color{vscodeOrange},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{vscodeGray},
+    showstringspaces=false,
+    tabsize=4,
+    captionpos=b
+}

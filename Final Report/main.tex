@@ -1,0 +1,67 @@
+\documentclass[a4paper,10pt]{article}
+\newcommand{\temp}[1]{\textcolor{red}{#1}}
+
+% Include tables in word count
+%TC:group table 0 1
+%TC:group tabular 1 1
+
+\input{1_header/packages.tex}
+
+\begin{document}
+
+%TC:ignore
+\input{1_header/title.tex}
+\pagebreak
+ 
+\section*{Revision History}
+\input{1_header/version.tex}
+\pagebreak
+
+\section*{Executive Summary}
+\input{1_header/summary.tex}
+\pagebreak
+
+\setcounter{tocdepth}{5}
+\tableofcontents
+\pagebreak
+
+\listoffigures
+\listoftables
+\pagebreak
+
+\clearpage
+\renewcommand*{\glossarysection}[2][]{
+  \section*{#2}
+}
+\printglossary[type=\acronymtype]
+\pagebreak
+%TC:endignore
+
+\justify
+\section{Introduction}
+\input{2_body/introduction.tex}
+\pagebreak
+
+% \section{Design}
+\input{2_body/design.tex}
+\pagebreak
+
+\section{Recommendations}
+\input{2_body/recommendations.tex}
+\pagebreak
+
+\section{Manual}
+\input{2_body/manual.tex}
+\pagebreak
+
+\section{References}
+\label{sec:ref}
+\printbibliography[heading=none]
+
+%TC:ignore
+\appendix
+\section{Appendices}
+\input{3_footer/appendices.tex}
+%TC:endignore
+
+\end{document}
