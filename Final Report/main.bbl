@@ -19,6 +19,94 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{abbott2024}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9d7514b7f237fd86247aa16a50703b09}{%
+           family={Abbott},
+           familyi={A\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{9d7514b7f237fd86247aa16a50703b09}
+      \strng{fullhash}{9d7514b7f237fd86247aa16a50703b09}
+      \strng{fullhashraw}{9d7514b7f237fd86247aa16a50703b09}
+      \strng{bibnamehash}{9d7514b7f237fd86247aa16a50703b09}
+      \strng{authorbibnamehash}{9d7514b7f237fd86247aa16a50703b09}
+      \strng{authornamehash}{9d7514b7f237fd86247aa16a50703b09}
+      \strng{authorfullhash}{9d7514b7f237fd86247aa16a50703b09}
+      \strng{authorfullhashraw}{9d7514b7f237fd86247aa16a50703b09}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{note}{Accessed: 2025-10-18}
+      \field{title}{Potensic A20 Mini drone review}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.space.com/potensic-a20-mini-drone-review
+      \endverb
+      \verb{url}
+      \verb https://www.space.com/potensic-a20-mini-drone-review
+      \endverb
+    \endentry
+    \entry{iotdesignpro2019}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=89cd0937ba4f51d4039ebd0714b33935}{%
+           family={IoTDesignPro},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{89cd0937ba4f51d4039ebd0714b33935}
+      \strng{fullhash}{89cd0937ba4f51d4039ebd0714b33935}
+      \strng{fullhashraw}{89cd0937ba4f51d4039ebd0714b33935}
+      \strng{bibnamehash}{89cd0937ba4f51d4039ebd0714b33935}
+      \strng{authorbibnamehash}{89cd0937ba4f51d4039ebd0714b33935}
+      \strng{authornamehash}{89cd0937ba4f51d4039ebd0714b33935}
+      \strng{authorfullhash}{89cd0937ba4f51d4039ebd0714b33935}
+      \strng{authorfullhashraw}{89cd0937ba4f51d4039ebd0714b33935}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{note}{Accessed: 2025-10-18}
+      \field{title}{Getting started with Espressif-IDF: Program ESP32 using ESP-IDF}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://iotdesignpro.com/projects/how-to-program-esp32-with-esp-idf
+      \endverb
+      \verb{url}
+      \verb https://iotdesignpro.com/projects/how-to-program-esp32-with-esp-idf
+      \endverb
+    \endentry
+    \entry{mistral2020}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=2e4a4ea3eb2b3c08c90c2cc2eec68d55}{%
+           family={{Mistral Solutions Pvt. Ltd.}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{2e4a4ea3eb2b3c08c90c2cc2eec68d55}
+      \strng{fullhash}{2e4a4ea3eb2b3c08c90c2cc2eec68d55}
+      \strng{fullhashraw}{2e4a4ea3eb2b3c08c90c2cc2eec68d55}
+      \strng{bibnamehash}{2e4a4ea3eb2b3c08c90c2cc2eec68d55}
+      \strng{authorbibnamehash}{2e4a4ea3eb2b3c08c90c2cc2eec68d55}
+      \strng{authornamehash}{2e4a4ea3eb2b3c08c90c2cc2eec68d55}
+      \strng{authorfullhash}{2e4a4ea3eb2b3c08c90c2cc2eec68d55}
+      \strng{authorfullhashraw}{2e4a4ea3eb2b3c08c90c2cc2eec68d55}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-18}
+      \field{title}{PCB Layout and Analysis}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.mistralsolutions.com/services/pcb-layout-analysis/
+      \endverb
+      \verb{url}
+      \verb https://www.mistralsolutions.com/services/pcb-layout-analysis/
+      \endverb
+    \endentry
     \entry{flightcontroller_git}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=8c75b9f9f1f11482dad45c25081e8498}{%
@@ -39,7 +127,7 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://github.com/koshchey/flight-controller-design-project}}
+      \field{howpublished}{\url{https://github.com/koshchey/design-project-flight-controller}}
       \field{note}{Accessed: 2025-10-17}
       \field{title}{Flight Controller Design Project}
       \field{year}{2025}

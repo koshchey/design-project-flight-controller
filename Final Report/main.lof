@@ -1,10 +1,14 @@
 \babel@toc {australian}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces System Architecture Process}}{9}{figure.caption.8}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Overall System Architecture with Hardware and Firmware Interfaces}}{9}{figure.caption.9}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Hardware Architecture}}{10}{figure.caption.10}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Firmware Architecture}}{12}{figure.caption.13}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Thread-safe Data Availability Signalling Heurisitic}}{15}{figure.caption.16}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Real-Time State Estimate Display on WebSocket}}{16}{figure.caption.17}%
-\contentsline {figure}{\numberline {7}{\ignorespaces ESP Assembly Steps}}{27}{figure.caption.27}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Frame Assembly Process}}{28}{figure.caption.29}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Frame Assembly Process}}{28}{figure.caption.30}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Miniature Drone \blx@tocontentsinit {0}\cite {abbott2024}}}{7}{figure.caption.7}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Survelliance Drone Diagram}}{8}{figure.caption.8}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Espressif ESP32 DevKit~\blx@tocontentsinit {0}\cite {iotdesignpro2019}}}{8}{figure.caption.9}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Printed Circuit Board \blx@tocontentsinit {0}\cite {mistral2020}}}{9}{figure.caption.10}%
+\contentsline {figure}{\numberline {5}{\ignorespaces System Architecture Process}}{11}{figure.caption.12}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Overall System Architecture with Hardware and Firmware Interfaces}}{11}{figure.caption.13}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Hardware Architecture}}{12}{figure.caption.14}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Firmware Architecture}}{14}{figure.caption.17}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Thread-safe Data Availability Signalling Heurisitic}}{17}{figure.caption.20}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Real-Time State Estimate Display on WebSocket}}{18}{figure.caption.21}%
+\contentsline {figure}{\numberline {11}{\ignorespaces ESP Assembly Steps}}{31}{figure.caption.35}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Frame Assembly Process}}{32}{figure.caption.37}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Frame Assembly Process}}{32}{figure.caption.38}%

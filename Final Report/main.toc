@@ -1,43 +1,52 @@
 \babel@toc {australian}{}\relax 
-\contentsline {section}{\numberline {1}Introduction}{6}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Scope of This Report}{6}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Purpose of the Design}{6}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Background}{7}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Summary of Contributions}{7}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Report Structure}{7}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Design}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Requirements}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Design Architecture}{9}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Overall Architecture}{9}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Hardware Architecture}{10}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Hardware Justification}{11}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Firmware Architecture}{12}{subsubsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.5}Firmware Architecture Justification}{12}{subsubsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.3}Design Elements}{14}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Firmware Elements}{14}{subsubsection.2.3.1}%
-\contentsline {paragraph}{\numberline {2.3.1.1}\textbf {Sensor Task} \textit {sensors.c}}{14}{paragraph.2.3.1.1}%
-\contentsline {paragraph}{\numberline {2.3.1.2}\textbf {State Esitmation} \textit {estimator.c}}{15}{paragraph.2.3.1.2}%
-\contentsline {paragraph}{\numberline {2.3.1.3}\textbf {Controller} \textit {controller.c}}{16}{paragraph.2.3.1.3}%
-\contentsline {paragraph}{\numberline {2.3.1.4}\textbf {Stabiliser} \textit {stabiliser.c}}{16}{paragraph.2.3.1.4}%
-\contentsline {paragraph}{\numberline {2.3.1.5}\textbf {WebSocket} \textit {websocket.c}}{16}{paragraph.2.3.1.5}%
-\contentsline {paragraph}{\numberline {2.3.1.6}\textbf {Motors} \textit {motors.c}}{17}{paragraph.2.3.1.6}%
-\contentsline {subsection}{\numberline {2.4}Testing}{17}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Initial Stationary Testing}{18}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Dynamic Testing}{19}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Outcome of Testing}{20}{subsubsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.5}System Integration}{21}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Stakeholder Engagement}{21}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Safety Issues}{21}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Ethical Issues}{22}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}Top 5 Risks and Mitigations}{23}{subsection.2.9}%
-\contentsline {subsection}{\numberline {2.10}Process of Assembly}{26}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}Design Outputs}{29}{subsection.2.11}%
-\contentsline {subsection}{\numberline {2.12}Final Costs}{29}{subsection.2.12}%
-\contentsline {section}{\numberline {3}Recommendations}{30}{section.3}%
-\contentsline {section}{\numberline {4}Manual}{31}{section.4}%
-\contentsline {section}{\numberline {5}References}{32}{section.5}%
-\contentsline {section}{\numberline {A}Appendices}{32}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Constraints}{32}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Additional Requirements}{33}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Code}{33}{subsection.A.3}%
-\contentsline {subsubsection}{\numberline {A.3.1}sensor.c}{33}{subsubsection.A.3.1}%
+\contentsline {section}{\numberline {1}Introduction}{7}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Scope of This Report}{7}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Purpose of the Design}{8}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Background}{8}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Summary of Contributions}{9}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Report Structure}{9}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Design}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Requirements}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Design Architecture}{11}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Overall Architecture}{11}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Hardware Architecture}{12}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Hardware Justification}{13}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Firmware Architecture}{14}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Firmware Architecture Justification}{14}{subsubsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.3}Design Elements}{16}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Hardware Elements}{16}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Firmware Elements}{16}{subsubsection.2.3.2}%
+\contentsline {paragraph}{\numberline {2.3.2.1}\textbf {Sensor Task} \textit {sensors.c}}{16}{paragraph.2.3.2.1}%
+\contentsline {paragraph}{\numberline {2.3.2.2}\textbf {State Esitmation} \textit {estimator.c}}{17}{paragraph.2.3.2.2}%
+\contentsline {paragraph}{\numberline {2.3.2.3}\textbf {Controller} \textit {controller.c}}{18}{paragraph.2.3.2.3}%
+\contentsline {paragraph}{\numberline {2.3.2.4}\textbf {Stabiliser} \textit {stabiliser.c}}{18}{paragraph.2.3.2.4}%
+\contentsline {paragraph}{\numberline {2.3.2.5}\textbf {WebSocket} \textit {websocket.c}}{18}{paragraph.2.3.2.5}%
+\contentsline {paragraph}{\numberline {2.3.2.6}\textbf {Motors} \textit {motors.c}}{19}{paragraph.2.3.2.6}%
+\contentsline {subsection}{\numberline {2.4}Testing}{19}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Initial Stationary Testing}{20}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Dynamic Testing}{21}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Outcome of Testing}{22}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}System Integration}{23}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Stakeholder Engagement}{23}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Outcomes of Engagement}{24}{subsection.2.7}%
+\contentsline {paragraph}{\numberline {2.7.0.1}\textbf {Client Meetings and Information Sessions}}{24}{paragraph.2.7.0.1}%
+\contentsline {paragraph}{\numberline {2.7.0.2}\textbf {Requirement Changes}}{25}{paragraph.2.7.0.2}%
+\contentsline {paragraph}{\numberline {2.7.0.3}\textbf {Stakeholder Engagement Summary:}}{25}{paragraph.2.7.0.3}%
+\contentsline {subsection}{\numberline {2.8}Safety Issues}{26}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Ethical Issues}{27}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Top 5 Risks and Mitigations}{27}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Process of Assembly}{30}{subsection.2.11}%
+\contentsline {subsection}{\numberline {2.12}Design Outputs}{33}{subsection.2.12}%
+\contentsline {subsection}{\numberline {2.13}Final Costs}{33}{subsection.2.13}%
+\contentsline {section}{\numberline {3}Recommendations}{34}{section.3}%
+\contentsline {section}{\numberline {4}Manual}{35}{section.4}%
+\contentsline {section}{\numberline {5}References}{36}{section.5}%
+\contentsline {section}{\numberline {A}Appendices}{37}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Constraints}{37}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Additional Requirements}{38}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Requirements Update Summary (Week 6)}{39}{subsection.A.3}%
+\contentsline {subsubsection}{\numberline {A.3.1}Ranked Requirements - Proposed Changes}{39}{subsubsection.A.3.1}%
+\contentsline {subsubsection}{\numberline {A.3.2}Additional Requirements - Proposed Changes}{41}{subsubsection.A.3.2}%
+\contentsline {subsubsection}{\numberline {A.3.3}Additional Requirements - Final (Post-Change List)}{42}{subsubsection.A.3.3}%
+\contentsline {subsection}{\numberline {A.4}Code}{43}{subsection.A.4}%
+\contentsline {subsubsection}{\numberline {A.4.1}sensor.c}{43}{subsubsection.A.4.1}%

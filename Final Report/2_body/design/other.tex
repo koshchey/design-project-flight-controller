@@ -1,20 +1,146 @@
 \subsection{System Integration}
-\temp{\textbf{Scope:} Integration of flight controller, power subsystem, communication modules, and mechanical frame with defined signal/power interfaces and timing dependencies. Interfaces are version-controlled and validated per subsystem test logs.}
 
+The firmware and hardware were co-designed to ensure seamless integration, with all peripherals and control structures mapped directly to hardware interfaces defined at the PCB design stage. The firmware architecture abstracts low-level hardware interaction through driver modules, allowing the stabilisation logic and control loops to operate independently of specific sensor or motor hardware as long as the communication interface remains consistent.
+
+Integration consisted primarily of flashing the firmware onto the custom PCB and verifying that all I/O mappings aligned with the predefined pin assignments for motors, sensors, and communication interfaces. These pin mappings are fixed in hardware and therefore defined early in the design process to avoid later integration conflicts.
+
+\textbf{Integration Scope}
+\begin{itemize}
+    \item Flight controller (ESP32) interfaced with IMU, ToF sensor, and motor drivers via I\textsuperscript{2}C, UART, and PWM.
+    \item Power distribution validated across battery input, onboard regulators, and USB programming rail.
+    \item Mechanical frame provides physical constraints for airflow, sensor line-of-sight, and connector accessibility.
+    \item WebSocket communication used to validate telemetry and control signal flow during integration testing.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\rowcolor{gray!15}
+\textbf{Subsystem} & \textbf{Integration Checkpoint} \\
+\hline
+Motor Control & PWM outputs verified against PCB pinout; each channel tested via serial command to confirm expected rotation. \\
+\hline
+Sensor Interfaces & IMU and ToF sensor initialisation confirmed over I\textsuperscript{2}C with valid data streaming into state estimator. \\
+\hline
+Power System & USB priority over battery verified; 3.3\,V rail checked under load during active sensor and Wi-Fi transmission. \\
+\hline
+Communication Link & WebSocket telemetry and setpoint commands validated \\
+\hline
+Mechanical Fit & PCB alignment, connector access, and sensor line-of-sight confirmed within frame tolerances. \\
+\hline
+\end{tabular}
+\caption{System-Level Integration Verification Points}
+\label{tab:system-integration}
+\end{table}
+
+\noindent All subsystems were integrated according to version-controlled interface definitions, and validated sequentially through subsystem and combined functional testing. Final system integration is shown in Fig.~\ref{fig:complete-drone}.
+
+\temp{Add completed drone figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{img/completed-drone.png}
+%     \caption{Completed Integrated Drone System}
+%     \label{fig:complete-drone}
+% \end{figure}
+
+%-------------------------------------------------------------% 
 \subsection{Stakeholder Engagement}
-\textbf{Engagement Summary:}
+Stakeholder engagement was conducted continuously throughout the project to ensure that client expectations and engineering objectives were aligned. Engagement occurred primarily during the first six weeks (Weeks 1–6), which corresponded to the initial requirements elicitation and design clarification phases. Communication was maintained through information sessions, formal technical query (TQ) submissions, and direct email correspondence with both the client and the unit coordinator.
 
-\temp{
+During the early project stages, stakeholder engagement focused on understanding and refining the drone’s intended capabilities, constraints, and performance criteria. Key outcomes included clarification of power supply specifications, obstacle detection behaviours, and the structure of autonomous flight patterns. 
+
+The process followed an iterative engineering cycle:
+\begin{enumerate}
+    \item \textbf{Information Sessions:} Weekly sessions with the client to discuss requirements and ask any additional questions.
+    \item \textbf{Technical Queries (TQs):} Formal written submissions to document design uncertainties and receive responses.
+    \item \textbf{Email Correspondence:} Direct communication used to clarify requirements due to changes in the project scope.
+\end{enumerate}
+
+\subsection{Outcomes of Engagement}
+
+A detailed record of all stakeholder interactions, including questions, responses, is given below:
+
+%--------------------------%
+\paragraph{\textbf{Client Meetings and Information Sessions}} \leavevmode
+
+\begin{table}[H]
+\centering
+\caption{Client Expectations - Indoor Surveillance Drone (Week 1)}
+\begin{tabular}{|l|p{11cm}|}
+\hline
+\textbf{Date} & 24/07/2025 (Week 1) \\ \hline
+\textbf{Information Session Item} & \textbf{Notes} \\ \hline
+1 & Open-source software must be used. \\ \hline
+2 & Client requirements may be negotiated with the client. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Technical Queries and Client Responses (Weeks 2-5)}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3.5cm}|}
+\hline
+\textbf{Date} & \textbf{Query / Response Summary} & \textbf{Notes / Priority} \\ \hline
+31/07/2025 (W2) & \textbf{TQ1:} Desired drone behaviour upon obstacle detection (stop, reverse, turn). & Medium \\ \hline
+ & \textbf{Client Response:} Stop and hover; shutdown if obstruction persists. & \\ \hline
+31/07/2025 (W2) & \textbf{TQ2:} Requirement for drone movement patterns—preprogrammed or flexible. & High \\ \hline
+ & \textbf{Client Response:} Preprogrammed patterns to be given 1-2 weeks before demo; simple polygon-based patterns required. & Plan flexible design early. \\ \hline
+07/08/2025 (W3) & \textbf{TQ3:} Battery configuration—two 1S or one 2S acceptable? & Medium \\ \hline
+ & \textbf{Client Response:} Only one battery allowed (< 800mAh). & \\ \hline
+15/08/2025 (W4) & No technical queries this week. & -- \\ \hline
+23/08/2025 (W5) & \textbf{TQ4:} Use of breakout board for IR sensor (VL53L0X). & Medium \\ \hline
+ & \textbf{Client Response:} Approved. &  \\ \hline
+23/08/2025 (W5) & \textbf{TQ5:} Permission to mark start position with coloured/reflective tape. & Low \\ \hline
+ & \textbf{Client Response:} Approved. & \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Additional Information and Constraints}
+\begin{tabular}{|p{0.5cm}|p{13cm}|}
+\hline
+ & \textbf{Client Notes} \\ \hline
+1 & Drifting should be below 10 cm before stabilisation. \\ \hline
+2 & Object detection is for non-transparent objects only. \\ \hline
+3 & Surveillance camera must record video and optionally allow hover height adjustment. \\ \hline
+4 & ESCs must be part of the PCB. \\ \hline
+5 & Final testing location: MATH151. \\ \hline
+6 & Clarified that focus is on drone performance, not camera hardware. \\ \hline
+\end{tabular}
+\end{table}
+
+%--------------------------%
+\paragraph{\textbf{Requirement Changes}} \leavevmode
+
+During Week 6, the project team and client reviewed and refined the ranked and additional requirements.  The proposed changes involved removing requirements that were no longer feasible given the reduced project capacity and the updated system scope, as the number of members had reduced significantly. This was from six members initially to four by August 1, and two by August 25. No new requirements were added; instead, the scope was greatly reduced. The description of these changes can be found in Appendix~\ref{app:req-changes}.
+
+%--------------------------%
+\paragraph{\textbf{Stakeholder Engagement Summary:}} \leavevmode
+
+Through structured communication, the team achieved the following: \
+
 \begin{tabular}{|p{4cm}|p{10cm}|}
 \hline
-\rowcolor{gray!15}\textbf{Activity} & \textbf{Outcome / Actions Closed} \\ \hline
--- & -- \\ \hline
+\rowcolor{gray!15}
+\textbf{Activity} & \textbf{Outcome / Actions Closed} \\
+\hline
+Initial Client Information Sessions (Weeks 1–2) & Defined project expectations and clarified client preferences. Confirmed use of open-source software and flexibility for negotiating requirements. \\ \hline
+Technical Query Submissions (Weeks 2–5) & Established operational behaviours for obstacle detection and response (stop, hover, or shutdown). Confirmed flexibility for flight paths with both predefined and custom polygonal trajectories. \\ \hline
+Hardware Clarifications & Defined hardware constraints including the use of a single battery (<800mAh), integrated PCB with ESCs, and allowance for breakout components (e.g., IR sensor). \\ \hline
+Requirement Tracking and Documentation & Logged all communications and technical clarifications in a shared document. Updated requirements list to reflect client feedback and design feasibility. \\ \hline
+Week 6 Client Meeting – Requirement Review & Reviewed all ranked and additional requirements to align project scope with reduced team capacity. Prioritised core functionalities such as flight stability, safety, and manual override. \\ \hline
+Requirement Rationalisation & Removed redundant or infeasible requirements (e.g., complex autonomous navigation and multi-pattern path options). Ensured compliance with budget and technical constraints. \\ \hline
+Final Client Approval & Confirmed revised and re-ranked requirements list with the client. Finalised scope for design and testing phases based on approved specification. \\ \hline
 \end{tabular}
-}
 
 %-------------------------------------------------------------% 
 \subsection{Safety Issues}
-This safety plan applies to bench electronics work, soldering and rework, and controlled indoor hover testing. All activities are conducted in designated laboratory spaces with restricted access during active testing. Risk ratings follow a consequence–likelihood–exposure (C×L×E) model. Mitigations apply the hierarchy of hazard control: elimination, substitution, engineering control, administrative control, and PPE as a final layer. Full details are contained in the risk register.
+This safety plan applies to bench electronics work, soldering and rework, and controlled indoor hover testing. All activities are conducted in designated laboratory spaces with restricted access during active testing. Risk ratings follow a consequence–likelihood–exposure (C×L×E) model. Mitigations apply the hierarchy of hazard control: elimination, substitution, e
+ngineering control, administrative control, and PPE as a final layer. Full details are contained in the risk register.
 
 \vspace{0.5em}
 \textbf{Operational Boundaries and Controls:}
@@ -343,30 +469,29 @@ A summary of the additions is given below in Table~\ref{tab:frame-add-summary}.
 \centering
 \begin{tabular}{|p{3cm}|p{11cm}|}
 \hline
-\rowcolor{gray!15}
 \textbf{Module} & \textbf{Features} \\
 \hline
-Camera Module Snap-In & 
-- Customizable 3D-printed STL files for design adjustments \newline
-- Lightweight and cost-effective \newline
-- Perfect snap fit onto main frame \newline
-- Easy PCB installation; bendable as needed \newline
-- Provides access to ports/connectors \newline
-- Back clearance for RST/BOOT buttons and status LEDs \newline
-- Optional snap-on camera holder for modularity \\
+Camera Module Snap-In &
+o Customizable 3D-printed STL files for design adjustments \newline
+o Lightweight and cost-effective \newline
+o Perfect snap fit onto main frame \newline
+o Easy PCB installation; bendable as needed \newline
+o Provides access to ports/connectors \newline
+o Back clearance for RST/BOOT buttons and status LEDs \newline
+o Optional snap-on camera holder for modularity \\
 \hline
 3D-Printed Battery Holder & 
-- Lightweight, customizable, affordable \newline
-- Snap-fit onto main frame \newline
-- Easy battery installation \newline
-- Back clearance for downward-facing distance sensor \newline
-- Supports modular quick insertion/removal \\
+o Lightweight, customizable, affordable \newline
+o Snap-fit onto main frame \newline
+o Easy battery installation \newline
+o Back clearance for downward-facing distance sensor \newline
+o Supports modular quick insertion/removal \\
 \hline
 3D-Printed Legs / Drone Feet & 
-- Cheap, lightweight, customizable \newline
-- Optional inserts for flexible landing configuration \newline
-- Sufficient leg length for sensor clearance \newline
-- Four legs improve frame stability \\
+o Cheap, lightweight, customizable \newline
+o Optional inserts for flexible landing configuration \newline
+o Sufficient leg length for sensor clearance \newline
+o Four legs improve frame stability \\
 \hline
 \end{tabular}
 \caption{Summary of Modular Frame Additions}
@@ -375,8 +500,15 @@ Camera Module Snap-In &
 
 %-------------------------------------------------------------% 
 \subsection{Design Outputs}
-\textbf{Stored at:} GitHub repository /temp{link}.  
-\textbf{Includes:} 
+\textbf{Stored at:} \url{https://github.com/koshchey/design-project-flight-controller}
+
+\textbf{Repository Contents:}
+\begin{itemize}
+    \item \texttt{ELEC5552\_FinalReport\_Team0.pdf}: This report.
+    \item \texttt{Final\_Report\_LaTeX/}: Contains all \LaTeX{} source files.
+    \item \texttt{Firmware/}: Flight controller firmware (\gls{esp-idf} project).
+    \item \temp{To-add}
+\end{itemize}
 
 %-------------------------------------------------------------% 
 \subsection{Final Costs}

@@ -69,6 +69,126 @@ A.R.10 & The drone shall feature visual or \gls{ui} indicators showing when it i
 \end{tabular}
 \end{table}
 
+%----------------------------------------------------------%
+\pagebreak
+
+\subsection{Requirements Update Summary (Week 6)}
+\label{app:req-changes}
+
+\subsubsection{Ranked Requirements - Proposed Changes}
+
+\begin{table}[H]
+\centering
+\caption{Ranked Requirements Proposed Changes}
+\begin{tabular}{|c|c|p{11cm}|}
+\hline
+\textbf{Rank} & \textbf{No.} & \textbf{Requirement Description} \\ \hline
+1 & R.2 & The drone shall be capable of hovering and flying. \\ \hline
+2 & R.30 & The drone must power off after 30s of disconnection. \\ \hline
+3 & R.1 & The drone shall operate in an indoor area. \\ \hline
+4 & R.17 & The drone shall utilise shrouded propellers or dedicated propeller guards. \\ \hline
+5 & R.3 & The drone shall navigate without the use of GPS. \\ \hline
+6 & R.4 & The drone shall maintain a set hovering altitude during autonomous surveillance. \\ \hline
+7 & R.14 & A manual override system shall be available to the user. \\ \hline
+8 & R.27 & The drone shall autonomously land safely when battery levels are low. \\ \hline
+9 & R.24 & Any third-party software used for the drone control system must be open-source and freely available. \\ \hline
+10 & R.7 & \textcolor{red}{\sout{The drone shall be able to navigate autonomously.}} \\ \hline
+11 & R.11 & \textcolor{red}{\sout{The drone should be capable of detecting obstacles.}} \\ \hline
+12 & R.12 & \textcolor{red}{\sout{The drone shall be capable of avoiding non-transparent obstacles (including walls) by stopping and hovering.}} \\ \hline
+13 & R.23 & The drone design shall remain within a budget of \$350.00. \\ \hline
+14 & R.20 & The drone shall be capable of flight stabilisation. \\ \hline
+15 & R.5 & The drone shall maintain a default altitude of 1.2-1.3 metres above ground level while surveying an area. \\ \hline
+16 & R.18 & The power supplied shall be via one 1S or 2S Li-Po battery with a capacity up to 800mAh. \\ \hline
+17 & R.15 & The drone shall have a custom PCB design for the flight controller which includes sensors and power distribution. \\ \hline
+18 & R.8 & \textcolor{red}{\sout{The drone shall follow a predefined path set before beginning operation.}} \\ \hline
+19 & R.13 & \textcolor{red}{\sout{The drone shall power down if it detects an obstacle and the obstacle is not removed within a certain time limit.}} \\ \hline
+20 & R.21 & The drone shall maintain stability under wind conditions and disturbances. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Ranked Requirements - Final}
+\begin{tabular}{|c|c|p{11cm}|}
+\hline
+\textbf{Rank} & \textbf{No.} & \textbf{Requirement Description} \\ \hline
+1 & R.2 & The drone shall be capable of hovering and flying. \\ \hline
+2 & R.30 & The drone must power off after 30s of disconnection. \\ \hline
+3 & R.1 & The drone shall operate in an indoor area. \\ \hline
+4 & R.17 & The drone shall utilise shrouded propellers or dedicated propeller guards. \\ \hline
+5 & R.3 & The drone shall navigate without the use of GPS. \\ \hline
+6 & R.4 & The drone shall maintain a set hovering altitude during autonomous surveillance. \\ \hline
+7 & R.14 & A manual override system shall be available to the user. \\ \hline
+8 & R.27 & The drone shall autonomously land safely when battery levels are low. \\ \hline
+9 & R.24 & Any third-party software used for the drone control system must be open-source and freely available. \\ \hline
+10 & R.23 & The drone design shall remain within a budget of \$350.00. \\ \hline
+11 & R.20 & The drone shall be capable of flight stabilisation. \\ \hline
+12 & R.5 & The drone shall maintain a default altitude of 1.2-1.3 metres above ground level while surveying an area. \\ \hline
+13 & R.18 & The power supplied shall be via one 1S or 2S Li-Po battery with a capacity up to 800mAh. \\ \hline
+14 & R.15 & The drone shall have a custom PCB design for the flight controller which includes sensors and power distribution. \\ \hline
+15 & R.21 & The drone shall maintain stability under wind conditions and disturbances. \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Additional Requirements - Proposed Changes}
+
+\begin{table}[H]
+\centering
+\caption{Additional Requirements Proposed Changes}
+\begin{tabular}{|c|p{11cm}|}
+\hline
+\textbf{No.} & \textbf{Description} \\ \hline
+R.16 & The PCB shall include custom motor drivers. \\ \hline
+R.19 & The drone shall be able to fly for a minimum of 3 minutes. \\ \hline
+R.28 & The surveillance camera shall stream the live camera feed. \\ \hline
+R.9 & \textcolor{red}{\sout{There shall be a predefined set of options for the drone flight.}} \\ \hline
+R.26 & The UI shall have a battery level monitoring system available for low battery levels. \\ \hline
+R.29 & The surveillance camera shall record video for playback. \\ \hline
+R.25 & The UI shall have an error diagnostic and feedback system. \\ \hline
+R.6 & The hovering altitude shall be adjustable prior to operation (between 0.5 and 2 metres). \\ \hline
+R.10 & \textcolor{red}{\sout{There shall be the option to change the predefined flight pattern to a custom option.}} \\ \hline
+A.R.1 & \textcolor{red}{\sout{Pre-defined flight path shall follow a polygonal pattern of fixed altitude.}} \\ \hline
+A.R.2 & The required drone operational capabilities shall be powered with only one battery. \\ \hline
+A.R.3 & \textcolor{red}{\sout{When an obstacle is detected, the drone shall stop and hover until the obstacle is removed or a timeout occurs.}} \\ \hline
+A.R.4 & A comprehensive operation manual and user guide shall be provided to the client. \\ \hline
+A.R.5 & \textcolor{red}{\sout{The pre-determined flight path shape shall be adjustable in size.}} \\ \hline
+A.R.6 & Placement of PCB components shall minimise signal distortion and heating. \\ \hline
+A.R.7 & The drone shall have a visual or audible indication during initiation of flight. \\ \hline
+A.R.8 & The drone shall alert on the UI in cases of overheating. \\ \hline
+A.R.9 & The drone shall have LEDs to show when it is in charging mode. \\ \hline
+A.R.10 & The drone shall have indicators to show when it is powering down or operating autonomously. \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Additional Requirements - Final (Post-Change List)}
+
+\begin{table}[H]
+\centering
+\caption{Additional Requirements - Final}
+\begin{tabular}{|c|p{11cm}|}
+\hline
+\textbf{No.} & \textbf{Description} \\ \hline
+R.16 & The PCB shall include custom motor drivers. \\ \hline
+R.19 & The drone shall be able to fly for a minimum of 3 minutes. \\ \hline
+R.28 & The surveillance camera shall stream the live camera feed. \\ \hline
+R.26 & The UI shall have a battery level monitoring system for low battery levels. \\ \hline
+R.29 & The surveillance camera shall record video for playback. \\ \hline
+R.25 & The UI shall have an error diagnostic and feedback system. \\ \hline
+R.6 & The hovering altitude shall be adjustable prior to operation (between 0.5 and 2 metres). \\ \hline
+A.R.2 & The required drone operational capabilities shall be powered with only one battery. \\ \hline
+A.R.4 & A comprehensive operation manual and user guide shall be provided to the client. \\ \hline
+A.R.6 & Placement of PCB components shall minimise signal distortion and heating. \\ \hline
+A.R.7 & The drone shall have a visual or audible indication during initiation of flight. \\ \hline
+A.R.8 & The drone shall alert on the UI in cases of overheating. \\ \hline
+A.R.9 & The drone shall have LEDs to show when it is in charging mode. \\ \hline
+A.R.10 & The drone shall have indicators to show when it is powering down or operating autonomously. \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Legend:}  
+\textcolor{red}{\sout{Removed}} = Requirement removed in final approved version due to scope or redundancy.
+%-------------------------------------------%
+\pagebreak
 \subsection{Code}
 \subsubsection{sensor.c}
 \label{app:sensor-code}
