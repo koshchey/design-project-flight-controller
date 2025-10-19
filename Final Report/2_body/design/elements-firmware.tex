@@ -6,6 +6,16 @@ The firmware elements, which are described in Fig.~\ref{fig:block-software}, are
 
 The sensor task provides an interface for the \gls{mpu6050} 6-axis \gls{imu} through \gls{i2c}, which provides real-time data from the accelerometer and gyroscope on the sensor. This is done on a register level using Espressif's \textit{I2C} library.
 
+A interrupt service routine (ISR) is attached to the \gls{mpu6050} interrupt, this means that instead of the sensor task continuously reading from the \gls{mpu6050}, it waits for the trigger to signify that data is ready to be read. The data is then stored for a queue and an additional signal is sent for the stabiliser task to signify the processed sensor data is ready.
+
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.72\textwidth]{img/sensor-semaphore.PNG}
+    \caption{Thread-safe Data Availability Signalling Heurisitic}
+    \label{fig:isr}
+\end{figure}
+
 The raw data obtained from the \gls{mpu6050} sensor are 16-bit integer values representing the gyroscope and accelerometer measurements. These values are first converted into physical units (SI units) based on the selected sensitivity configuration of the sensor. The conversion from raw readings to angular velocity and linear acceleration is expressed as:
 
 \begin{align}
@@ -28,18 +38,6 @@ y(n) &= b_0 w(n) + b_1 w(n-1) + b_2 w(n-2),
 
 where \( x(n) \) is the current input sample, \( y(n) \) is the filtered output, and \( w(n) \) represents the internal state variables in Direct Form~II. The coefficents can be found in \textit{filter.c}.
 
-A interrupt service routine (ISR) is attached to the \gls{mpu6050} interrupt, this means that instead of the sensor task continuously reading from the \gls{mpu6050}, it waits for the trigger to signify that data is ready to be read. The data is then stored for a queue and an additional signal is sent for the stabiliser task to signify the processed sensor data is ready.
-
-\begin{figure}[H]
-    \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.8\textwidth]{img/sensor-semaphore.PNG}
-    \caption{Thread-safe Data Availability Signalling Heurisitic}
-    \label{fig:arch-process}
-\end{figure}
-
-% The code for this can be found in \ref{app:sensor-code}.
-
 \paragraph{\textbf{State Esitmation} \textit{estimator.c}} \leavevmode 
 
 The \gls{mpu6050} measures angular rate from the gyroscope and linear acceleration from the accelerometer, which do not directly provide information about its orientation or position in space. The drone does not have inherent knowledge of its position relative to world coordinates. Simple integration can be used to estimate this, but it leads to large errors due to accumulation in the integration. A more complex technique is required.
@@ -51,7 +49,7 @@ This number system and an AHRS algorithm called Mahony's algorithm are used in t
 \begin{figure}[H]
     \centering
     \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.3\textwidth]{img/websocket-state.PNG}
+    \includegraphics[width=0.45\textwidth]{img/websocket-state.PNG}
     \caption{Real-Time State Estimate Display on WebSocket}
     \label{fig:ws-state}
 \end{figure}
@@ -79,14 +77,14 @@ This cascaded PID structure allows stable hovering and responsive attitude contr
 
 The stabiliser ensures that all other processes in the flight controller run on time and repeatedly, acting as the centralised task from which other functions are called. A key feature is its timing system: different parts of the controller run at different frequencies using a tick-based approach. This applies both in the state estimator, which updates the attitude and position estimates, and in the controller, which computes the control outputs.  
 
-For stabilisation, the attitude loop, controlling roll, pitch, and yaw, runs at a high frequency (500~Hz) to respond quickly to rapid angular changes. The position loop, controlling altitude and horizontal position, runs at a lower frequency (100~Hz) since translational motion is slower. This setup ensures fast dynamics are stabilised quickly, while slower dynamics are controlled efficiently.
-
 \begin{figure}[H]
     \centering
     \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.55\textwidth]{img/timing.PNG}
+    \includegraphics[width=0.53\textwidth]{img/timing.PNG}
     \caption{Simplified Timing Decription}
 \end{figure}
+
+For stabilisation, the attitude loop, controlling roll, pitch, and yaw, runs at a high frequency (500~Hz) to respond quickly to rapid angular changes. The position loop, controlling altitude and horizontal position, runs at a lower frequency (100~Hz) since translational motion is slower. This setup ensures fast dynamics are stabilised quickly, while slower dynamics are controlled efficiently.
 
 \paragraph{\textbf{WebSocket} \textit{websocket.c}} \leavevmode
 

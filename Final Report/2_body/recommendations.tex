@@ -1,0 +1,17 @@
+As of the writing of this report, the drone prototype is not yet capable of stable flight. All essential subsystems and components have been implemented and verified to function individually. The hardware has been tested and appears operational, with the exception of the motors, which can be replaced. The firmware architecture and control logic compile and run correctly; however, the closed-loop performance of the PID controller has not yet been validated due to limited testing opportunities. With further refinement and testing, the project goals can be fully achieved.
+
+\subsection*{Recommendations for Achieving Project Goals}
+
+\begin{itemize}
+    \item \textbf{Motor Replacement and Testing:} Conduct testing with new motors to ensure adequate thrust and balanced torque output. Results should be documented and reflected in the Verification and Validation (V\&V) table.
+    
+    \item \textbf{PID Tuning:} Perform real-world PID tuning under hover conditions once stable thrust is achieved. Incremental gain adjustments and logging of system response are recommended to optimise stability and control.
+    
+    \item \textbf{Assembly and Connectivity:} Simplify the mechanical and electrical assembly process. Current assembly requires substantial manual work; adopting modular connectors or simplified wiring layouts could improve serviceability and consistency.
+    
+    \item \textbf{Sensor Upgrade:} Consider replacing the MPU6050 with a more modern IMU (e.g., ICM-20948 or BMI270) to improve data accuracy, noise performance, and stability during flight.
+    
+    \item \textbf{Future Hardware Improvements:} For enhanced performance, evaluate the use of brushless motors, electronic speed controllers (ESCs), and higher-voltage rechargeable batteries. These would improve thrust and control precision without compromising safety, as the compact frame and software limits can maintain safe operational speeds.
+\end{itemize}
+
+Overall, the system foundation is strong. With incremental hardware replacements, PID optimisation, and moderate design refinement, the drone can achieve reliable, stable flight and meet the original project objectives.

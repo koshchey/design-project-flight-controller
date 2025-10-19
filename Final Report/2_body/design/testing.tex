@@ -73,7 +73,7 @@ Verify that all onboard sensors (MPU6050 IMU and VLX distance sensor) provide ac
 1. Power up the drone and connect via CFClient or firmware interface. \newline
 2. Read accelerometer, gyroscope, and distance values while the drone remains stationary. \newline
 3. Compare readings against expected physical conditions (e.g., gravity orientation for IMU, known distance for VLX). \\ \hline
-\textbf{Test Result Analysis} & 
+\textbf{Test Analysis} & 
 Sensors produced consistent readings within expected tolerances. Minor IMU biases were observed and could be corrected in firmware. Successful verification confirms sensors are ready for integration with control algorithms. \\ \hline
 \end{tabular}
 \end{table}
@@ -90,7 +90,7 @@ Validate that motor control commands are correctly transmitted and executed with
 1. Connect the drone to WebSocket interface. \newline
 2. Send incremental motor thrust commands while drone is fixed to a test rig. \newline
 3. Monitor motor responses via telemetry and visually confirm expected rotation or PWM feedback. \\ \hline
-\textbf{Test Result Analysis} & 
+\textbf{Test Analysis} & 
 All motor commands were received and executed appropriately. Erratic behaviour was observed only under high throttle, suggesting a need for calibration. This confirms that motor control signals are correctly delivered by the firmware. \\ \hline
 \end{tabular}
 \end{table}
@@ -107,7 +107,7 @@ Confirm the accuracy of accelerometer and gyroscope data for use in state estima
 1. Keep the drone stationary and log accelerometer and gyroscope outputs. \newline
 2. Tilt and rotate the drone slowly to produce controlled changes in orientation. \newline
 3. Compare logged sensor data against expected physical motion and orientation. \\ \hline
-\textbf{Test Result Analysis} & 
+\textbf{Test Analysis} & 
 Sensor data corresponded closely with expected motion profiles. Small offsets were observed and noted for bias correction in the firmware. This validates that IMU measurements are reliable for state estimation and PID control integration. \\ \hline
 \end{tabular}
 \end{table}
@@ -125,7 +125,7 @@ Ensure the drone powers off safely after loss of connection, observing motor shu
 2. Send setpoints and verify terminal output. \newline
 3. Close the control webpage to simulate disconnection. \newline
 4. Observe if the drone detects disconnection and motors shut off. \\ \hline
-\textbf{Test Result Analysis} & 
+\textbf{Test Analysis} & 
 The drone successfully detected the disconnection and immediately ceased motor activity. This confirms proper handling of lost connection and application of null setpoints, meeting R.30. \\ \hline
 \end{tabular}
 \end{table}
@@ -144,7 +144,7 @@ Validate the state estimation algorithm by comparing measured drone orientation 
 1. Tilt and manipulate drone manually while connected to WebSocket. \newline
 2. Monitor state estimate output and compare with actual drone movements. \\ \hline
 
-\textbf{Test Result Analysis} & 
+\textbf{Test Analysis} & 
 The algorithm accurately tracked the drone's orientation under moderate movements. Rapid changes introduced minor lag and drift over time, indicating acceptable performance within normal operational limits. \\ \hline
 \end{tabular}
 \end{table}
@@ -167,7 +167,7 @@ Validate that the drone can lift and maintain altitude, assessing motor thrust, 
 2. Gradually increase thrust with PID disabled until lift-off occurs. \newline
 3. Observe behaviour at higher thrust levels. \newline
 4. Re-enable PID and attempt manual tuning of pitch/roll gains to assess stabilisation. \\ \hline
-\textbf{Test Result Analysis} & 
+\textbf{Test Analysis} & 
 The drone achieved lift-off; however, uneven thrust caused flipping tendencies at higher throttle. PID control did not improve stability, and manual tuning produced the same result. Likely causes include thrust misalignment or motor calibration errors rather than PID tuning. \\ \hline
 \end{tabular}
 \end{table}
@@ -182,7 +182,7 @@ The drone achieved lift-off; however, uneven thrust caused flipping tendencies a
 Assess the drone's ability to achieve and maintain a stable hover at set altitude. \\ \hline
 \textbf{Test Description} & 
 Attempt hover with PID stabilisation active, monitoring altitude and control response via WebSocket. \\ \hline
-\textbf{Test Result Analysis} & 
+\textbf{Test Analysis} & 
 Hover could not be maintained due to instability. This prevented altitude evaluation and suggests issues with motor output consistency or control tuning. \\ \hline
 \end{tabular}
 \end{table}
@@ -197,7 +197,7 @@ Hover could not be maintained due to instability. This prevented altitude evalua
 Evaluate PID-based stabilisation and control signal application during flight. \\ \hline
 \textbf{Test Description} & 
 Monitor control signals and motor output during hovering attempts, observing PID response and integral windup. \\ \hline
-\textbf{Test Result Analysis} & 
+\textbf{Test Analysis} & 
 Hover could not be achieved, limiting assessment. Control signals were active and adjusted, but incomplete testing prevented full stabilisation. Integral windup was noted, but this likely occured because stable flight couldn't be achieved. \\ \hline
 \end{tabular}
 \end{table}
@@ -206,3 +206,7 @@ Hover could not be achieved, limiting assessment. Control signals were active an
 \subsubsection{Outcome of Testing} \leavevmode
 
 Overall, testing verified functional integration between hardware and firmware components. Sensor readings, communication interfaces, and power regulation behaved as intended. Dynamic flight tests confirmed lift capability but revealed instability attributed to motor thrust imbalance and tuning parameters. No critical hardware failures were observed. The tests collectively demonstrate a successful proof of concept and provide a clear direction for future refinement in control tuning and propulsion calibration.
+
+\temp{Mention V\&V table}
+
+\temp{Figures related to testing}

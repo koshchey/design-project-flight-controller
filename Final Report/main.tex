@@ -1,5 +1,9 @@
 \documentclass[a4paper,10pt]{article}
+
 \newcommand{\temp}[1]{\textcolor{red}{#1}}
+
+\providecommand{\checkbox}{$\square$}
+\providecommand{\Y}{>{\raggedright\arraybackslash}X}
 
 % Include tables in word count
 %TC:group table 0 1
@@ -50,9 +54,11 @@
 \input{2_body/recommendations.tex}
 \pagebreak
 
+%TC:ignore
 \section{Manual}
 \input{2_body/manual.tex}
 \pagebreak
+%TC:endignore
 
 \section{References}
 \label{sec:ref}

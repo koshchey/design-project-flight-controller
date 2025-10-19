@@ -74,7 +74,13 @@ A.R.10 & The drone shall feature visual or UI indicators showing when it is powe
 \subsection{Hardware Prototypes}
 \label{app:pcb-prototypes}
 
-\subsubsection{PCB Iteration 1.0}
+\subsubsection{PCB Prototype 1.0}
+
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.55\textwidth]{img/proto-pcb1.png}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -88,7 +94,14 @@ A.R.10 & The drone shall feature visual or UI indicators showing when it is powe
     \includegraphics[width=0.55\textwidth]{img/PCBit1_back.png}
 \end{figure}
 
-\subsubsection{PCB Iteration 2.0}
+\pagebreak
+\subsubsection{PCB Prototype 2.0}
+
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.55\textwidth]{img/proto-pcb2.png}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -102,7 +115,8 @@ A.R.10 & The drone shall feature visual or UI indicators showing when it is powe
     \includegraphics[width=0.55\textwidth]{img/PCBit2_back.png}
 \end{figure}
 
-\subsubsection{Frame Iteration 1.0}
+\pagebreak
+\subsubsection{Frame Prototype 1.0}
 
 \begin{figure}[H]
     \centering
@@ -117,7 +131,7 @@ A.R.10 & The drone shall feature visual or UI indicators showing when it is powe
 \begin{figure}[H]
     \centering
     \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.8\textwidth]{img/websocket-page.PNG}
+    \includegraphics[width=0.9\textwidth]{img/websocket-page.PNG}
     \caption{WebSocket Client Web Page}
 \end{figure}
 
@@ -248,7 +262,7 @@ A.R.10 & The drone shall have indicators to show when it is powering down or ope
 
 \subsubsection{sensor.c}
 
-\begin{lstlisting}[caption={sensors.c}]
+\begin{lstlisting}
 //Ref: https://github.com/hibit-dev/mpu6050
 //Ref: https://components.espressif.com/components/espressif/mpu6050
 
@@ -320,7 +334,6 @@ static gyro_t gyro;
 static acce_t acce;
 static raw_gyro_t gyro_bias = {.x = 0, .y = 0, .z = 0};
 static raw_acce_t acce_bias = {.x = 0, .y = 0, .z = 0};
-
 static lpf_data lpf_data_acce[3];
 static lpf_data lpf_data_gyro[3];
 
@@ -550,7 +563,6 @@ void readIMUData(sensor_data_t *sensor_data) {
 }
 
 /**************************************************************/
-
 /* Read from MPU6050 register */
 esp_err_t mpu6050_register_read(i2c_master_dev_handle_t dev_handle, uint8_t reg_addr, uint8_t *data, size_t len) {
     return i2c_master_transmit_receive(dev_handle, &reg_addr, 1, data, len, I2C_MASTER_TIMEOUT_MS / portTICK_PERIOD_MS);
@@ -574,9 +586,10 @@ void i2c_mpu_device_init(i2c_master_bus_handle_t *bus_handle, i2c_master_dev_han
 \end{lstlisting}
 
 %---------------------------------------------------------%
+\pagebreak
 \subsubsection{estimator.c}
 
-\begin{lstlisting}[caption={estimator.c}]
+\begin{lstlisting}
 // Ref: CrazyFlieCore, sensorfusion6.c 
 
 #include <math.h>
@@ -814,13 +827,13 @@ float deadband(float value, const float threshold) {
   }
   return value;
 }
-
 \end{lstlisting}
 
 %---------------------------------------------------------%
+\pagebreak
 \subsubsection{controller.c}
 
-\begin{lstlisting}[caption={controller.c}]
+\begin{lstlisting}
 // Ref: CrazyFlie PID code : ) 
 
 #include "stabiliser.h"
@@ -1080,13 +1093,13 @@ float constrain(float value, const float minVal, const float maxVal)
 {
   return fminf(maxVal, fmaxf(minVal,value));
 }
-
 \end{lstlisting}
 
 %---------------------------------------------------------%
+\pagebreak
 \subsubsection{stabiliser.c}
 
-\begin{lstlisting}[caption={stabiliser.c}]
+\begin{lstlisting}
 #include "stabiliser.h"
 #include "websocket.h"
 #include "sensors.h"
@@ -1257,10 +1270,11 @@ void stabiliserTaskInit(void) {
 
 \end{lstlisting}
 
-
+%---------------------------------------------------------%
+\pagebreak
 \subsubsection{motors.c}
 
-\begin{lstlisting}[caption={motors.c}]
+\begin{lstlisting}
 // From CrazyFlie core, power_distribution_stock.c
 // ESP Driver, motors.c
 
@@ -1441,9 +1455,10 @@ uint16_t motorsConv16ToBits(uint16_t bits) {
 \end{lstlisting}
 
 %---------------------------------------------------------%
+\pagebreak
 \subsubsection{websocket.c}
 
-\begin{lstlisting}[caption={websocket.c}]
+\begin{lstlisting}
 
 // Ref: ESP-IDF v5.5 "ws_echo_server"
 // Ref: https://esp32tutorials.com/esp32-esp-idf-websocket-web-server/

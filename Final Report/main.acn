@@ -8,7 +8,7 @@
 \glossaryentry{ESP-IDF?\glossentry{esp-idf}|setentrycounter[]{page}"\glsnumberformat}{10}
 \glossaryentry{GPS?\glossentry{gps}|setentrycounter[]{page}"\glsnumberformat}{11}
 \glossaryentry{LiPo?\glossentry{lipo}|setentrycounter[]{page}"\glsnumberformat}{11}
-\glossaryentry{RTOS?\glossentry{rtos}|setentrycounter[]{page}"\glsnumberformat}{12}
+\glossaryentry{RTOS?\glossentry{rtos}|setentrycounter[]{page}"\glsnumberformat}{13}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{13}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{13}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{13}
@@ -31,7 +31,7 @@
 \glossaryentry{PID?\glossentry{pid}|setentrycounter[]{page}"\glsnumberformat}{15}
 \glossaryentry{ESP-IDF?\glossentry{esp-idf}|setentrycounter[]{page}"\glsnumberformat}{15}
 \glossaryentry{PID?\glossentry{pid}|setentrycounter[]{page}"\glsnumberformat}{15}
-\glossaryentry{ESP-IDF?\glossentry{esp-idf}|setentrycounter[]{page}"\glsnumberformat}{16}
+\glossaryentry{ESP-IDF?\glossentry{esp-idf}|setentrycounter[]{page}"\glsnumberformat}{15}
 \glossaryentry{ESP-IDF?\glossentry{esp-idf}|setentrycounter[]{page}"\glsnumberformat}{16}
 \glossaryentry{ESP-IDF?\glossentry{esp-idf}|setentrycounter[]{page}"\glsnumberformat}{16}
 \glossaryentry{UWAAL?\glossentry{uwaal}|setentrycounter[]{page}"\glsnumberformat}{16}
@@ -51,15 +51,15 @@
 \glossaryentry{MPU6050?\glossentry{mpu6050}|setentrycounter[]{page}"\glsnumberformat}{20}
 \glossaryentry{MPU6050?\glossentry{mpu6050}|setentrycounter[]{page}"\glsnumberformat}{20}
 \glossaryentry{MPU6050?\glossentry{mpu6050}|setentrycounter[]{page}"\glsnumberformat}{20}
-\glossaryentry{MPU6050?\glossentry{mpu6050}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{MPU6050?\glossentry{mpu6050}|setentrycounter[]{page}"\glsnumberformat}{21}
 \glossaryentry{MPU6050?\glossentry{mpu6050}|setentrycounter[]{page}"\glsnumberformat}{21}
 \glossaryentry{PID?\glossentry{pid}|setentrycounter[]{page}"\glsnumberformat}{22}
-\glossaryentry{ESP-IDF?\glossentry{esp-idf}|setentrycounter[]{page}"\glsnumberformat}{41}
-\glossaryentry{UWA?\glossentry{uwa}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{IMU?\glossentry{imu}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{ToF?\glossentry{tof}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{I"\textsuperscript {2}C?\glossentry{i2c}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{SPI?\glossentry{spi}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{48}
-\glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{ESP-IDF?\glossentry{esp-idf}|setentrycounter[]{page}"\glsnumberformat}{40}
+\glossaryentry{UWA?\glossentry{uwa}|setentrycounter[]{page}"\glsnumberformat}{51}
+\glossaryentry{IMU?\glossentry{imu}|setentrycounter[]{page}"\glsnumberformat}{51}
+\glossaryentry{ToF?\glossentry{tof}|setentrycounter[]{page}"\glsnumberformat}{51}
+\glossaryentry{UART?\glossentry{uart}|setentrycounter[]{page}"\glsnumberformat}{51}
+\glossaryentry{I"\textsuperscript {2}C?\glossentry{i2c}|setentrycounter[]{page}"\glsnumberformat}{51}
+\glossaryentry{SPI?\glossentry{spi}|setentrycounter[]{page}"\glsnumberformat}{51}
+\glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{52}
+\glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{52}
