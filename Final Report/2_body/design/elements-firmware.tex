@@ -1,6 +1,6 @@
 \subsubsection{Firmware Elements}
 
-The firmware elements, which are described in Fig.~\ref{fig:block-software}, are described in detail below. The detailed implementation of these elements in given in \cite{flightcontroller_git}.
+The firmware elements, which are described in Fig.~\ref{fig:block-software}, are described in detail below. The detailed implementation of these elements in given in \cite{flightcontroller_git}, or to view the code as up to date with the submission of this report, refer to Appendix~\ref{app:firmware-code}.
 
 \paragraph{\textbf{Sensor Task} \textit{sensors.c}} \leavevmode
 
@@ -33,7 +33,7 @@ A interrupt service routine (ISR) is attached to the \gls{mpu6050} interrupt, th
 \begin{figure}[H]
     \centering
     \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.74\textwidth]{img/sensor-semaphore.PNG}
+    \includegraphics[width=0.8\textwidth]{img/sensor-semaphore.PNG}
     \caption{Thread-safe Data Availability Signalling Heurisitic}
     \label{fig:arch-process}
 \end{figure}
@@ -58,11 +58,7 @@ This number system and an AHRS algorithm called Mahony's algorithm are used in t
 
 \paragraph{\textbf{Controller} \textit{controller.c}} \leavevmode 
 
-Once the state estimate is and the setpoint is recieved, essentially saying \"this is my current state\" and \"this is the state I want to be in\", the realisation of the control to reach the setpoint is met through the use of a control system, in this case a cascaded \gls{pid} loop.
-
-\subsubsection{PID-Based Flight Controller}
-
-The flight controller implements a cascaded PID control architecture, inspired by the CrazyFlie firmware, to stabilise the drone's attitude and control its motors. The system consists of two nested loops:
+Once the state estimate is and the setpoint is recieved, essentially saying \"this is my current state\" and \"this is the state I want to be in\", the realisation of the control to reach the setpoint is met through the use of a control system, in this case a cascaded \gls{pid} loop. The system consists of two nested loops:
 
 \begin{itemize}
     \item \textbf{Outer Loop (Attitude Control):} Computes desired angular rates from the error between the target attitude (roll, pitch, yaw) and the current attitude measured by the IMU. Separate PID objects are used for each axis.

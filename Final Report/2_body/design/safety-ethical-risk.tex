@@ -1,0 +1,150 @@
+
+\subsection{Safety Issues}
+This safety plan applies to bench electronics work, soldering and rework, and controlled indoor hover testing. All activities are conducted in designated laboratory spaces with restricted access during active testing. Risk ratings follow a consequence–likelihood–exposure (C×L×E) model. Mitigations apply the hierarchy of hazard control: elimination, substitution, e
+ngineering control, administrative control, and PPE as a final layer. Full details are contained in the risk register.
+
+\vspace{0.5em}
+\textbf{Operational Boundaries and Controls:}
+
+\begin{tabular}{|p{4cm}|p{11.5cm}|}
+\hline
+\rowcolor{gray!15}\textbf{Aspect} & \textbf{Defined Limits and Requirements} \\ \hline
+Environment & Indoor test room only; access restricted during hover tests with signage placed outside. \\ \hline
+Training & All personnel must complete soldering and Li-Po handling inductions before handling any equipment. \\ \hline
+Hover Testing & Hover altitude limited to 1.25\,m AGL; any adjustment beyond this permitted only during setup phases with props disarmed. \\ \hline
+Battery Management & Only 1S/2S Li-Po <800\,mAh packs approved; no swollen or damaged cells. Charging supervised with fire blanket or sand bucket available. \\ \hline
+Personnel & Minimum two people: Test Lead with authority to abort and Spotter monitoring environmental conditions and escape paths. \\ \hline
+PPE & Safety glasses and closed footwear mandatory at all times; nitrile gloves required for chemical or flux handling tasks. \\ \hline
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Acceptance Criteria:} All tests must demonstrate thermal compliance, fail-safe functionality, clean electrical behaviour, and incident-free operation. Logs and checklists must be completed to satisfy traceability requirements.
+
+The following table summarises key hazards, their associated risks, and control approaches.
+
+\begin{tabular}{|p{2.3cm}|p{4.5cm}|p{4cm}|p{3.8cm}|}
+\hline
+\rowcolor{gray!15}\textbf{Hazard} & \textbf{Risks/Mechanism} & \textbf{Controls Implemented} & \textbf{Procedure} \\ \hline
+Heating & Localised MOSFET heating or soldering burns & Copper pours, current limiting, heat mats & IR checks, switch-off when idle \\ \hline
+Cuts/Abrasions & Propeller lacerations or tool injuries & Shrouds, guarded tools, PPE & Bench test first, enable arming LED cues \\ \hline
+Sparking & Short circuits or solder bridging & Heat-shrink, clearance design & continuity test, no live soldering \\ \hline
+Battery & Thermal runaway or over-discharge & Voltage alarms, visual inspection & Remove damaged cells, fire control kit on-site \\ \hline
+Trips/Spills & Loose cables/liquids in walkways & Cable trays, dry floor policy & End-of-session clearance audit \\ \hline
+Collisions & Impact during hover test & Altitude limit, prop shields & Incident log, abort protocol \\ \hline
+Fumes & Flux fumes, UFPs from printing & Extraction fans, gloves & Ventilation check, SDS access \\ \hline
+\end{tabular}
+
+%-------------------------------------------------------------% 
+\pagebreak
+\subsection{Ethical Issues}
+Testing takes place in a shared laboratory environment, so ethical considerations focus on safety, responsible data handling, and clear usage boundaries for open-source release. Exclusion zones will be clearly marked, and written approval is obtained from space owners before any powered testing. A spotter is always present to ensure that no unauthorised person enters the test area.
+
+\vspace{0.5em}
+\textbf{Data and Recording:}  
+The onboard camera remains disabled by default and is only activated during scheduled and approved hover trials. Any footage containing identifiable individuals will require written consent before capture. Recordings, if taken, are stored in encrypted form, retained for no longer than seven days and permanently deleted upon request.
+
+\vspace{0.5em}
+\textbf{Wireless Communication:}  
+Wi-Fi telemetry operates under least-privilege access principles. No personal device identifiers are logged. RF transmissions remain within laboratory and local regulatory limits. Channels that may conflict with co-located research equipment are excluded.
+
+\vspace{0.5em}
+\textbf{Open-Source Release and Responsible Use:}  
+All CAD, firmware, and PCB files will be published under a permissive open-source license. Documentation will clearly state:
+
+\begin{itemize}
+    \item Intended operation is indoor hover testing only, with shrouded rotors and fully functional fail-safes.
+    \item Prohibited uses include surveillance without explicit consent, public outdoor operation, weaponisation, or disabling of safety systems.
+    \item Recommended safe substitution components, correct Li-Po disposal procedures, and repair instructions using reprintable PETG parts.
+\end{itemize}
+
+This ensures that any derivative builds acknowledge ethical and safety boundaries aligned with the project's academic intent.
+
+%-------------------------------------------------------------% 
+\pagebreak
+\subsection{Top 5 Risks and Mitigations}
+
+The following risks have the highest inherent risk ranking based on (C×L×E). Mitigations follow the hierarchy of controls, and each risk includes a defined verification test to confirm that controls are effective.
+
+\textbf{RISK-01: Slips \& Trips}
+
+\begin{tabular}{@{}p{3cm}p{13cm}@{}}
+\toprule
+\textbf{Inherent Risk} & 1500 (Very High) \\
+\textbf{Key Causes} & Loose cables, tools obstructing walkways, congested bench area. \\
+\textbf{Mitigations} &
+• \textbf{Elimination:} Keep walkways clear, remove floor clutter. \newline
+• \textbf{Engineering:} Use cable trays, tape down leads. \newline
+• \textbf{Administrative:} End-of-session clearance checks, clear-aisle policy. \newline
+• \textbf{PPE:} Closed-toe shoes. \\
+\textbf{Verification Test} & Walkway audit: zero loose cables/tools; aisles $\geq$900\,mm clear. Pass, no hazards found \\
+\textbf{Residual Risk} & Low \\
+\bottomrule
+\end{tabular}
+\vspace{0.6em}
+
+\textbf{RISK-02: Poor Ventilation / Asphyxiation}
+
+\begin{tabular}{@{}p{3cm}p{13cm}@{}}
+\toprule
+\textbf{Inherent Risk} & 750 (Very High) \\
+\textbf{Key Causes} & Soldering without fume extraction; extended work in enclosed areas. \\
+\textbf{Mitigations} &
+• \textbf{Substitution:} Use low-odour, rosin-free flux. \newline
+• \textbf{Engineering:} Enable local fume extraction with filters. \newline
+• \textbf{Administrative:} Ventilation checks before work, time limits on solder tasks. \newline
+• \textbf{PPE:} Optional respirator if extraction unavailable. \\
+\textbf{Verification Test} & Fume extractor active, filter in place, ventilation checklist signed. Pass, all conditions met \\
+\textbf{Residual Risk} & Low \\
+\bottomrule
+\end{tabular}
+\vspace{0.6em}
+
+\textbf{RISK-03: Cuts / Abrasions}
+
+\begin{tabular}{@{}p{3cm}p{13cm}@{}}
+\toprule
+\textbf{Inherent Risk} & 450 (High) \\
+\textbf{Key Causes} & Sharp tools or part edges, damaged 3D prints or PCBs. \\
+\textbf{Mitigations} &
+• \textbf{Elimination:} Deburr and smooth printed/metal edges. \newline
+• \textbf{Engineering:} Use tool guards and retractable blades. \newline
+• \textbf{Administrative:} Tool-use training and blade return protocol. \newline
+• \textbf{PPE:} Safety glasses; cut-resistant gloves if needed. \\
+\textbf{Verification Test} & All sharp edges smoothed; blades stored safely; PPE worn during cutting. Pass, all conditions met \\
+\textbf{Residual Risk} & Low \\
+\bottomrule
+\end{tabular}
+\vspace{0.6em}
+
+\pagebreak
+\textbf{RISK-04: Burns (Soldering / Hot Components)}
+
+\begin{tabular}{@{}p{3cm}p{13cm}@{}}
+\toprule
+\textbf{Inherent Risk} & 450 (High) \\
+\textbf{Key Causes} & Contact with hot soldering iron tips or overheated MOSFETs. \\
+\textbf{Mitigations} &
+• \textbf{Engineering:} Use tip stands and heat-proof mats. \newline
+• \textbf{Administrative:} Do not leave powered irons unattended. \newline
+• \textbf{PPE:} Safety glasses; heat-resistant gloves if required. \\
+\textbf{Verification Test} & Iron stored in stand; heat mat in use; motor driver $<85^\circ$C after 5\,min hover. Pass, all conditions true \\
+\textbf{Residual Risk} & Low \\
+\bottomrule
+\end{tabular}
+\vspace{0.6em}
+
+\textbf{RISK-05: Emissions (Solder / 3D-Print Fumes)}
+
+\begin{tabular}{@{}p{3cm}p{13cm}@{}}
+\toprule
+\textbf{Inherent Risk} & 270 (Medium) \\
+\textbf{Key Causes} & Flux fumes, ultrafine particle emissions from filament heating. \\
+\textbf{Mitigations} &
+• \textbf{Substitution:} Lead-free solder and low-emission filament. \newline
+• \textbf{Engineering:} Local fume extraction for soldering and printing. \newline
+• \textbf{Administrative:} Store chemicals sealed; SDS available. \newline
+• \textbf{PPE:} Safety glasses; nitrile gloves for solvent handling. \\
+\textbf{Verification Test} & Extraction active and SDS visible; PPE worn when handling resin/solvents. Pass, all conditions true \\
+\textbf{Residual Risk} & Low \\
+\bottomrule
+\end{tabular}

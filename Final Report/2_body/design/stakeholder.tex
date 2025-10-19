@@ -1,0 +1,87 @@
+\subsection{Stakeholder Engagement}
+Stakeholder engagement was conducted continuously throughout the project to ensure that client expectations and engineering objectives were aligned. Engagement occurred primarily during the first six weeks (Weeks 1–6), which corresponded to the initial requirements elicitation and design clarification phases. Communication was maintained through information sessions, formal technical query (TQ) submissions, and direct email correspondence with both the client and the unit coordinator.
+
+During the early project stages, stakeholder engagement focused on understanding and refining the drone’s intended capabilities, constraints, and performance criteria. Key outcomes included clarification of power supply specifications, obstacle detection behaviours, and the structure of autonomous flight patterns. 
+
+The process followed an iterative engineering cycle:
+\begin{enumerate}
+    \item \textbf{Information Sessions:} Weekly sessions with the client to discuss requirements and ask any additional questions.
+    \item \textbf{Technical Queries (TQs):} Formal written submissions to document design uncertainties and receive responses.
+    \item \textbf{Email Correspondence:} Direct communication used to clarify requirements due to changes in the project scope.
+\end{enumerate}
+
+\subsection{Outcomes of Engagement}
+
+A detailed record of all stakeholder interactions, including questions, responses, is given below:
+
+\paragraph{\textbf{Client Meetings and Information Sessions}} \leavevmode
+
+\begin{table}[H]
+\centering
+\caption{Information Session - Indoor Surveillance Drone (Week 1)}
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Date} & 24/07/2025 (Week 1) \\ \hline
+\textbf{Item} & \textbf{Notes} \\ \hline
+1 & Open-source software must be used. \\ \hline
+2 & Client requirements may be negotiated with the client. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Technical Queries and Client Responses (Weeks 2-5)}
+\begin{tabular}{|p{2cm}|p{8.5cm}|p{2.5cm}|}
+\hline
+\textbf{Date} & \textbf{Query / Response Summary} & \textbf{Notes / Priority} \\ \hline
+31/07/2025 \newline (W2) & \textbf{TQ1:} Desired drone behaviour upon obstacle detection (stop, reverse, turn). & Medium \\ \hline
+ & \textbf{Client Response:} Stop and hover; shutdown if obstruction persists. & \\ \hline
+31/07/2025 \newline (W2) & \textbf{TQ2:} Requirement for drone movement patterns—preprogrammed or flexible. & High \\ \hline
+ & \textbf{Client Response:} Preprogrammed patterns to be given 1-2 weeks before demo; simple polygon-based patterns required. & Plan flexible design early. \\ \hline
+07/08/2025 \newline (W3) & \textbf{TQ3:} Battery configuration—two 1S or one 2S acceptable? & Medium \\ \hline
+ & \textbf{Client Response:} Only one battery allowed (< 800mAh). & \\ \hline
+15/08/2025 \newline (W4) & No technical queries this week. & -- \\ \hline
+23/08/2025 \newline (W5) & \textbf{TQ4:} Use of breakout board for IR sensor (VL53L0X). & Medium \\ \hline
+ & \textbf{Client Response:} Approved. &  \\ \hline
+23/08/2025 \newline (W5) & \textbf{TQ5:} Permission to mark start position with coloured/reflective tape. & Low \\ \hline
+ & \textbf{Client Response:} Approved. & \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Additional Information and Constraints}
+\begin{tabular}{|p{0.5cm}|p{13cm}|}
+\hline
+ & \textbf{Client Notes} \\ \hline
+1 & Drifting should be below 10 cm before stabilisation. \\ \hline
+2 & Object detection is for non-transparent objects only. \\ \hline
+3 & Surveillance camera must record video and optionally allow hover height adjustment. \\ \hline
+4 & ESCs must be part of the PCB. \\ \hline
+5 & Final testing location: MATH151. \\ \hline
+6 & Clarified that focus is on drone performance, not camera hardware. \\ \hline
+\end{tabular}
+\end{table}
+
+\paragraph{\textbf{Requirement Changes}} \leavevmode
+
+During Week 6, the project team and client reviewed and refined the ranked and additional requirements.  The proposed changes involved removing requirements that were no longer feasible given the reduced project capacity and the updated system scope, as the number of members had reduced significantly. This was from six members initially to four by August 1, and two by August 25. No new requirements were added; instead, the scope was greatly reduced. The description of these changes can be found in Appendix~\ref{app:req-changes}.
+
+\pagebreak
+\paragraph{\textbf{Stakeholder Engagement Summary:}} \leavevmode
+
+Through structured communication, the team achieved the following: \
+
+\begin{tabular}{|p{4cm}|p{11.5cm}|}
+\hline
+\rowcolor{gray!15}
+\textbf{Activity} & \textbf{Outcome / Actions Closed} \\
+\hline
+Initial Client Information Sessions (Weeks 1–2) & Defined project expectations and clarified client preferences. Confirmed use of open-source software and flexibility for negotiating requirements. \\ \hline
+Technical Query Submissions (Weeks 2–5) & Established operational behaviours for obstacle detection and response (stop, hover, or shutdown). Confirmed flexibility for flight paths with both predefined and custom polygonal trajectories. \\ \hline
+Hardware Clarifications & Defined hardware constraints including the use of a single battery (<800mAh), integrated PCB with ESCs, and allowance for breakout components (e.g., IR sensor). \\ \hline
+Requirement Tracking and Documentation & Logged all communications and technical clarifications in a shared document. Updated requirements list to reflect client feedback and design feasibility. \\ \hline
+Week 6 Client Meeting – Requirement Review & Reviewed all ranked and additional requirements to align project scope with reduced team capacity. Prioritised core functionalities such as flight stability, safety, and manual override. \\ \hline
+Requirement Rationalisation & Removed redundant or infeasible requirements (e.g., complex autonomous navigation and multi-pattern path options). Ensured compliance with budget and technical constraints. \\ \hline
+Final Client Approval & Confirmed revised and re-ranked requirements list with the client. Finalised scope for design and testing phases based on approved specification. \\ \hline
+\end{tabular}

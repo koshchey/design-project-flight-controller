@@ -70,13 +70,54 @@ A.R.10 & The drone shall feature visual or UI indicators showing when it is powe
 \end{table}
 
 %----------------------------------------------------------%
-\subsection{WebSocket}
+\pagebreak
+\subsection{Hardware Prototypes}
+\label{app:pcb-prototypes}
+
+\subsubsection{PCB Iteration 1.0}
+
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.55\textwidth]{img/PCBit1_front.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.55\textwidth]{img/PCBit1_back.png}
+\end{figure}
+
+\subsubsection{PCB Iteration 2.0}
+
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.55\textwidth]{img/PCBit2_front.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.55\textwidth]{img/PCBit2_back.png}
+\end{figure}
+
+\subsubsection{Frame Iteration 1.0}
+
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.55\textwidth]{img/OldFrame.png}
+\end{figure}
+
+%----------------------------------------------------------%
+\subsection{WebSocket Page}
 \label{app:websocket}
 
 \begin{figure}[H]
     \centering
     \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.55\textwidth]{img/websocket-page.PNG}
+    \includegraphics[width=0.8\textwidth]{img/websocket-page.PNG}
     \caption{WebSocket Client Web Page}
 \end{figure}
 
@@ -198,13 +239,16 @@ A.R.10 & The drone shall have indicators to show when it is powering down or ope
 
 \textbf{Legend:}  
 \textcolor{red}{\sout{Removed}} = Requirement removed in final approved version due to scope or redundancy.
-%-------------------------------------------%
+
+%---------------------------------------------------------%
 \pagebreak
 \subsection{Code}
-\subsubsection{sensor.c}
-\label{app:sensor-code}
+\label{app:firmware-code}
+%---------------------------------------------------------%
 
-\begin{lstlisting}[caption={Register Read}]
+\subsubsection{sensor.c}
+
+\begin{lstlisting}[caption={sensors.c}]
 //Ref: https://github.com/hibit-dev/mpu6050
 //Ref: https://components.espressif.com/components/espressif/mpu6050
 
@@ -526,5 +570,1071 @@ void i2c_mpu_device_init(i2c_master_bus_handle_t *bus_handle, i2c_master_dev_han
         .scl_speed_hz = I2C_MASTER_FREQ_HZ,
     };
     ESP_ERROR_CHECK(i2c_master_bus_add_device(*bus_handle, &dev_config, dev_handle));
+}
+\end{lstlisting}
+
+%---------------------------------------------------------%
+\subsubsection{estimator.c}
+
+\begin{lstlisting}[caption={estimator.c}]
+// Ref: CrazyFlieCore, sensorfusion6.c 
+
+#include <math.h>
+#include "estimator.h"
+#include "sensors.h"
+#include "stabiliser.h"
+
+static const char *TAG = "EST";
+
+#define TWO_KP_DEF (2.0f * 0.6f) //(2.0f * 0.4f) // 2 * proportional gain (Kp)
+#define TWO_KI_DEF (2.0f * 0.002f) //(2.0f * 0.001f) // 2 * integral gain (Ki)
+
+static const float twoKp = TWO_KP_DEF;    
+static const float twoKi = TWO_KI_DEF;    
+static float integralFBx = 0.0f;
+static float integralFBy = 0.0f;
+static float integralFBz = 0.0f;  // integral error terms scaled by Ki
+
+
+static float grav_x = 0.0f, grav_y = 0.0f, grav_z = 0.0f;
+static float qw = 1.0f, qx = 0.0f, qy = 0.0f, qz = 0.0f; 
+static float roll = 0.0f, pitch = 0.0f, yaw = 0.0f;
+static float velz = 0.0f;
+
+static const float pos_alpha = 0.90f;
+static const float vel_alpha = 0.995f;
+static const float vel_factor = 1.0f;
+
+static float real_z_acce = 0.0f;
+static float base_z = 1.0f; // 1g 
+static bool is_acce_calibrated = false;
+
+static bool use_tof = false;
+
+void estimatorComplementary(sensor_data_t *sensor, attitude_t *attitude, float *vel_z, float *pos_z, const uint32_t tick) {
+  if (RATE_DO_EXECUTE(ATTITUDE_UPDATE_RATE, tick)) {
+    findAttitude(sensor->gyro.x, sensor->gyro.y, sensor->gyro.z, sensor->acce.x, sensor->acce.y, sensor->acce.z, ATTITUDE_UPDATE_DT);
+    velocityEstimate(sensor->acce.x, sensor->acce.y, sensor->acce.z, vel_z, ATTITUDE_UPDATE_DT);
+    getEulerRPY(attitude); 
+  }
+
+  // if (RATE_DO_EXECUTE(ATTITUDE_UPDATE_RATE, tick)) {
+  //   positionEstimate(vel_z, pos_z, 0, POS_UPDATE_DT);
+  // }
+}
+
+/**********************************************************************/
+void findAttitude(float gx, float gy, float gz, float ax, float ay, float az, float dt) {
+  findQuaterion(gx, gy, gz, ax, ay, az, dt);
+  
+  // Estimate direction of gravity using quaternion rotation matrix, R(q):
+  // [ 1 - 2(qy^2 + qz^2), 2(qx*qy - qw*qz),   2(qx*qz + qw*qy)   ]
+  // [ 2(qx*qy + qw*qz),   1 - 2(qx^2 + qz^2), 2(qy*qz - qw*qx)   ]
+  // [ 2(qx*qz - qw*qy),   2(qy*qz + qw*qx),   1 - 2(qx^2 + qy^2) ]
+  // and point [0, 0, 1].T for gravity (R * p) 
+  
+  /* Estimate gravity */
+  grav_x = 2 * (qx * qz - qw * qy);
+  grav_y = 2 * (qw * qx + qy * qz);
+  grav_z = qw * qw - qx * qx - qy * qy + qz * qz;
+
+  /* Find gravity from sensors */
+  if (!is_acce_calibrated) {
+    base_z = (ax * grav_x + ay * grav_y + az * grav_z);
+    is_acce_calibrated = true;
+  }
+
+  /* Find roll, pitch and yaw */
+  if (grav_x>1) grav_x=1;
+  if (grav_x<-1) grav_x=-1;
+
+  yaw = atan2f(2*(qx*qy + qw*qz), qw*qw + qx*qx - qy*qy - qz*qz) * 180 / (float)M_PI;
+
+  // These come from rotation matrix for x-axis (Rx) (roll) and rotation matrix for y-axis (Ry) (pitch)
+  // Rx(theta) * Ry(psi) * g
+  // [     -sin(psi)     ] = -ax => psi = asin(ax)
+  // [sin(theta)*cos(psi)] = -ay => cos(psi) = -ay/sin(theta) (1)
+  // [cos(psi)*cos(theta)] = -az => from (1): -az = -ay/sin(theta) * cos(theta) -> theta = atan(ay/az)
+
+  pitch = asinf(grav_x) * 180 / (float)M_PI;
+  roll = atan2f(grav_y, grav_z) * 180 / (float)M_PI;
+}
+
+void velocityEstimate(float ax, float ay, float az, float *vel_z, float dt) {
+  real_z_acce = (ax * grav_x + ay * grav_y + az * grav_z) - base_z;
+  velz += deadband(real_z_acce, 0.06f) * dt * G;
+  velz *= vel_alpha;
+  *vel_z = velz;
+}
+
+/**********************************************************************/
+
+void positionEstimate(float *vel_z, float *pos_z, float dist, float dt) {
+  /* Estimate the position */
+  const uint32_t max_sample_age = pdMS_TO_TICKS(50);
+  float filtered_z = 0, estimated_z = 0;
+  static float prev_estimated_z = 0.0f;
+
+  bool sample_ok = false; // ((xTaskGetTickCount() - tof_data->timestamp) <= max_sample_age);
+
+  if (sample_ok) {
+    use_tof = true;
+  }
+
+  if (use_tof) {
+    filtered_z = (pos_alpha * estimated_z + (1.0f - pos_alpha) * dist);
+    estimated_z = filtered_z + (vel_factor * velz * dt);
+  } 
+
+  *pos_z = estimated_z;
+  *vel_z = (estimated_z - prev_estimated_z) / dt;
+  prev_estimated_z = estimated_z;
+}
+
+/**********************************************************************/
+
+void getEulerRPY(attitude_t *attitude) {
+  attitude->roll = roll; 
+  attitude->pitch = pitch;
+  attitude->yaw = yaw;
+}
+
+void getQuaternion(float *q_w, float *q_x, float *q_y, float *q_z) {
+  // Save quaternion 
+  *q_w = qw;
+  *q_x = qx;
+  *q_y = qy;
+  *q_z = qz;
+}
+
+/**********************************************************************/
+
+void findQuaterion(float gx, float gy, float gz, float ax, float ay, float az, float dt) {
+  // gyro: gx, gy, gz
+  // acce: ax, ay, az 
+
+  /* Madgwick's implementation of Mayhony's AHRS algorithm (see: http://www.x-io.co.uk/open-source-ahrs-with-x-imu)*/
+  // The code is from CrazyFlie
+
+  float recipNorm;
+  float halfvx, halfvy, halfvz;
+  float halfex, halfey, halfez;
+  float qa, qb, qc;
+
+  gx = gx * (float)M_PI / 180 ; // Radians
+  gy = gy * (float)M_PI / 180;
+  gz = gz * (float)M_PI / 180;
+
+  if(!((ax == 0.0f) && (ay == 0.0f) && (az == 0.0f)))
+  {
+    // Normalise accelerometer measurement
+    recipNorm = invSqrt(ax * ax + ay * ay + az * az);
+    ax *= recipNorm;
+    ay *= recipNorm;
+    az *= recipNorm;
+
+    // Estimated direction of gravity and vector perpendicular to magnetic flux
+    halfvx = qx * qz - qw * qy;
+    halfvy = qw * qx + qy * qz;
+    halfvz = qw * qw - 0.5f + qz * qz;
+
+    // Error is sum of cross product between estimated and measured direction of gravity
+    halfex = (ay * halfvz - az * halfvy);
+    halfey = (az * halfvx - ax * halfvz);
+    halfez = (ax * halfvy - ay * halfvx);
+
+    // Compute and apply integral feedback if enabled
+    if(twoKi > 0.0f)
+    {
+      integralFBx += twoKi * halfex * dt;  // integral error scaled by Ki
+      integralFBy += twoKi * halfey * dt;
+      integralFBz += twoKi * halfez * dt;
+      gx += integralFBx;  // apply integral feedback
+      gy += integralFBy;
+      gz += integralFBz;
+    }
+    else
+    {
+      integralFBx = 0.0f; // prevent integral windup
+      integralFBy = 0.0f;
+      integralFBz = 0.0f;
+    }
+
+    // Apply proportional feedback
+    gx += twoKp * halfex;
+    gy += twoKp * halfey;
+    gz += twoKp * halfez;
+  }
+
+  // Integrate rate of change of quaternion
+  gx *= (0.5f * dt);   // pre-multiply common factors
+  gy *= (0.5f * dt);
+  gz *= (0.5f * dt);
+  qa = qw;
+  qb = qx;
+  qc = qy;
+  qw += (-qb * gx - qc * gy - qz * gz);
+  qx += (qa * gx + qc * gz - qz * gy);
+  qy += (qa * gy - qb * gz + qz * gx);
+  qz += (qa * gz + qb * gy - qc * gx);
+
+  // Normalise quaternion
+  recipNorm = invSqrt(qw * qw + qx * qx + qy * qy + qz * qz);
+  qw *= recipNorm;
+  qx *= recipNorm;
+  qy *= recipNorm;
+  qz *= recipNorm;
+}
+
+/**********************************************************************/
+
+float invSqrt(float x) {
+  return 1.0f/sqrtf(x);
+  // float halfx = 0.5f * x;
+  // float y = x;
+  // long i = *(long*)&y;
+  // i = 0x5f3759df - (i>>1);
+  // y = *(float*)&i;
+  // y = y * (1.5f - (halfx * y * y));
+  // return y;
+}
+
+float deadband(float value, const float threshold) {
+  if (fabsf(value) < threshold)
+  {
+    value = 0;
+  }
+  else if (value > 0)
+  {
+    value -= threshold;
+  }
+  else if (value < 0)
+  {
+    value += threshold;
+  }
+  return value;
+}
+
+\end{lstlisting}
+
+%---------------------------------------------------------%
+\subsubsection{controller.c}
+
+\begin{lstlisting}[caption={controller.c}]
+// Ref: CrazyFlie PID code : ) 
+
+#include "stabiliser.h"
+#include "controller.h"
+#include "filter.h"
+#include "sensors.h"
+#include "estimator.h"
+
+static const char *TAG = "PID";
+static const bool isManualControl = true;
+
+static attitude_t att_desired = {0};
+static attitude_t att_rate_desired = {0};
+static attitude_t att_output = {0};
+static float actuator_thrust = 0;
+
+PidObject pidRoll;
+PidObject pidPitch;
+PidObject pidYaw;
+PidObject pidRollRate;
+PidObject pidPitchRate;
+PidObject pidYawRate;
+PidObject pidPosX;
+PidObject pidPosY;
+PidObject pidPosZ;
+
+float thrust_desired = 0; 
+float pid_roll = 0, pid_pitch = 0, pid_yaw = 0; 
+float pid_is_init = false; 
+
+void controllerInitPID() {
+  /* Init all the PID objects */
+  pidInit(&pidRollRate, 0, PID_ROLL_RATE_KP, PID_ROLL_RATE_KI, PID_ROLL_RATE_KD,
+          ATTITUDE_UPDATE_DT, ATTITUDE_RATE, ATT_RATE_LPF_FC, ATT_RATE_LPF_EN);
+  pidInit(&pidPitchRate, 0, PID_PITCH_RATE_KP, PID_PITCH_RATE_KI, PID_PITCH_RATE_KD,
+          ATTITUDE_UPDATE_DT, ATTITUDE_RATE, ATT_RATE_LPF_FC, ATT_RATE_LPF_EN);
+  pidInit(&pidYawRate, 0, PID_YAW_RATE_KP,   PID_YAW_RATE_KI,   PID_YAW_RATE_KD,
+          ATTITUDE_UPDATE_DT, ATTITUDE_RATE, ATT_RATE_LPF_FC, ATT_RATE_LPF_EN);
+  
+  pidRollRate.int_limit = PID_ROLL_RATE_INT_LIMIT; 
+  pidPitchRate.int_limit = PID_PITCH_RATE_INT_LIMIT;
+  pidYawRate.int_limit = PID_YAW_RATE_INT_LIMIT;
+
+  pidInit(&pidRoll, 0, PID_ROLL_KP,  PID_ROLL_KI,  PID_ROLL_KD, ATTITUDE_UPDATE_DT,
+          ATTITUDE_RATE, ATT_RATE_LPF_FC, ATT_LPF_EN);
+  pidInit(&pidPitch, 0, PID_PITCH_KP, PID_PITCH_KI, PID_PITCH_KD, ATTITUDE_UPDATE_DT,
+          ATTITUDE_RATE, ATT_RATE_LPF_FC, ATT_LPF_EN);
+  pidInit(&pidYaw, 0, PID_YAW_KP,   PID_YAW_KI,   PID_YAW_KD, ATTITUDE_UPDATE_DT,
+          ATTITUDE_RATE, ATT_RATE_LPF_FC, ATT_LPF_EN);
+
+  pidRoll.int_limit = PID_ROLL_INT_LIMIT; 
+  pidPitch.int_limit = PID_PITCH_INT_LIMIT;
+  pidYaw.int_limit = PID_YAW_INT_LIMIT;
+
+  //To-Do: Add position controller
+
+  pid_is_init = true;
+}
+
+void controllerPID(sensor_data_t *sensor, state_t *state, setpoint_t *setpoint, control_t *control, const uint32_t tick) {
+  if (RATE_DO_EXECUTE(ATTITUDE_RATE, tick)) {
+      att_desired.yaw += setpoint->attitudeRate.yaw * ATTITUDE_UPDATE_DT;
+      att_desired.yaw = angleLimit(att_desired.yaw); 
+  }
+
+  /* Position controller */
+  // This gets the thrust from the z velocity (outer-outer loop)
+  // To-do: consider x, y tuning
+  // (which updates the desired attitude from something other than zero (stable hover))
+  // if (RATE_DO_EXECUTE(POSITION_RATE, tick)) {
+  //   positionController(&actuator_thrust, &att_desired, setpoint, state);
+  // }
+
+  if (RATE_DO_EXECUTE(ATTITUDE_RATE, tick)) {
+    actuator_thrust = setpoint->thrust; // Use this for now 
+    att_desired.roll = setpoint->attitude.roll;
+    att_desired.pitch = setpoint->attitude.pitch; 
+
+    /* Attitude Control */
+    /* PID for attitude */
+    // This gets the attitude rate from the attitude (outer loop)
+    pidRoll.desired = att_desired.roll;
+    att_rate_desired.roll = pidUpdate(&pidRoll, state->attitude.roll, true); 
+
+    pidPitch.desired = att_desired.pitch;
+    att_rate_desired.pitch = pidUpdate(&pidPitch, state->attitude.pitch, true); 
+
+    float yaw_error;
+    yaw_error = setpoint->attitude.yaw - state->attitude.yaw;
+    yaw_error = angleLimit(yaw_error);
+    pidYaw.error = yaw_error;
+    att_rate_desired.yaw = pidUpdate(&pidYaw, state->attitude.yaw, false);
+    
+    /* Attitude Rate Control */
+    // From the attitude rate get an output to the motor! (inner loop)
+    pidRollRate.desired = att_rate_desired.roll;
+    att_output.roll = pidUpdate(&pidRollRate, sensor->gyro.x, true);
+    pidPitchRate.desired = att_rate_desired.pitch;
+    att_output.pitch = pidUpdate(&pidPitchRate, sensor->gyro.y, true);
+    pidYawRate.desired = att_rate_desired.yaw;
+    att_output.yaw = pidUpdate(&pidYawRate, sensor->gyro.z, true);
+
+    control->roll = saturateSignedInt16(att_output.roll);
+    control->pitch = saturateSignedInt16(att_output.pitch);
+    control->yaw = saturateSignedInt16(att_output.yaw);
+
+    if (isManualControl) {
+      control->thrust = scaleThrust(actuator_thrust);
+      // control->roll = scaleAngle90(setpoint->attitude.roll);
+      // control->pitch = scaleAngle90(setpoint->attitude.pitch); 
+      // control->yaw = scaleAngle180(att_desired.yaw); 
+    } else {
+      control->thrust = actuator_thrust;
+    } 
+
+    if (RATE_DO_EXECUTE(LOG_RATE, tick)) {
+      ESP_LOGI(TAG, "tick=%lu", (unsigned long)tick);
+      ESP_LOGI(TAG, "att_des: [roll=%.2f pitch=%.2f yaw=%.2f] thrust=%.2f",
+        att_desired.roll, att_desired.pitch, att_desired.yaw, actuator_thrust);
+      ESP_LOGI(TAG, "att_rate_des: [roll=%.2f pitch=%.2f yaw=%.2f]",
+       att_rate_desired.roll, att_rate_desired.pitch, att_rate_desired.yaw);
+      ESP_LOGI(TAG, "thrust: [act=%.2f out=%.2f]",
+      actuator_thrust, control->thrust);
+    }
+  }
+}
+
+/******************************************************************/
+
+void positionController(float *thrust, attitude_t *att_desired, setpoint_t *setpoint, state_t *state) {
+  // Not finished
+  thrust_desired = setpoint->thrust;
+
+  float cosyaw = cosf(state->attitude.yaw * (float)M_PI / 180.0f);
+  float sinyaw = sinf(state->attitude.yaw * (float)M_PI / 180.0f);
+  float bodyvx = setpoint->vx;
+  float bodyvy = setpoint->vy;
+  setpoint->vx = bodyvx * cosyaw - bodyvy * sinyaw;
+  setpoint->vy = bodyvy * cosyaw + bodyvx * sinyaw;
+
+  pidPosZ.desired = setpoint->z;
+  setpoint->vz = pidUpdate(&pidPosZ, state->z, true);
+}
+
+/******************************************************************/
+
+// From CrazyFlie core, PID.C
+void pidInit(PidObject* pid, float desired, float kp, float ki, float kd, float dt, float fs, float fc, bool en_filter) {
+  pid->desired = desired;
+  pid->error = 0;
+  pid->prev_error = 0;
+  pid->integ = 0;
+  pid->deriv = 0;
+  pid->kp = kp;
+  pid->ki = ki;
+  pid->kd = kd;
+  pid->int_limit = 5000.0;
+  pid->out_limit = 0.0;
+  pid->dt = dt;
+  pid->d_filter_en = en_filter;
+
+  if (pid->d_filter_en) {
+    init_lpf(&pid->d_filter, fs, fc);
+  }
+}
+
+float pidUpdate(PidObject* pid, float measured, bool update_error) {
+  float output = 0.0f;
+
+  if (update_error) {
+    pid->error = pid->desired - measured;
+  }
+
+  /* Proportional */
+  pid->out_p = pid->kp * pid->error;
+  output += pid->out_p;
+
+  /* Derivative */
+  float deriv = (pid->error - pid->prev_error) / pid->dt;
+  if (pid->d_filter_en) {
+    pid->deriv = apply_lpf(&pid->d_filter, deriv);
+  } else {
+    pid->deriv = deriv;
+  }
+
+  if (isnan(pid->deriv)) {
+    pid->deriv = 0;
+  }
+  
+  pid->out_d = pid->kd * pid->deriv;
+  output += pid->out_d;
+
+  /* Integral */
+  pid->integ += pid->error * pid->dt;
+
+  // Constrain the integral (unless the int_limit is zero)
+  if(pid->int_limit != 0) {
+    pid->integ = constrain(pid->integ, -pid->int_limit, pid->int_limit);
+  }
+
+  pid->out_i = pid->ki * pid->integ;
+  output += pid->out_i;
+
+  // Constrain the total PID output (unless the out_limit is zero)
+  if(pid->out_limit != 0) {
+    output = constrain(output, -pid->out_limit, pid->out_limit);
+  }
+
+  pid->prev_error = pid->error;
+
+  return output;
+}
+
+/******************************************************************/
+float scaleThrust(float actuator_thrust) {
+    // for actuator_thrust between 0-100
+    if (actuator_thrust < 0.0f) actuator_thrust = 0.0f;
+    if (actuator_thrust > 100.0f) actuator_thrust = 100.0f;
+    // Scale 0-100 -> THRUST_MIN-THRUST_MAX
+    return (actuator_thrust / 100.0f) * (float)(THRUST_MAX - THRUST_MIN) + THRUST_MIN;
+}
+
+float scaleAngle90(float setpoint) {
+    return (setpoint/90.0f) * (float)(INT16_MAX);
+}
+
+float scaleAngle180(float setpoint) {
+    return (setpoint/180.0f) * (float)(INT16_MAX);
+}
+
+// Some helpers from CrazyFlie : )
+float angleLimit(float angle) {
+  float result = angle;
+
+  while (result > 180.0f) {
+    result -= 360.0f;
+  }
+
+  while (result < -180.0f) {
+    result += 360.0f;
+  }
+
+  return result;
+}
+
+int16_t saturateSignedInt16(float in)
+{
+  if (in > INT16_MAX)
+    return INT16_MAX;
+  else if (in < -INT16_MAX)
+    return -INT16_MAX;
+  else
+    return (int16_t)in;
+}
+
+float constrain(float value, const float minVal, const float maxVal)
+{
+  return fminf(maxVal, fmaxf(minVal,value));
+}
+
+\end{lstlisting}
+
+%---------------------------------------------------------%
+\subsubsection{stabiliser.c}
+
+\begin{lstlisting}[caption={stabiliser.c}]
+#include "stabiliser.h"
+#include "websocket.h"
+#include "sensors.h"
+#include "estimator.h"
+#include "controller.h"
+#include "motors.h"
+
+#define TESTING false
+#define YAW_OFF false
+
+static const char *TAG = "STAB";
+
+#define TIMEOUT_STABILIZE pdMS_TO_TICKS(1000)
+
+static TaskHandle_t stabiliser_task_handle = NULL;
+
+static QueueHandle_t socket_data_queue = NULL;
+static QueueHandle_t setpoint_queue = NULL;
+
+static uint32_t lastWakeTime;
+static const TickType_t xFrequency = 1;
+
+static state_t state = {0};
+static setpoint_t setpoint = {0};
+static control_t control = {0};
+static sensor_data_t sensor_data = {0};
+static socket_data_t socket_data = {0};
+static tof_data_t tof_data = {0}; //(?)
+
+const static control_t control_reset = {0};
+
+static bool websocket_disconnect = false;
+
+/**************************************************************/
+
+static void stabiliser_task(void* param) {
+  uint32_t tick; 
+
+  if (!sensorsIsInit() && !websocket_is_init()) {
+    vTaskDelay(portMAX_DELAY);
+  }
+  ESP_LOGI(TAG, "Ready to fly!");
+
+  lastWakeTime = xTaskGetTickCount(); // not using this right now but may use later
+  tick = 1;
+
+  while(1) {
+    waitSensorData();
+    readIMUData(&sensor_data);
+    
+    /* Get state estimate */
+    // Also position estimate (to-do)
+    // wait_for_vlx_data();
+    estimatorComplementary(&sensor_data, &state.attitude, &state.vz, &state.z, tick);
+
+    /* Update display data */
+    sendDisplaySocket();
+    
+    /* Get set point */
+    getSetpoint(&setpoint); 
+    stabiliserLog(tick);
+
+    /* PID controller */
+    controllerPID(&sensor_data, &state, &setpoint, &control, tick);
+
+    /******* Testing ********/ 
+    control.yaw = 0;
+    
+    /* Send control points to motors */
+    if (setpoint.enable && !websocket_disconnect) {
+      powerDistribution(&control); 
+    } else {
+      powerDistribution(&control_reset); 
+    }
+    
+    // Update tick
+    tick++;
+    vTaskDelayUntil(&lastWakeTime, xFrequency);
+  }
+}
+
+bool stabiliserTest(void) {
+  bool pass = true;
+  pass &= powerDistributionTest(); 
+  return pass;
+}
+
+/**************************************************************/
+
+void getSetpoint(setpoint_t *setpoint) {
+  uint32_t now = xTaskGetTickCount();
+
+  if(xQueuePeek(setpoint_queue, (void *)setpoint, 0) == pdTRUE) {
+    // setpoint->attitude.roll = 0;
+    // setpoint->attitude.pitch = 0;
+    // setpoint->attitudeRate.yaw = 0;
+
+    if (((now - setpoint->timestamp) > TIMEOUT_STABILIZE) && !websocket_disconnect && !TESTING) {
+      // To-do: might need to change how the timeout works
+      setpoint->enable = false;
+      websocket_disconnect = true; 
+      ESP_LOGE(TAG, "Websocket timestamp too old, disabling motors");
+      return;
+    }  
+  }
+
+  websocket_disconnect = false; 
+}
+
+void setSetpoint(setpoint_t *setpoint) {
+  xQueueOverwrite(setpoint_queue, setpoint);
+}
+
+void sendDisplaySocket() {
+  socket_data.attitude = state.attitude;
+  socket_data.z = state.z;
+  socket_data.control = control;
+  xQueueOverwrite(socket_data_queue, (void *)&socket_data);
+}
+
+void readSocketData(sensor_data_t *sensor, socket_data_t *socket_data) {
+  xQueuePeek(socket_data_queue, (void *)socket_data, 0);
+}
+
+/**************************************************************/
+
+void stabiliserLog(const uint32_t tick) {
+  if (RATE_DO_EXECUTE(LOG_RATE, tick)) {
+      ESP_LOGI(TAG, "tick=%lu", (unsigned long)tick);
+      ESP_LOGI(TAG, "sensor: gyro[%.2f %.2f %.2f] acce[%.2f %.2f %.2f]",
+        sensor_data.gyro.x, sensor_data.gyro.y, sensor_data.gyro.z,
+        sensor_data.acce.x, sensor_data.acce.y, sensor_data.acce.z);
+      ESP_LOGI(TAG, "state: att[roll=%.2f pitch=%.2f yaw=%.2f] vz=%.2f z=%.2f",
+        state.attitude.roll, state.attitude.pitch, state.attitude.yaw,
+        state.vz, state.z);
+      ESP_LOGI(TAG, "setpoint: att[roll=%.2f pitch=%.2f yaw=%.2f] enable %d "
+                    "attRate[roll=%.2f pitch=%.2f yaw=%.2f] thrust=%.2f",
+        setpoint.attitude.roll, setpoint.attitude.pitch, setpoint.attitude.yaw, setpoint.enable,
+        setpoint.attitudeRate.roll, setpoint.attitudeRate.pitch, setpoint.attitudeRate.yaw, setpoint.thrust);
+      ESP_LOGI(TAG, "control: roll=%d pitch=%d yaw=%d thrust=%.2f",
+        control.roll, control.pitch, control.yaw, control.thrust);
+  }
+}
+
+void stabiliserTaskInit(void) {
+    socket_data_queue = xQueueCreate(1, sizeof(socket_data_t));
+    setpoint_queue = xQueueCreate(1, sizeof(setpoint_t));
+
+    /* Init */
+    motorsInit();
+    PWMTimerInit();
+    ESP_LOGI(TAG, "Motor GPIO intialised");
+
+    controllerInitPID();
+    ESP_LOGI(TAG, "PID controller intialised");
+
+    /* Tests */
+    if (!stabiliserTest()) {
+      ESP_LOGE(TAG, "Stabiliser tests failed");
+    } else {
+      ESP_LOGI(TAG, "Stabiliser tests passed");
+    }
+
+    /* Task */
+    xTaskCreate(stabiliser_task, "stabiliser task", 3*1024, NULL, 5, &stabiliser_task_handle);
+    ESP_LOGI(TAG, "Stabiliser task intialised");
+}
+
+\end{lstlisting}
+
+
+\subsubsection{motors.c}
+
+\begin{lstlisting}[caption={motors.c}]
+// From CrazyFlie core, power_distribution_stock.c
+// ESP Driver, motors.c
+
+#include "driver/ledc.h"
+#include "motors.h"
+#include "stabiliser.h"
+
+static bool isInit = false;
+static bool isTimerInit = false;
+
+uint32_t motor_ratios[] = {0, 0, 0, 0};
+const uint32_t MOTORS[] = {MOTOR_M1, MOTOR_M2, MOTOR_M3, MOTOR_M4};
+
+static uint32_t idleThrust = DEFAULT_IDLE_THRUST;
+
+static struct {
+  uint32_t m1;
+  uint32_t m2;
+  uint32_t m3;
+  uint32_t m4;
+} motorPower;
+
+ledc_channel_config_t motors_channel[NBR_OF_MOTORS] = {
+    {
+        .channel = MOT_PWM_CH1,
+        .duty = 0,
+        .gpio_num = MOTOR1_GPIO,
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .timer_sel = LEDC_TIMER_0
+    },
+    {
+        .channel = MOT_PWM_CH2,
+        .duty = 0,
+        .gpio_num = MOTOR2_GPIO,
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .timer_sel = LEDC_TIMER_0
+    },
+    {
+        .channel = MOT_PWM_CH3,
+        .duty = 0,
+        .gpio_num = MOTOR3_GPIO,
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .timer_sel = LEDC_TIMER_0
+    },
+    {
+        .channel = MOT_PWM_CH4,
+        .duty = 0,
+        .gpio_num = MOTOR4_GPIO,
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .timer_sel = LEDC_TIMER_0
+    },
+};
+
+bool powerDistributionTest(void) {
+  bool pass = true;
+  pass &= motorsTest();
+  return pass;
+}
+
+void powerDistribution(const control_t *control) {
+    int16_t r = control->roll / 2.0f;
+    int16_t p = control->pitch / 2.0f;
+
+    motorPower.m1 = limitUint16(control->thrust - r + p + control->yaw);
+    motorPower.m2 = limitUint16(control->thrust - r - p - control->yaw);
+    motorPower.m3 = limitUint16(control->thrust + r - p + control->yaw);
+    motorPower.m4 = limitUint16(control->thrust + r + p - control->yaw);
+
+    // motorPower.m1 = limitUint16(control->thrust);
+    // motorPower.m2 = limitUint16(control->thrust);
+    // motorPower.m3 = limitUint16(control->thrust);
+    // motorPower.m4 = limitUint16(control->thrust);
+
+    if (motorPower.m1 < idleThrust) {
+      motorPower.m1 = idleThrust;
+    }
+    if (motorPower.m2 < idleThrust) {
+      motorPower.m2 = idleThrust;
+    }
+    if (motorPower.m3 < idleThrust) {
+      motorPower.m3 = idleThrust;
+    }
+    if (motorPower.m4 < idleThrust) {
+      motorPower.m4 = idleThrust;
+    }
+
+    motorsSetRatio(MOTOR_M1, motorPower.m1);
+    motorsSetRatio(MOTOR_M2, motorPower.m2);
+    motorsSetRatio(MOTOR_M3, motorPower.m3);
+    motorsSetRatio(MOTOR_M4, motorPower.m4);
+}
+
+/**********************************************************************/
+
+// thrust mapped for 65536 <==> 60 grams
+void motorsSetRatio(uint32_t id, uint16_t ithrust) {
+    if (isInit) {
+        uint16_t ratio;
+        ratio = ithrust;
+        ledc_set_duty(motors_channel[id].speed_mode, motors_channel[id].channel, (uint32_t)motorsConv16ToBits(ratio));
+        ledc_update_duty(motors_channel[id].speed_mode, motors_channel[id].channel);
+        motor_ratios[id] = ratio;
+    }
+}
+
+bool motorsTest(void) {
+    int i;
+    for (i = 0; i < sizeof(MOTORS) / sizeof(*MOTORS); i++) {
+          motorsSetRatio(MOTORS[i], MOTORS_TEST_RATIO);
+          vTaskDelay(pdMS_TO_TICKS(MOTORS_TEST_ON_TIME_MS));
+          motorsSetRatio(MOTORS[i], 0);
+          vTaskDelay(pdMS_TO_TICKS(MOTORS_TEST_DELAY_TIME_MS));
+    }
+    return isInit;
+}
+
+/**********************************************************************/
+
+void motorsInit(void) {
+    int i;
+    if (isInit) {
+        return;
+    }
+    if (PWMTimerInit() != true) {
+        return;
+    }
+    for (i = 0; i < NBR_OF_MOTORS; i++) {
+        ledc_channel_config(&motors_channel[i]);
+    }
+    isInit = true;
+}
+
+void motorsDeInit(void) {
+    for (int i = 0; i < NBR_OF_MOTORS; i++) {
+        ledc_stop(motors_channel[i].speed_mode, motors_channel[i].channel, 0);
+    }
+}
+
+bool PWMTimerInit(void) {
+    if (isTimerInit) {
+        return true;
+    }
+
+    ledc_timer_config_t ledc_timer = {
+        .duty_resolution = MOTORS_PWM_BITS, // resolution of PWM duty
+        .freq_hz = 15000,	// frequency of PWM signal
+        .speed_mode = LEDC_LOW_SPEED_MODE, // timer mode
+        .timer_num = LEDC_TIMER_0, // timer index
+    };
+
+    // Set configuration of timer0 for high speed channels
+    if (ledc_timer_config(&ledc_timer) == ESP_OK) {
+        isTimerInit = true;
+        return true;
+    }
+
+    return false;
+}
+
+/**********************************************************************/
+
+uint16_t limitUint16(int32_t value) {
+  if(value > UINT16_MAX) {
+    value = UINT16_MAX;
+  } else if(value < 0) {
+    value = 0;
+  }
+  return (uint16_t)value;
+}
+
+uint16_t motorsConvBitsTo16(uint16_t bits) {
+    return ((bits) << (16 - MOTORS_PWM_BITS));
+}
+
+uint16_t motorsConv16ToBits(uint16_t bits) {
+    return ((bits) >> (16 - MOTORS_PWM_BITS) & ((1 << MOTORS_PWM_BITS) - 1));
+}
+\end{lstlisting}
+
+%---------------------------------------------------------%
+\subsubsection{websocket.c}
+
+\begin{lstlisting}[caption={websocket.c}]
+
+// Ref: ESP-IDF v5.5 "ws_echo_server"
+// Ref: https://esp32tutorials.com/esp32-esp-idf-websocket-web-server/
+
+#include "sensors.h"
+#include "stabiliser.h"
+#include "websocket.h"
+
+static const char *TAG = "WEB";
+
+static httpd_handle_t server = NULL;
+static sensor_data_t sensor_data = {0};
+static socket_data_t display = {0};
+static bool websocket_init = false;
+
+void get_imu_data(char *data, uint8_t len) {
+    readIMUData(&sensor_data);
+    snprintf(data, len, "imu%06.2f%06.2f%06.2f%06.2f%06.2f%06.2f",
+             sensor_data.acce.x, sensor_data.acce.y, sensor_data.acce.z,
+             sensor_data.gyro.x, sensor_data.gyro.y, sensor_data.gyro.z);
+}
+
+void get_display(char *data, uint8_t len) {
+    readSocketData(&sensor_data, &display);
+    snprintf(data, len, "rpy%06.2f%06.2f%06.2f%06.2f%06.2f%06.2f%06.2f%06.2f",
+             display.attitude.roll, display.attitude.pitch, display.attitude.yaw, display.z,
+             (float)display.control.roll, (float)display.control.pitch, (float)display.control.yaw, display.control.thrust);
+}
+
+void send_setpoint(char *data, uint8_t len) {
+    if (len < sizeof(setpoint_t)) return;
+    setpoint_t sp;
+    memcpy(&sp, data, sizeof(setpoint_t));
+    sp.timestamp = xTaskGetTickCount();
+    setSetpoint(&sp);
+}
+
+/**************************************************************/
+
+void async_send(void *arg) {
+    struct async_send_arg *resp_arg = arg;
+    httpd_handle_t hd = resp_arg->hd;
+    int fd = resp_arg->fd;
+
+    data_read_function funct = resp_arg->funct; 
+    char data[255] = {0};
+    funct(data, sizeof(data)-1); // pass the correct data function
+
+    httpd_ws_frame_t ws_pkt;
+    memset(&ws_pkt, 0, sizeof(httpd_ws_frame_t));
+    ws_pkt.payload = (uint8_t*)data;
+    ws_pkt.len = strlen(data);
+    ws_pkt.type = HTTPD_WS_TYPE_TEXT;
+
+    httpd_ws_send_frame_async(hd, fd, &ws_pkt);
+    free(resp_arg);
+}
+
+esp_err_t trigger_async_send(httpd_handle_t handle, httpd_req_t *req, data_read_function funct) {
+    struct async_send_arg *resp_arg = malloc(sizeof(struct async_send_arg));
+    
+    if (resp_arg == NULL) {
+        return ESP_ERR_NO_MEM;
+    }
+    
+    resp_arg->hd = req->handle;
+    resp_arg->fd = httpd_req_to_sockfd(req);
+    resp_arg->funct = funct; 
+    esp_err_t ret = httpd_queue_work(handle, async_send, resp_arg);
+    
+    if (ret != ESP_OK) {
+        free(resp_arg);
+    }
+    
+    return ret;
+}
+
+/**************************************************************/
+/* Handle messages being recieved from clients */
+esp_err_t handle_ws_req(httpd_req_t *req)
+{
+    if (req->method == HTTP_GET) {
+        ESP_LOGI(TAG, "Handshake done, the new connection was opened");
+        return ESP_OK;
+    }
+
+    httpd_ws_frame_t ws_pkt;
+    uint8_t *buf = NULL;
+    memset(&ws_pkt, 0, sizeof(httpd_ws_frame_t));
+    ws_pkt.type = HTTPD_WS_TYPE_TEXT;
+    
+    // Set max_len = 0 to get the frame len
+    esp_err_t ret = httpd_ws_recv_frame(req, &ws_pkt, 0);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "httpd_ws_recv_frame failed to get frame len with %d", ret);
+        return ret;
+    }
+    
+    // ESP_LOGI(TAG, "frame len is %d", ws_pkt.len);
+    if (ws_pkt.len) {
+        // ws_pkt.len + 1 is for NULL termination as we are expecting a string 
+        buf = calloc(1, ws_pkt.len + 1);
+        if (buf == NULL) {
+            ESP_LOGE(TAG, "Failed to calloc memory for buf");
+            return ESP_ERR_NO_MEM;
+        }
+        ws_pkt.payload = buf;
+        // Set max_len = ws_pkt.len to get the frame payload 
+        ret = httpd_ws_recv_frame(req, &ws_pkt, ws_pkt.len);
+        if (ret != ESP_OK) {
+            ESP_LOGE(TAG, "httpd_ws_recv_frame failed with %d", ret);
+            free(buf);
+            return ret;
+        }
+        // ESP_LOGI(TAG, "Got packet with message: %s", ws_pkt.payload);
+    }
+    // ESP_LOGI(TAG, "Packet type: %d", ws_pkt.type);
+
+    /* Handle messages */
+    if (ws_pkt.type == HTTPD_WS_TYPE_TEXT) {
+        if (strcmp((char*)ws_pkt.payload, "request imu") == 0) {
+            free(buf);
+            return trigger_async_send(req->handle, req, get_imu_data);
+        } else if (strcmp((char*)ws_pkt.payload, "request rpy") == 0) {
+            free(buf);
+            ret = trigger_async_send(req->handle, req, get_display);
+            return (trigger_async_send(req->handle, req, get_imu_data) || ret); // changes
+        }
+    }
+
+    if (ws_pkt.type == HTTPD_WS_TYPE_BINARY) {
+        if (strncmp((char*)ws_pkt.payload, "set", 3) == 0) {
+            // ESP_LOGI(TAG, "Setpoint received");
+            if (ws_pkt.len >= 3 + sizeof(setpoint_t)) {
+                setpoint_t sp;
+                memcpy(&sp, ws_pkt.payload + 3, sizeof(setpoint_t));
+                send_setpoint((char*)&sp, sizeof(setpoint_t));
+            } 
+        }
+    }
+    
+    ret = httpd_ws_send_frame(req, &ws_pkt);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "httpd_ws_send_frame failed with %d", ret);
+    }
+    free(buf);
+
+    return ret;
+}
+
+/**************************************************************/
+
+const httpd_uri_t ws = {
+        .uri        = "/ws",
+        .method     = HTTP_GET,
+        .handler    = handle_ws_req,
+        .user_ctx   = NULL,
+        .is_websocket = true
+};
+
+httpd_handle_t start_webserver(void) {
+    httpd_handle_t server = NULL;
+    httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+    
+    ESP_LOGI(TAG, "Starting server on port: '%d'", config.server_port);
+    if (httpd_start(&server, &config) == ESP_OK) {
+        ESP_LOGI(TAG, "Registering URI handlers");
+        httpd_register_uri_handler(server, &ws);
+        return server;
+    }
+    ESP_LOGI(TAG, "Error starting server!");
+    return NULL;
+}
+
+void websocket_task_init(void) {
+    ESP_ERROR_CHECK(nvs_flash_init());
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+    esp_err_t ret = example_connect();
+
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Server failed to connect");
+        return; 
+    }
+
+    server = start_webserver();
+
+    websocket_init = true;
+}
+
+bool websocket_is_init() {
+    return websocket_init;
 }
 \end{lstlisting}

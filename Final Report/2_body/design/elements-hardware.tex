@@ -1,36 +1,71 @@
 \subsubsection{PCB Hardware Elements}
 
-The hardware subsystem forms the foundation of the drone, integrating all power, control, and sensing elements on a custom PCB. It is designed to be compact, lightweight, and serviceable while maintaining electrical reliability, EMI resilience, and thermal performance. Figure~\ref{fig:pcb-sections} illustrates the overall hardware and firmware architecture.
+The hardware subsystem forms the foundation of the drone, integrating all power, control, and sensing elements on a custom PCB. It is designed to be compact, lightweight, and serviceable while maintaining electrical reliability, EMI resilience, and thermal performance. Figure~\ref{fig:pcb-sections} illustrates the overall hardware and firmware architecture. The prototype PCB iterations are given in Appendix~\ref{app:pcb-prototypes}
 
 \begin{figure}[H]
     \centering
     \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.5\textwidth]{img/pcb-sections2.PNG}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/final-pcb2.png}
+        \caption{Front side of PCB}
+        \label{fig:pcb-front}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/final-pcb-back.png}
+        \caption{Back side of PCB}
+        \label{fig:pcb-back}
+    \end{subfigure}
+    \caption{Front and back sides of the final PCB design.}
+    \label{fig:pcb-final}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.6\textwidth]{img/pcb-sections3.PNG}
     \caption{Areas of PCB design}
     \label{fig:pcb-sections}
 \end{figure}
 
-\begin{table}[h!]
-\centering
-\caption{Hardware Element Legend}
-\label{tab:hardware-legend}
-\begin{tabular}{|c|l|}
-\hline
-\rowcolor{gray!15}\textbf{No.} & \textbf{Hardware Element} \\ \hline
-1 & Motor Drivers \\ \hline
-2 & Battery Terminals \\ \hline
-3 & Switch \\ \hline
-4 & Distance Sensor Attachments \\ \hline
-5 & UART Communication \\ \hline
-6 & Voltage Regulation \\ \hline
-7 & Motion Tracking \\ \hline
-8 & Boot/Reset Buttons \& Safety LEDs \\ \hline
-\end{tabular}
-\end{table}
+% \begin{table}[h!]
+% \centering
+% \caption{Hardware Element Legend}
+% \label{tab:hardware-legend}
+% \begin{tabular}{|c|l|}
+% \hline
+% \rowcolor{gray!15}\textbf{No.} & \textbf{Hardware Element} \\ \hline
+% 1 & Motor Drivers \\ \hline
+% 2 & Battery Terminals \\ \hline
+% 3 & Switch \\ \hline
+% 4 & Distance Sensor Attachments \\ \hline
+% 5 & UART Communication \\ \hline
+% 6 & Voltage Regulation \\ \hline
+% 7 & Motion Tracking \\ \hline
+% 8 & Boot/Reset Buttons \& Safety LEDs \\ \hline
+% \end{tabular}
+% \end{table}
+
+% A description of the PCB element choices is given in the Figures below.
+
+% \begin{figure}[H]
+%     \centering
+%     \captionsetup{justification=centering, margin=1cm}
+%     \includegraphics[width=0.85\textwidth]{img/pcb-elements.PNG}
+%     \caption{PCB Element Choices (Top Layer)}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \captionsetup{justification=centering, margin=1cm}
+%     \includegraphics[width=0.85\textwidth]{img/pcb-elements2.PNG}
+%     \caption{PCB Element Choices (Bottom Layer)}
+% \end{figure}
 
 The intent and the description of various hardware elements is given Table~\ref{tab:hardware-elements}.
-
-\pagebreak
 
 \begin{longtable}{@{}p{2cm} p{6.9cm} p{6.9cm}@{}}
 \caption{Summary of Hardware Elements and Their Design Intent}
@@ -85,6 +120,14 @@ BOOT/EN buttons near board edge for easy reach; tri-state LEDs communicate idle,
 
 The frame provides mechanical protection, airflow, and structural support while accommodating sensors, cameras, and cabling. Each component was designed for serviceability, modularity, and weight efficiency while preserving the drone’s balance and stability.
 
+\begin{figure}[H]
+    \centering
+    \captionsetup{justification=centering, margin=1cm}
+    \includegraphics[width=0.5\textwidth]{img/main-frame.PNG}
+    \caption{Frame design}
+    \label{fig:frame}
+\end{figure}
+
 \begin{longtable}{@{}p{3.2cm} p{6.4cm} p{6.4cm}@{}}
 \toprule
 \textbf{Element} & \textbf{Intent \& Requirements} & \textbf{Design Description} \\ 
@@ -120,11 +163,3 @@ Tool-less snap-fit assembly with modular arms and carriers; low-cost reprinting 
 Sacrificial PETG prop guards and legs designed to fail first, shielding PCB and motors during impact. \\ 
 \bottomrule
 \end{longtable}
-
-\begin{figure}[H]
-    \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.5\textwidth]{img/frame-placeholder.PNG}
-    \caption{Frame design \temp{Placeholder image}}
-    \label{fig:pcb-sections}
-\end{figure}
