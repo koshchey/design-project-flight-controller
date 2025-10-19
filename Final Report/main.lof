@@ -7,8 +7,12 @@
 \contentsline {figure}{\numberline {6}{\ignorespaces Overall System Architecture with Hardware and Firmware Interfaces}}{11}{figure.caption.13}%
 \contentsline {figure}{\numberline {7}{\ignorespaces Hardware Architecture}}{12}{figure.caption.14}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Firmware Architecture}}{14}{figure.caption.17}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Thread-safe Data Availability Signalling Heurisitic}}{17}{figure.caption.20}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Real-Time State Estimate Display on WebSocket}}{18}{figure.caption.21}%
-\contentsline {figure}{\numberline {11}{\ignorespaces ESP Assembly Steps}}{31}{figure.caption.35}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Frame Assembly Process}}{32}{figure.caption.37}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Frame Assembly Process}}{32}{figure.caption.38}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Areas of PCB design}}{16}{figure.caption.20}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Frame design \textcolor {red}{Placeholder image}}}{18}{figure.caption.22}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Thread-safe Data Availability Signalling Heurisitic}}{20}{figure.caption.23}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Real-Time State Estimate Display on WebSocket}}{20}{figure.caption.24}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Simplified Timing Decription}}{22}{figure.caption.25}%
+\contentsline {figure}{\numberline {14}{\ignorespaces ESP Assembly Steps}}{37}{figure.caption.39}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Frame Assembly Process}}{38}{figure.caption.41}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Frame Assembly Process}}{38}{figure.caption.42}%
+\contentsline {figure}{\numberline {17}{\ignorespaces WebSocket Client Web Page}}{44}{figure.caption.46}%

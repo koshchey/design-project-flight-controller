@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.12)  18 OCT 2025 12:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.12)  19 OCT 2025 12:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1584,14 +1584,10 @@ Package: glossary-tree 2025/04/14 v4.6 (NLCT)
 \glstreeindent=\skip272
 ))
 \glswrite=\write5
-\glo@main@file=\write6
-\openout6 = `main.glo'.
+\glo@acronym@file=\write6
+\openout6 = `main.acn'.
 
-Package glossaries Info: Writing glossary file main.glo on input line 86.
-\glo@acronym@file=\write7
-\openout7 = `main.acn'.
-
-Package glossaries Info: Writing glossary file main.acn on input line 86.
+Package glossaries Info: Writing glossary file main.acn on input line 88.
  (./1_header/glossary.tex) (c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (c:/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
@@ -1602,6 +1598,12 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'australian'.
  (./main.aux
+
+LaTeX Warning: Label `fig:pcb-sections' multiply defined.
+
+
+LaTeX Warning: Label `fig:pcb-sections@cref' multiply defined.
+
 
 LaTeX Warning: Label `fig:arch-process' multiply defined.
 
@@ -1707,8 +1709,8 @@ Package ragged2e Info: ABD: executing \RaggedRight on input line 10.
 
 Package hyperref Info: Link coloring OFF on input line 10.
 (./main.out) (./main.out)
-\@outlinefile=\write8
-\openout8 = `main.out'.
+\@outlinefile=\write7
+\openout7 = `main.out'.
 
 Package biblatex Info: Trying to load language 'australian'...
 Package biblatex Info: ... file 'australian.lbx' found.
@@ -1757,37 +1759,27 @@ l.19
 [2] (./main.toc
 
 [3])
-\tf@toc=\write9
-\openout9 = `main.toc'.
+\tf@toc=\write8
+\openout8 = `main.toc'.
 
 
 
 [4] (./main.lof)
-\tf@lof=\write10
-\openout10 = `main.lof'.
+\tf@lof=\write9
+\openout9 = `main.lof'.
 
  (./main.lot)
-\tf@lot=\write11
-\openout11 = `main.lot'.
+\tf@lot=\write10
+\openout10 = `main.lot'.
 
 
 
-[5] (./main.acr
-
-Package glossaries Warning: Glossary entry `uavs' has not been defined on input line 53.
-
-
-Package glossaries Warning: Glossary entry `uavs' has not been defined on input line 53.
-
-
-Package glossaries Warning: Glossary entry `uavs' has not been defined on input line 53.
-
-)
+[5] (./main.acr)
 
 [6
 
 ] (./2_body/introduction.tex
-<img/mini-drone.JPG, id=432, 391.2216pt x 220.1826pt>
+<img/mini-drone.JPG, id=465, 391.2216pt x 220.1826pt>
 File: img/mini-drone.JPG Graphic file (type jpg)
 <use img/mini-drone.JPG>
 Package pdftex.def Info: img/mini-drone.JPG  used on input line 6.
@@ -1795,12 +1787,12 @@ Package pdftex.def Info: img/mini-drone.JPG  used on input line 6.
 
 
 [7 <./img/mini-drone.jpg>]
-<img/intro-drone-gray4.PNG, id=445, 222.8325pt x 152.57pt>
+<img/intro-drone-gray4.PNG, id=477, 222.8325pt x 152.57pt>
 File: img/intro-drone-gray4.PNG Graphic file (type png)
 <use img/intro-drone-gray4.PNG>
 Package pdftex.def Info: img/intro-drone-gray4.PNG  used on input line 25.
 (pdftex.def)             Requested size: 182.09486pt x 124.67752pt.
-<img/intro-espressif.PNG, id=449, 752.8125pt x 389.455pt>
+<img/intro-espressif.PNG, id=481, 752.8125pt x 389.455pt>
 File: img/intro-espressif.PNG Graphic file (type png)
 <use img/intro-espressif.PNG>
 Package pdftex.def Info: img/intro-espressif.PNG  used on input line 37.
@@ -1808,7 +1800,7 @@ Package pdftex.def Info: img/intro-espressif.PNG  used on input line 37.
 
 
 [8 <./img/intro-drone-gray4.png> <./img/intro-espressif.png>]
-<img/intro-pcb.PNG, id=459, 338.76563pt x 225.09094pt>
+<img/intro-pcb.PNG, id=491, 338.76563pt x 225.09094pt>
 File: img/intro-pcb.PNG Graphic file (type png)
 <use img/intro-pcb.PNG>
 Package pdftex.def Info: img/intro-pcb.PNG  used on input line 48.
@@ -1823,12 +1815,12 @@ Overfull \hbox (3.90352pt too wide) in paragraph at lines 17--17
 
 
 [10]
-<img/arch-process.PNG, id=478, 462.72874pt x 142.5325pt>
+<img/arch-process.PNG, id=511, 462.72874pt x 142.5325pt>
 File: img/arch-process.PNG Graphic file (type png)
 <use img/arch-process.PNG>
 Package pdftex.def Info: img/arch-process.PNG  used on input line 69.
 (pdftex.def)             Requested size: 295.90588pt x 91.14653pt.
-<img/block-overall-gray.PNG, id=480, 895.345pt x 344.28625pt>
+<img/block-overall-gray.PNG, id=513, 895.345pt x 344.28625pt>
 File: img/block-overall-gray.PNG Graphic file (type png)
 <use img/block-overall-gray.PNG>
 Package pdftex.def Info: img/block-overall-gray.PNG  used on input line 150.
@@ -1836,7 +1828,7 @@ Package pdftex.def Info: img/block-overall-gray.PNG  used on input line 150.
 
 
 [11 <./img/arch-process.png> <./img/block-overall-gray.png>]
-<img/block-hardware-gray.PNG, id=491, 702.625pt x 469.755pt>
+<img/block-hardware-gray.PNG, id=523, 702.625pt x 469.755pt>
 File: img/block-hardware-gray.PNG Graphic file (type png)
 <use img/block-hardware-gray.PNG>
 Package pdftex.def Info: img/block-hardware-gray.PNG  used on input line 171.
@@ -1851,7 +1843,7 @@ Overfull \hbox (14.83636pt too wide) in paragraph at lines 182--201
 [12 <./img/block-hardware-gray.png>]
 
 [13]
-<img/block-software-gray2.PNG, id=530, 788.9475pt x 644.4075pt>
+<img/block-software-gray2.PNG, id=567, 788.9475pt x 644.4075pt>
 File: img/block-software-gray2.PNG Graphic file (type png)
 <use img/block-software-gray2.PNG>
 Package pdftex.def Info: img/block-software-gray2.PNG  used on input line 244.
@@ -1870,136 +1862,133 @@ Overfull \hbox (4.44597pt too wide) in paragraph at lines 303--303
 
 )
 
-[15] (./2_body/design/elements.tex
-<img/sensor-semaphore.PNG, id=566, 864.22874pt x 592.2125pt>
+[15] (./2_body/design/elements-hardware.tex
+<img/pcb-sections2.PNG, id=600, 517.935pt x 563.10374pt>
+File: img/pcb-sections2.PNG Graphic file (type png)
+<use img/pcb-sections2.PNG>
+Package pdftex.def Info: img/pcb-sections2.PNG  used on input line 8.
+(pdftex.def)             Requested size: 227.62206pt x 247.47427pt.
+
+
+[16 <./img/pcb-sections2.png>]
+Overfull \hbox (5.45427pt too wide) in paragraph at lines 61--61
+[]|\T1/cmr/bx/n/10 UART/USB 
+ []
+
+
+Overfull \hbox (1.47746pt too wide) in paragraph at lines 76--76
+[]|\T1/cmr/bx/n/10 Boot/Reset 
+ []
+
+
+Overfull \hbox (18.30907pt too wide) in alignment at lines 35--81
+ [] [] [] 
+ []
+
+
+
+[17]
+Overfull \hbox (23.99953pt too wide) in alignment at lines 88--122
+ [] [] [] 
+ []
+
+<img/frame-placeholder.PNG, id=615, 395.97937pt x 295.85532pt>
+File: img/frame-placeholder.PNG Graphic file (type png)
+<use img/frame-placeholder.PNG>
+Package pdftex.def Info: img/frame-placeholder.PNG  used on input line 127.
+(pdftex.def)             Requested size: 227.62206pt x 170.07033pt.
+)
+
+[18 <./img/frame-placeholder.png>] (./2_body/design/elements-firmware.tex
+<img/sensor-semaphore.PNG, id=632, 864.22874pt x 592.2125pt>
 File: img/sensor-semaphore.PNG Graphic file (type png)
 <use img/sensor-semaphore.PNG>
-Package pdftex.def Info: img/sensor-semaphore.PNG  used on input line 46.
-(pdftex.def)             Requested size: 409.71692pt x 280.75262pt.
+Package pdftex.def Info: img/sensor-semaphore.PNG  used on input line 36.
+(pdftex.def)             Requested size: 336.88313pt x 230.84447pt.
 
-
-[16]
-<img/websocket-state.PNG, id=588, 188.95593pt x 189.70876pt>
-File: img/websocket-state.PNG Graphic file (type png)
-<use img/websocket-state.PNG>
-Package pdftex.def Info: img/websocket-state.PNG  used on input line 65.
-(pdftex.def)             Requested size: 182.09486pt x 182.82173pt.
-
-
-[17 <./img/sensor-semaphore.png>]
-
-[18 <./img/websocket-state.png>]
 
 [19]
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 163--178
- [][] 
- []
+<img/websocket-state.PNG, id=649, 188.95593pt x 189.70876pt>
+File: img/websocket-state.PNG Graphic file (type png)
+<use img/websocket-state.PNG>
+Package pdftex.def Info: img/websocket-state.PNG  used on input line 54.
+(pdftex.def)             Requested size: 136.57462pt x 137.11992pt.
 
 
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 183--198
- [][] 
- []
+[20 <./img/sensor-semaphore.png> <./img/websocket-state.png>]
+<img/timing.PNG, id=657, 522.95375pt x 440.64626pt>
+File: img/timing.PNG Graphic file (type png)
+<use img/timing.PNG>
+Package pdftex.def Info: img/timing.PNG  used on input line 91.
+(pdftex.def)             Requested size: 250.38564pt x 210.98334pt.
 
 
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 203--218
- [][] 
- []
+[21]
 
+[22 <./img/timing.png>])
 
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 223--239
- [][] 
- []
-
-
-
-[20]
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 245--259
- [][] 
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 269--285
- [][] 
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 290--303
- [][] 
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 308--321
- [][] 
- []
-
-
-
-[21])
-
-[22] (./2_body/design/other.tex
-
-LaTeX Warning: Reference `fig:complete-drone' on page 23 undefined on input line 38.
-
-
-
-[23]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 67.
-
-
-Overfull \hbox (10.05374pt too wide) in paragraph at lines 72--79
- [][] 
- []
-
-
+[23] (./2_body/design/testing.tex
 
 [24]
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 67--79
+ [][] 
+ []
+
+
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 84--96
+ [][] 
+ []
+
+
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 101--113
+ [][] 
+ []
+
+
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 118--131
+ [][] 
+ []
+
+
 
 [25]
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 148--158
-[][] 
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 136--150
+ [][] 
  []
 
 
-Overfull \hbox (3.34734pt too wide) in paragraph at lines 168--168
-[]|\T1/cmr/m/n/10 Cuts/Abrasions|  
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 160--173
+ [][] 
  []
 
 
-Overfull \hbox (10.16624pt too wide) in paragraph at lines 164--175
-[][] 
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 178--188
+ [][] 
+ []
+
+
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 193--203
+ [][] 
  []
 
 
 
-[26]
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 207--221
-[][]
- []
+[26])
 
+[27] (./2_body/design/other.tex
 
-
-[27]
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 225--239
-[][]
- []
-
-
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 242--256
-[][]
- []
-
-
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 259--272
-[][]
- []
+LaTeX Warning: Reference `fig:complete-drone' on page 28 undefined on input line 38.
 
 
 
 [28]
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 276--289
-[][] 
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 68.
+
+
+Overfull \hbox (10.05374pt too wide) in paragraph at lines 73--80
+ [][] 
  []
 
 
@@ -2007,98 +1996,137 @@ Overfull \hbox (11.99997pt too wide) in paragraph at lines 276--289
 [29]
 
 [30]
-<img/assembly-1.png, id=666, 813.79031pt x 627.09282pt>
-File: img/assembly-1.png Graphic file (type png)
-<use img/assembly-1.png>
-Package pdftex.def Info: img/assembly-1.png  used on input line 359.
-(pdftex.def)             Requested size: 182.09486pt x 140.31473pt.
-<img/assembly-2.png, id=667, 655.69969pt x 553.31718pt>
-File: img/assembly-2.png Graphic file (type png)
-<use img/assembly-2.png>
-Package pdftex.def Info: img/assembly-2.png  used on input line 365.
-(pdftex.def)             Requested size: 182.09486pt x 153.66132pt.
-<img/assembly-3.png, id=668, 897.3525pt x 546.54187pt>
-File: img/assembly-3.png Graphic file (type png)
-<use img/assembly-3.png>
-Package pdftex.def Info: img/assembly-3.png  used on input line 376.
-(pdftex.def)             Requested size: 364.19667pt x 221.81525pt.
+
+[31]
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 151--161
+[][] 
+ []
 
 
-[31 <./img/assembly-1.png> <./img/assembly-2.png> <./img/assembly-3.png>]
-<img/assembly-4b.png, id=678, 347.04657pt x 338.01282pt>
-File: img/assembly-4b.png Graphic file (type png)
-<use img/assembly-4b.png>
-Package pdftex.def Info: img/assembly-4b.png  used on input line 406.
-(pdftex.def)             Requested size: 136.57462pt x 133.02103pt.
-<img/assembly-9b.png, id=679, 508.14844pt x 339.51843pt>
-File: img/assembly-9b.png Graphic file (type png)
-<use img/assembly-9b.png>
-Package pdftex.def Info: img/assembly-9b.png  used on input line 412.
-(pdftex.def)             Requested size: 136.57462pt x 91.25156pt.
-<img/assembly-5b.png, id=680, 395.22656pt x 240.9pt>
-File: img/assembly-5b.png Graphic file (type png)
-<use img/assembly-5b.png>
-Package pdftex.def Info: img/assembly-5b.png  used on input line 418.
-(pdftex.def)             Requested size: 113.81102pt x 69.37032pt.
-<img/assembly-6.png, id=681, 755.82375pt x 581.92406pt>
-File: img/assembly-6.png Graphic file (type png)
-<use img/assembly-6.png>
-Package pdftex.def Info: img/assembly-6.png  used on input line 447.
-(pdftex.def)             Requested size: 204.85846pt x 157.72539pt.
-<img/assembly-7.png, id=682, 529.98pt x 583.42969pt>
-File: img/assembly-7.png Graphic file (type png)
-<use img/assembly-7.png>
-Package pdftex.def Info: img/assembly-7.png  used on input line 453.
-(pdftex.def)             Requested size: 159.33821pt x 175.40414pt.
-<img/assembly-8.png, id=683, 618.81187pt x 493.0922pt>
-File: img/assembly-8.png Graphic file (type png)
-<use img/assembly-8.png>
-Package pdftex.def Info: img/assembly-8.png  used on input line 459.
-(pdftex.def)             Requested size: 159.33821pt x 126.96701pt.
+Overfull \hbox (3.34734pt too wide) in paragraph at lines 171--171
+[]|\T1/cmr/m/n/10 Cuts/Abrasions|  
+ []
 
 
-[32 <./img/assembly-4b.png> <./img/assembly-9b.png> <./img/assembly-5b.png> <./img/assembly-6.png> <./img/assembly-7.png> <./img/assembly-8.png>]))
+Overfull \hbox (10.16624pt too wide) in paragraph at lines 167--178
+[][] 
+ []
 
-[33] (./2_body/recommendations.tex)
 
-[34] (./2_body/manual.tex)
+
+[32]
+
+[33]
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 212--226
+[][]
+ []
+
+
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 229--243
+[][]
+ []
+
+
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 246--260
+[][]
+ []
+
+
+
+[34]
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 264--277
+[][]
+ []
+
+
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 280--293
+[][] 
+ []
+
+
 
 [35]
 
-[36] (./3_footer/appendices.tex
+[36]
+<img/assembly-1.png, id=747, 813.79031pt x 627.09282pt>
+File: img/assembly-1.png Graphic file (type png)
+<use img/assembly-1.png>
+Package pdftex.def Info: img/assembly-1.png  used on input line 364.
+(pdftex.def)             Requested size: 182.09486pt x 140.31473pt.
+<img/assembly-2.png, id=748, 655.69969pt x 553.31718pt>
+File: img/assembly-2.png Graphic file (type png)
+<use img/assembly-2.png>
+Package pdftex.def Info: img/assembly-2.png  used on input line 370.
+(pdftex.def)             Requested size: 182.09486pt x 153.66132pt.
+<img/assembly-3.png, id=749, 897.3525pt x 546.54187pt>
+File: img/assembly-3.png Graphic file (type png)
+<use img/assembly-3.png>
+Package pdftex.def Info: img/assembly-3.png  used on input line 381.
+(pdftex.def)             Requested size: 364.19667pt x 221.81525pt.
+
+
+[37 <./img/assembly-1.png> <./img/assembly-2.png> <./img/assembly-3.png>]
+<img/assembly-4b.png, id=759, 347.04657pt x 338.01282pt>
+File: img/assembly-4b.png Graphic file (type png)
+<use img/assembly-4b.png>
+Package pdftex.def Info: img/assembly-4b.png  used on input line 411.
+(pdftex.def)             Requested size: 136.57462pt x 133.02103pt.
+<img/assembly-9b.png, id=760, 508.14844pt x 339.51843pt>
+File: img/assembly-9b.png Graphic file (type png)
+<use img/assembly-9b.png>
+Package pdftex.def Info: img/assembly-9b.png  used on input line 417.
+(pdftex.def)             Requested size: 136.57462pt x 91.25156pt.
+<img/assembly-5b.png, id=761, 395.22656pt x 240.9pt>
+File: img/assembly-5b.png Graphic file (type png)
+<use img/assembly-5b.png>
+Package pdftex.def Info: img/assembly-5b.png  used on input line 423.
+(pdftex.def)             Requested size: 113.81102pt x 69.37032pt.
+<img/assembly-6.png, id=762, 755.82375pt x 581.92406pt>
+File: img/assembly-6.png Graphic file (type png)
+<use img/assembly-6.png>
+Package pdftex.def Info: img/assembly-6.png  used on input line 452.
+(pdftex.def)             Requested size: 204.85846pt x 157.72539pt.
+<img/assembly-7.png, id=763, 529.98pt x 583.42969pt>
+File: img/assembly-7.png Graphic file (type png)
+<use img/assembly-7.png>
+Package pdftex.def Info: img/assembly-7.png  used on input line 458.
+(pdftex.def)             Requested size: 159.33821pt x 175.40414pt.
+<img/assembly-8.png, id=764, 618.81187pt x 493.0922pt>
+File: img/assembly-8.png Graphic file (type png)
+<use img/assembly-8.png>
+Package pdftex.def Info: img/assembly-8.png  used on input line 464.
+(pdftex.def)             Requested size: 159.33821pt x 126.96701pt.
+
+
+[38 <./img/assembly-4b.png> <./img/assembly-9b.png> <./img/assembly-5b.png> <./img/assembly-6.png> <./img/assembly-7.png> <./img/assembly-8.png>]))
+
+[39] (./2_body/recommendations.tex)
+
+[40] (./2_body/manual.tex)
+
+[41]
+
+[42] (./3_footer/appendices.tex
 Overfull \hbox (4.47969pt too wide) in paragraph at lines 8--28
  [][] 
  []
 
 
 
-[37]
+[43]
+<img/websocket-page.PNG, id=831, 646.66594pt x 735.49782pt>
+File: img/websocket-page.PNG Graphic file (type png)
+<use img/websocket-page.PNG>
+Package pdftex.def Info: img/websocket-page.PNG  used on input line 79.
+(pdftex.def)             Requested size: 250.38564pt x 284.778pt.
 
-[38]
-Underfull \hbox (badness 1082) in paragraph at lines 103--103
+
+[44 <./img/websocket-page.png>]
+Underfull \hbox (badness 1082) in paragraph at lines 114--114
 []|[]|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
  []
 
 
-
-[39]
-
-[40]
-
-[41]
-
-[42]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 196.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 200.
-
-
-
-[43]
-
-[44]
 
 [45]
 
@@ -2106,9 +2134,28 @@ LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <8> not available
 
 [47]
 
-[48])
+[48]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 207.
 
-[49] 
+
+LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 211.
+
+
+
+[49]
+
+[50]
+
+[51]
+
+[52]
+
+[53]
+
+[54])
+
+[55] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./main.aux)
  ***********
@@ -2123,39 +2170,24 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EFE136D7ACE58EC752D4940F1DEEDD32;8387.
+(rerunfilecheck)             Checksum: 20984DE79A45315136648360CF5F9924;9154.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 56883 strings out of 471564
- 1150334 string characters out of 5520719
- 2607369 words of memory out of 5000000
- 82029 multiletter control sequences out of 15000+600000
+ 56949 strings out of 471564
+ 1152783 string characters out of 5520719
+ 2609089 words of memory out of 5000000
+ 82066 multiletter control sequences out of 15000+600000
  645488 words of font info for 78 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 103i,15n,120p,2679b,2699s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{glo:mpu6050} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:mosfet} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:ic} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:pwm} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:uav} has been referenced but does not exist, replaced by a fixed one
-
+ 103i,15n,120p,2692b,2699s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit0800.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0700.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.720pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.720pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.1244pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (50 pages, 2425673 bytes).
+Output written on main.pdf (56 pages, 3113641 bytes).
 PDF statistics:
- 1914 PDF objects out of 2073 (max. 8388607)
- 1177 compressed objects within 12 object streams
- 507 named destinations out of 1000 (max. 500000)
- 660 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2020 PDF objects out of 2073 (max. 8388607)
+ 1258 compressed objects within 13 object streams
+ 531 named destinations out of 1000 (max. 500000)
+ 712 words of extra memory for PDF output out of 10000 (max. 10000000)
 

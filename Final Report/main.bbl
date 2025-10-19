@@ -107,6 +107,182 @@
       \verb https://www.mistralsolutions.com/services/pcb-layout-analysis/
       \endverb
     \endentry
+    \entry{espdrone_circuitdigest}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=7a9760d19baa50f0a0f8838e024717bf}{%
+           family={Joseph},
+           familyi={J\bibinitperiod},
+           given={Jobit},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{7a9760d19baa50f0a0f8838e024717bf}
+      \strng{fullhash}{7a9760d19baa50f0a0f8838e024717bf}
+      \strng{fullhashraw}{7a9760d19baa50f0a0f8838e024717bf}
+      \strng{bibnamehash}{7a9760d19baa50f0a0f8838e024717bf}
+      \strng{authorbibnamehash}{7a9760d19baa50f0a0f8838e024717bf}
+      \strng{authornamehash}{7a9760d19baa50f0a0f8838e024717bf}
+      \strng{authorfullhash}{7a9760d19baa50f0a0f8838e024717bf}
+      \strng{authorfullhashraw}{7a9760d19baa50f0a0f8838e024717bf}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{note}{Also available at: \url{https://circuitdigest.com/microcontroller-projects/DIY-wifi-controlled-drone}, Accessed: 2025-10-19}
+      \field{title}{DIY WiFi Controlled Drone (ESP-Drone)}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/Circuit-Digest/ESP-Drone
+      \endverb
+      \verb{url}
+      \verb https://github.com/Circuit-Digest/ESP-Drone
+      \endverb
+    \endentry
+    \entry{espdrone_espressif}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=bdf481a0363ef7e05631b53f2bf20613}{%
+           family={{Espressif Systems (Shanghai)}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{bdf481a0363ef7e05631b53f2bf20613}
+      \strng{fullhash}{bdf481a0363ef7e05631b53f2bf20613}
+      \strng{fullhashraw}{bdf481a0363ef7e05631b53f2bf20613}
+      \strng{bibnamehash}{bdf481a0363ef7e05631b53f2bf20613}
+      \strng{authorbibnamehash}{bdf481a0363ef7e05631b53f2bf20613}
+      \strng{authornamehash}{bdf481a0363ef7e05631b53f2bf20613}
+      \strng{authorfullhash}{bdf481a0363ef7e05631b53f2bf20613}
+      \strng{authorfullhashraw}{bdf481a0363ef7e05631b53f2bf20613}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-19}
+      \field{title}{ESP-Drone}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://docs.espressif.com/projects/espressif-esp-drone/en/latest/index.html
+      \endverb
+      \verb{url}
+      \verb https://docs.espressif.com/projects/espressif-esp-drone/en/latest/index.html
+      \endverb
+    \endentry
+    \entry{maximagination}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=eec7c7cebf41418a2e187449ee216022}{%
+           family={Imagination},
+           familyi={I\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{eec7c7cebf41418a2e187449ee216022}
+      \strng{fullhash}{eec7c7cebf41418a2e187449ee216022}
+      \strng{fullhashraw}{eec7c7cebf41418a2e187449ee216022}
+      \strng{bibnamehash}{eec7c7cebf41418a2e187449ee216022}
+      \strng{authorbibnamehash}{eec7c7cebf41418a2e187449ee216022}
+      \strng{authornamehash}{eec7c7cebf41418a2e187449ee216022}
+      \strng{authorfullhash}{eec7c7cebf41418a2e187449ee216022}
+      \strng{authorfullhashraw}{eec7c7cebf41418a2e187449ee216022}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-19}
+      \field{title}{Build the Smallest ESP32 Drone You Can Fly With Your Phone! (ESP-FLY)}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.instructables.com/Build-the-Smallest-ESP32-Drone-You-Can-Fly-With-Yo/
+      \endverb
+      \verb{url}
+      \verb https://www.instructables.com/Build-the-Smallest-ESP32-Drone-You-Can-Fly-With-Yo/
+      \endverb
+    \endentry
+    \entry{espressif_devkits}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b1d5d0040be4721ebd66cd10ec68502c}{%
+           family={Systems},
+           familyi={S\bibinitperiod},
+           given={Espressif},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{fullhash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{fullhashraw}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{bibnamehash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{authorbibnamehash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{authornamehash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{authorfullhash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{authorfullhashraw}{b1d5d0040be4721ebd66cd10ec68502c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-19}
+      \field{title}{ESP DevKits}
+      \verb{urlraw}
+      \verb https://www.espressif.com/en/products/devkits
+      \endverb
+      \verb{url}
+      \verb https://www.espressif.com/en/products/devkits
+      \endverb
+    \endentry
+    \entry{bitcraze_crazyflie_firmware}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=8851784d5a1819590f62efc28aea1cbf}{%
+           family={Bitcraze},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{8851784d5a1819590f62efc28aea1cbf}
+      \strng{fullhash}{8851784d5a1819590f62efc28aea1cbf}
+      \strng{fullhashraw}{8851784d5a1819590f62efc28aea1cbf}
+      \strng{bibnamehash}{8851784d5a1819590f62efc28aea1cbf}
+      \strng{authorbibnamehash}{8851784d5a1819590f62efc28aea1cbf}
+      \strng{authornamehash}{8851784d5a1819590f62efc28aea1cbf}
+      \strng{authorfullhash}{8851784d5a1819590f62efc28aea1cbf}
+      \strng{authorfullhashraw}{8851784d5a1819590f62efc28aea1cbf}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-19}
+      \field{title}{Crazyflie Firmware}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://github.com/bitcraze/crazyflie-firmware
+      \endverb
+      \verb{url}
+      \verb https://github.com/bitcraze/crazyflie-firmware
+      \endverb
+    \endentry
+    \entry{pratikphadte_flight_controller}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=6a16df9a42a9c0d71553997e8c5c926a}{%
+           family={Phadte},
+           familyi={P\bibinitperiod},
+           given={Pratik},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{6a16df9a42a9c0d71553997e8c5c926a}
+      \strng{fullhash}{6a16df9a42a9c0d71553997e8c5c926a}
+      \strng{fullhashraw}{6a16df9a42a9c0d71553997e8c5c926a}
+      \strng{bibnamehash}{6a16df9a42a9c0d71553997e8c5c926a}
+      \strng{authorbibnamehash}{6a16df9a42a9c0d71553997e8c5c926a}
+      \strng{authornamehash}{6a16df9a42a9c0d71553997e8c5c926a}
+      \strng{authorfullhash}{6a16df9a42a9c0d71553997e8c5c926a}
+      \strng{authorfullhashraw}{6a16df9a42a9c0d71553997e8c5c926a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-19}
+      \field{title}{ESP32 Flight Controller}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://github.com/pratikPhadte/ESP32-Flight-controller-
+      \endverb
+      \verb{url}
+      \verb https://github.com/pratikPhadte/ESP32-Flight-controller-
+      \endverb
+    \endentry
     \entry{flightcontroller_git}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=8c75b9f9f1f11482dad45c25081e8498}{%

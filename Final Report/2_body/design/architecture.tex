@@ -203,7 +203,7 @@ Monitoring & Provides a means for surveillance of the environment. & Additional 
 %-------------------------------------------------------------%
 \subsubsection{Hardware Justification}
 
-The architecture was informed by several open-source designs, including CircuitDigest’s ESPDrone, Espressif’s ESP-Drone, and Max Imagination’s ESP-FLY, alongside Espressif’s official ESP32 DevKit schematics. These references provided practical guidance for lightweight drone design, component selection, and standard circuit integration. The final design integrates these layouts with project-specific adaptations to meet the functional and safety requirements of this project. \temp{[Sources]}
+The architecture was informed by several open-source designs, including CircuitDigest’s ESPDrone \cite{espdrone_circuitdigest}, Espressif’s ESP-Drone \cite{espdrone_espressif}, and Max Imagination’s ESP-FLY \cite{maximagination}, alongside Espressif’s official ESP32 DevKit schematics \cite{espressif_devkits}. These references provided practical guidance for lightweight drone design, component selection, and standard circuit integration. The final design integrates these layouts with project-specific adaptations to meet the functional and safety requirements of this project.
 
 \renewcommand{\arraystretch}{1.2}
 \begin{table}[H]
@@ -249,7 +249,7 @@ A WebSocket-based communication layer enables remote telemetry and command contr
 %----------------------------------------------------------------%
 \subsubsection{Firmware Architecture Justification}
 
-Firmware using the ESP32 was reviewed for the firmware architecture including Espressif’s ESP-Drone (or more so, Circuit Digest’s modified version~\temp{[D]}, with fixed UDP driver needed for Crazyflie Client (CFClient)). It is built on the \gls{esp-idf} framework and derived from the Crazyflie open-source project (GPL-3.0)~\temp{[C]} and was assessed as a baseline for stable flight and mobile control. Phadte’s ESP32 Flight Controller~\temp{[E]}, developed with the Arduino framework, was reviewed a simple custom implementation of a flight controller, built for a larger brushless motor drone, and the \gls{pid} tuning methodology.  
+Firmware using the ESP32 was reviewed for the firmware architecture including Espressif’s ESP-Drone (or more so, Circuit Digest’s modified version~\cite{espdrone_circuitdigest}, with fixed UDP driver needed for Crazyflie Client (CFClient)). It is built on the \gls{esp-idf} framework and derived from the Crazyflie open-source project (GPL-3.0)~\cite{bitcraze_crazyflie_firmware} and was assessed as a baseline for stable flight and mobile control. Phadte’s ESP32 Flight Controller~\cite{pratikphadte_flight_controller} developed with the Arduino framework, was reviewed a simple custom implementation of a flight controller, built for a larger brushless motor drone, and the \gls{pid} tuning methodology.  
 
 Based on this analysis, a custom firmware was developed using \gls{esp-idf} v5.5.0 to provide long-term flexibility, low-level control, and improved integration. This approach simplified the generalised Crazyflie libraries of ESP-Drone, which contain dozens of source files and many macros and generalisations to work with multiple drone designs. Then, the lower-level \gls{esp-idf} environment was chosen over Arduino to achieve more precise timing, and compatibility with \gls{esp-idf} libraries.
 

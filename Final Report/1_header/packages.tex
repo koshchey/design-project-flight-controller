@@ -82,7 +82,9 @@
 \usepackage[table]{xcolor}
 \usepackage[normalem]{ulem}
 
-\usepackage[acronym,nonumberlist,toc,section=subsection,numberedsection=nolabel]{glossaries} 
+\usepackage[acronym, nonumberlist, nopostdot, nomain, nogroupskip]{glossaries}
+\setacronymstyle{long-short}
+\setglossarystyle{list}
 \makeglossaries
 \input{1_header/glossary}
 

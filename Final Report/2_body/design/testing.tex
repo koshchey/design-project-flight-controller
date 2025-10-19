@@ -1,0 +1,208 @@
+\subsection{Testing}
+
+Testing validated both the hardware and firmware subsystems through structured verification activities. Tests were performed in two phases: \textit{stationary testing} to evaluate sensing, communication, and control logic, and \textit{dynamic testing} to assess flight behaviour and PID stability. Hardware-specific verification ensured electrical safety, EMI robustness, and mechanical reliability.
+
+\subsubsection{Hardware Verification and Reliability Tests}
+
+Before final deployment, the PCB underwent detailed bench verification to ensure operational safety and design compliance. Each test corresponds to one or more design requirements (R.xx/A.R.xx) and focuses on electrical, mechanical, and thermal integrity.
+
+\begin{longtable}{@{}p{4.2cm} p{11cm}@{}}
+\toprule
+\textbf{Test} & \textbf{Verification Criteria and Outcome Summary} \\ 
+\midrule
+\textbf{Electrical Access \& Firmware Ports} &
+Flashing and monitoring possible without disassembly; no propeller interference. \newline
+\textit{Pass:} $\geq$99\% flashing success over 100 cycles; no mechanical obstruction. \\ 
+\midrule
+\textbf{Power Regulation (5V/3.3V)} &
+Voltage ripple measured under full load; brownout recovery verified. \newline
+\textit{Pass:} 3.3~V within $\pm$5\%; clean reset recovery; no overheating $>85~^{\circ}$C. \\ 
+\midrule
+\textbf{Clock/Reset Integrity} &
+POR and manual reset behaviour verified via oscilloscope. \newline
+\textit{Pass:} Single monotonic reset; stable 1~h runtime without glitches. \\ 
+\midrule
+\textbf{Motor Driver Load Test} &
+Motors driven at 100\% duty for 5~min; temperature and EMI monitored. \newline
+\textit{Pass:} Case temperature $<80~^{\circ}$C; no IMU/I\textsuperscript{2}C interference. \\ 
+\midrule
+\textbf{I\textsuperscript{2}C Bus Integrity} &
+Tested for communication stability during PWM activity. \newline
+\textit{Pass:} Error rate = 0; no bus lockups. \\ 
+\midrule
+\textbf{RF Keep-Out Validation} &
+Antenna region visually inspected for compliance with vendor keep-out. \newline
+\textit{Pass:} No metallic intrusion or ground pours detected. \\ 
+\midrule
+\textbf{Thermal Stability (Steady-State)} &
+5~min load test in 25~°C ambient; surface temperatures measured. \newline
+\textit{Pass:} ESP32~$<$60~°C, LDO/Drivers~$<$85~°C, no PETG softening. \\ 
+\midrule
+\textbf{Connector Retention \& Polarity} &
+15~N pull test on JST and USB; polarity verification. \newline
+\textit{Pass:} No lift or damage; keyed connectors prevent reverse mating. \\ 
+\midrule
+\textbf{Indicator LEDs (Visibility)} &
+Visibility check at 0.5~m distance under indoor lighting. \newline
+\textit{Pass:} All LEDs visible and distinguishable. \\ 
+\midrule
+\textbf{Grounding \& Layout Checks} &
+Continuity probed between all ground and 3.3~V nodes. \newline
+\textit{Pass:} No local ground islands; consistent rail distribution. \\ 
+\midrule
+\textbf{Silkscreen \& Label Verification} &
+Visual inspection for component identifiers and revision markings. \newline
+\textit{Pass:} All labels clear and traceable. \\ 
+\bottomrule
+\end{longtable}
+
+%-------------------------------------------------------------%
+\subsubsection{Stationary Testing} \leavevmode
+
+Focused on verifying hardware interfaces and firmware logic prior to flight. All components were tested under controlled, static conditions to ensure correct data acquisition and communication.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, 01} & \textbf{Sensor Functionality Test} \\ \hline
+\textbf{Test Specification} & 
+Verify that all onboard sensors (MPU6050 IMU and VLX distance sensor) provide accurate and consistent readings. \\ \hline
+\textbf{Test Description} & 
+1. Power up the drone and connect via CFClient or firmware interface. \newline
+2. Read accelerometer, gyroscope, and distance values while the drone remains stationary. \newline
+3. Compare readings against expected physical conditions (e.g., gravity orientation for IMU, known distance for VLX). \\ \hline
+\textbf{Test Result Analysis} & 
+Sensors produced consistent readings within expected tolerances. Minor IMU biases were observed and could be corrected in firmware. Successful verification confirms sensors are ready for integration with control algorithms. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, 02} & \textbf{Motor Command Verification} \\ \hline
+\textbf{Test Specification} & 
+Validate that motor control commands are correctly transmitted and executed without flight. \\ \hline
+\textbf{Test Description} & 
+1. Connect the drone to WebSocket interface. \newline
+2. Send incremental motor thrust commands while drone is fixed to a test rig. \newline
+3. Monitor motor responses via telemetry and visually confirm expected rotation or PWM feedback. \\ \hline
+\textbf{Test Result Analysis} & 
+All motor commands were received and executed appropriately. Erratic behaviour was observed only under high throttle, suggesting a need for calibration. This confirms that motor control signals are correctly delivered by the firmware. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, 03} & \textbf{IMU Data Validation} \\ \hline
+\textbf{Test Specification} & 
+Confirm the accuracy of accelerometer and gyroscope data for use in state estimation and control algorithms. \\ \hline
+\textbf{Test Description} & 
+1. Keep the drone stationary and log accelerometer and gyroscope outputs. \newline
+2. Tilt and rotate the drone slowly to produce controlled changes in orientation. \newline
+3. Compare logged sensor data against expected physical motion and orientation. \\ \hline
+\textbf{Test Result Analysis} & 
+Sensor data corresponded closely with expected motion profiles. Small offsets were observed and noted for bias correction in the firmware. This validates that IMU measurements are reliable for state estimation and PID control integration. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, 04} & \textbf{R.30 - Disconnection Response} (Firmware) \\ \hline
+\textbf{Test Specification} & 
+Ensure the drone powers off safely after loss of connection, observing motor shutdown and null setpoints. \\ \hline
+\textbf{Test Description} & 
+1. Connect drone to WebSocket interface. \newline
+2. Send setpoints and verify terminal output. \newline
+3. Close the control webpage to simulate disconnection. \newline
+4. Observe if the drone detects disconnection and motors shut off. \\ \hline
+\textbf{Test Result Analysis} & 
+The drone successfully detected the disconnection and immediately ceased motor activity. This confirms proper handling of lost connection and application of null setpoints, meeting R.30. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, 05} & \textbf{R.3 - WebSocket State Estimate} (Firmware) \\ \hline
+
+\textbf{Test Specification} & 
+Validate the state estimation algorithm by comparing measured drone orientation with computed estimates. \\ \hline
+
+\textbf{Test Description} & 
+1. Tilt and manipulate drone manually while connected to WebSocket. \newline
+2. Monitor state estimate output and compare with actual drone movements. \\ \hline
+
+\textbf{Test Result Analysis} & 
+The algorithm accurately tracked the drone's orientation under moderate movements. Rapid changes introduced minor lag and drift over time, indicating acceptable performance within normal operational limits. \\ \hline
+\end{tabular}
+\end{table}
+
+%-------------------------------------------------------------%
+\subsubsection{Dynamic Testing} \leavevmode
+
+Evaluated system-level performance including lift-off, hovering, and control tuning. Although sustained flight was not achieved, these tests revealed essential insights for future iteration — particularly regarding motor alignment and PID tuning. 
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, 06} & \textbf{R.2 - Capable of Hovering} (Hardware/Firmware) \\ \hline
+\textbf{Test Specification} & 
+Validate that the drone can lift and maintain altitude, assessing motor thrust, PID control, and manual tuning. \\ \hline
+\textbf{Test Description} & 
+1. Connect drone to WebSocket interface. \newline
+2. Gradually increase thrust with PID disabled until lift-off occurs. \newline
+3. Observe behaviour at higher thrust levels. \newline
+4. Re-enable PID and attempt manual tuning of pitch/roll gains to assess stabilisation. \\ \hline
+\textbf{Test Result Analysis} & 
+The drone achieved lift-off; however, uneven thrust caused flipping tendencies at higher throttle. PID control did not improve stability, and manual tuning produced the same result. Likely causes include thrust misalignment or motor calibration errors rather than PID tuning. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, 07} & \textbf{R.4 / R.2 - Hovering and Altitude Maintenance} (Hardware/Firmware) \\ \hline
+\textbf{Test Specification} & 
+Assess the drone's ability to achieve and maintain a stable hover at set altitude. \\ \hline
+\textbf{Test Description} & 
+Attempt hover with PID stabilisation active, monitoring altitude and control response via WebSocket. \\ \hline
+\textbf{Test Result Analysis} & 
+Hover could not be maintained due to instability. This prevented altitude evaluation and suggests issues with motor output consistency or control tuning. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Test No. \, 08} & \textbf{R.20 - Flight Stabilisation} (Hardware/Firmware) \\ \hline
+\textbf{Test Specification} & 
+Evaluate PID-based stabilisation and control signal application during flight. \\ \hline
+\textbf{Test Description} & 
+Monitor control signals and motor output during hovering attempts, observing PID response and integral windup. \\ \hline
+\textbf{Test Result Analysis} & 
+Hover could not be achieved, limiting assessment. Control signals were active and adjusted, but incomplete testing prevented full stabilisation. Integral windup was noted, but this likely occured because stable flight couldn't be achieved. \\ \hline
+\end{tabular}
+\end{table}
+
+%-------------------------------------------------------------%
+\subsubsection{Outcome of Testing} \leavevmode
+
+Overall, testing verified functional integration between hardware and firmware components. Sensor readings, communication interfaces, and power regulation behaved as intended. Dynamic flight tests confirmed lift capability but revealed instability attributed to motor thrust imbalance and tuning parameters. No critical hardware failures were observed. The tests collectively demonstrate a successful proof of concept and provide a clear direction for future refinement in control tuning and propulsion calibration.
