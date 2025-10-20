@@ -6,4 +6,4 @@
 **Supervisor:** Jega Gurusamy  
 **Team Number:** 04  
 
-*Final Design Report – Version 2*
+*Final Design Report - Version 2*
