@@ -1,24 +1,24 @@
 \babel@toc {australian}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Miniature Drone \blx@tocontentsinit {0}\cite {abbott2024}}}{9}{figure.caption.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Surveillance Drone Diagram}}{10}{figure.caption.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Espressif ESP32 DevKit~\blx@tocontentsinit {0}\cite {iotdesignpro2019}}}{10}{figure.caption.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Printed Circuit Board \blx@tocontentsinit {0}\cite {mistral2020}}}{11}{figure.caption.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces System Architecture Process}}{14}{figure.caption.7}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Overall System Architecture with Hardware and Firmware Interfaces}}{14}{figure.caption.8}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Hardware Architecture}}{15}{figure.caption.9}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Firmware Architecture}}{18}{figure.caption.12}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Front and back of the final PCB design.}}{20}{figure.caption.15}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Areas of \gls {pcb} design}}{20}{figure.caption.16}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Frame design}}{22}{figure.caption.17}%
-\contentsline {figure}{\numberline {12}{\ignorespaces \gls {esp-idf} Environment}}{23}{figure.caption.18}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Thread-safe Data Availability Signalling Heuristic}}{23}{figure.caption.19}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Euler Angles~\blx@tocontentsinit {0}\cite {euler_angles_wikipedia}}}{24}{figure.caption.20}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Real-Time State Estimate Display on WebSocket}}{25}{figure.caption.21}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Simplified Timing Description}}{26}{figure.caption.22}%
-\contentsline {figure}{\numberline {17}{\ignorespaces ESP Soldering Steps}}{40}{figure.caption.34}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Main Frame}}{41}{figure.caption.35}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Frame Additions}}{41}{figure.caption.36}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Frame Assembly Process}}{42}{figure.caption.37}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Assembly Steps}}{52}{figure.caption.50}%
-\contentsline {figure}{\numberline {28}{\ignorespaces WebSocket Client Web Page}}{62}{figure.caption.60}%
-\contentsline {figure}{\numberline {29}{\ignorespaces File Structure}}{68}{figure.caption.67}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Miniature Drone \blx@tocontentsinit {0}\cite {abbott2024}}}{8}{figure.caption.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Surveillance Drone Diagram}}{9}{figure.caption.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Espressif ESP32 DevKit~\blx@tocontentsinit {0}\cite {iotdesignpro2019}}}{9}{figure.caption.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Printed Circuit Board \blx@tocontentsinit {0}\cite {mistral2020}}}{10}{figure.caption.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces System Architecture Process}}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Overall System Architecture with Hardware and Firmware Interfaces}}{13}{figure.caption.8}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Hardware Architecture}}{14}{figure.caption.9}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Firmware Architecture}}{17}{figure.caption.12}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Front and back of the final PCB design.}}{19}{figure.caption.15}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Areas of \gls {pcb} design}}{19}{figure.caption.16}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Frame design}}{21}{figure.caption.17}%
+\contentsline {figure}{\numberline {12}{\ignorespaces \gls {esp-idf} Environment}}{22}{figure.caption.18}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Thread-safe Data Availability Signalling Heuristic}}{22}{figure.caption.19}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Euler Angles~\blx@tocontentsinit {0}\cite {euler_angles_wikipedia}}}{23}{figure.caption.20}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Real-Time State Estimate Display on WebSocket}}{24}{figure.caption.21}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Simplified Timing Description}}{25}{figure.caption.22}%
+\contentsline {figure}{\numberline {17}{\ignorespaces ESP Soldering Steps}}{39}{figure.caption.34}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Main Frame}}{40}{figure.caption.35}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Frame Additions}}{40}{figure.caption.36}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Frame Assembly Process}}{41}{figure.caption.37}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Assembly Steps}}{51}{figure.caption.50}%
+\contentsline {figure}{\numberline {28}{\ignorespaces WebSocket Client Web Page}}{61}{figure.caption.60}%
+\contentsline {figure}{\numberline {29}{\ignorespaces File Structure}}{67}{figure.caption.67}%

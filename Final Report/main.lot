@@ -1,26 +1,26 @@
 \babel@toc {australian}{}\relax 
-\contentsline {table}{\numberline {2}{\ignorespaces Team Member Contribution Breakdown}}{11}{table.caption.5}%
-\contentsline {table}{\numberline {3}{\ignorespaces Ranked Requirements}}{13}{table.caption.6}%
-\contentsline {table}{\numberline {4}{\ignorespaces Hardware Elements and Requirements}}{16}{table.caption.10}%
-\contentsline {table}{\numberline {5}{\ignorespaces Design Element Justification}}{17}{table.caption.11}%
-\contentsline {table}{\numberline {6}{\ignorespaces Firmware Option Comparison}}{19}{table.caption.13}%
-\contentsline {table}{\numberline {7}{\ignorespaces Firmware Architecture Rationale}}{19}{table.caption.14}%
-\contentsline {table}{\numberline {8}{\ignorespaces Summary of Hardware Elements and Their Design Intent}}{21}{table.8}%
-\contentsline {table}{\numberline {11}{\ignorespaces System-Level Integration Verification Points}}{32}{table.caption.31}%
-\contentsline {table}{\numberline {12}{\ignorespaces Iterative Engineering Process Followed}}{33}{table.caption.32}%
-\contentsline {table}{\numberline {13}{\ignorespaces ESP Assembly and Pre-Run Procedure}}{39}{table.caption.33}%
-\contentsline {table}{\numberline {14}{\ignorespaces Summary of Modular Frame Additions}}{42}{table.caption.38}%
-\contentsline {table}{\numberline {15}{\ignorespaces Unit costs depending on production scale.}}{44}{table.caption.39}%
-\contentsline {table}{\numberline {16}{\ignorespaces PCB fabrication and assembly cost breakdown. Full BOM and Gerbers for top surface mount components are in the Appendix.}}{44}{table.caption.40}%
-\contentsline {table}{\numberline {17}{\ignorespaces Cost breakdown of additional surface-mounted components.}}{44}{table.caption.41}%
-\contentsline {table}{\numberline {18}{\ignorespaces 3D printed frame material cost.}}{45}{table.caption.42}%
-\contentsline {table}{\numberline {19}{\ignorespaces Motor and battery cost breakdown. Recommended items and vendors listed in Appendix.}}{45}{table.caption.43}%
-\contentsline {table}{\numberline {20}{\ignorespaces Complete cost breakdown including parts and shipping/handling.}}{45}{table.caption.44}%
-\contentsline {table}{\numberline {22}{\ignorespaces Constraints for Drone Design (Updated)}}{55}{table.caption.51}%
-\contentsline {table}{\numberline {23}{\ignorespaces Additional Requirements}}{56}{table.caption.52}%
-\contentsline {table}{\numberline {24}{\ignorespaces Client Meetings, Information Sessions, and Technical Queries - Summary (Weeks 1-5)}}{63}{table.caption.61}%
-\contentsline {table}{\numberline {25}{\ignorespaces Other Information - Summary (Weeks 1-5)}}{63}{table.caption.62}%
-\contentsline {table}{\numberline {26}{\ignorespaces Ranked Requirements Proposed Changes}}{64}{table.caption.63}%
-\contentsline {table}{\numberline {27}{\ignorespaces Ranked Requirements - Final}}{65}{table.caption.64}%
-\contentsline {table}{\numberline {28}{\ignorespaces Additional Requirements Proposed Changes}}{66}{table.caption.65}%
-\contentsline {table}{\numberline {29}{\ignorespaces Additional Requirements - Final}}{67}{table.caption.66}%
+\contentsline {table}{\numberline {2}{\ignorespaces Team Member Contribution Breakdown}}{10}{table.caption.5}%
+\contentsline {table}{\numberline {3}{\ignorespaces Ranked Requirements}}{12}{table.caption.6}%
+\contentsline {table}{\numberline {4}{\ignorespaces Hardware Elements and Requirements}}{15}{table.caption.10}%
+\contentsline {table}{\numberline {5}{\ignorespaces Design Element Justification}}{16}{table.caption.11}%
+\contentsline {table}{\numberline {6}{\ignorespaces Firmware Option Comparison}}{18}{table.caption.13}%
+\contentsline {table}{\numberline {7}{\ignorespaces Firmware Architecture Rationale}}{18}{table.caption.14}%
+\contentsline {table}{\numberline {8}{\ignorespaces Summary of Hardware Elements and Their Design Intent}}{20}{table.8}%
+\contentsline {table}{\numberline {11}{\ignorespaces System-Level Integration Verification Points}}{31}{table.caption.31}%
+\contentsline {table}{\numberline {12}{\ignorespaces Iterative Engineering Process Followed}}{32}{table.caption.32}%
+\contentsline {table}{\numberline {13}{\ignorespaces ESP Assembly and Pre-Run Procedure}}{38}{table.caption.33}%
+\contentsline {table}{\numberline {14}{\ignorespaces Summary of Modular Frame Additions}}{41}{table.caption.38}%
+\contentsline {table}{\numberline {15}{\ignorespaces Unit costs depending on production scale.}}{43}{table.caption.39}%
+\contentsline {table}{\numberline {16}{\ignorespaces PCB fabrication and assembly cost breakdown. Full BOM and Gerbers for top surface mount components are in the Appendix.}}{43}{table.caption.40}%
+\contentsline {table}{\numberline {17}{\ignorespaces Cost breakdown of additional surface-mounted components.}}{43}{table.caption.41}%
+\contentsline {table}{\numberline {18}{\ignorespaces 3D printed frame material cost.}}{44}{table.caption.42}%
+\contentsline {table}{\numberline {19}{\ignorespaces Motor and battery cost breakdown. Recommended items and vendors listed in Appendix.}}{44}{table.caption.43}%
+\contentsline {table}{\numberline {20}{\ignorespaces Complete cost breakdown including parts and shipping/handling.}}{44}{table.caption.44}%
+\contentsline {table}{\numberline {22}{\ignorespaces Constraints for Drone Design (Updated)}}{54}{table.caption.51}%
+\contentsline {table}{\numberline {23}{\ignorespaces Additional Requirements}}{55}{table.caption.52}%
+\contentsline {table}{\numberline {24}{\ignorespaces Client Meetings, Information Sessions, and Technical Queries - Summary (Weeks 1-5)}}{62}{table.caption.61}%
+\contentsline {table}{\numberline {25}{\ignorespaces Other Information - Summary (Weeks 1-5)}}{62}{table.caption.62}%
+\contentsline {table}{\numberline {26}{\ignorespaces Ranked Requirements Proposed Changes}}{63}{table.caption.63}%
+\contentsline {table}{\numberline {27}{\ignorespaces Ranked Requirements - Final}}{64}{table.caption.64}%
+\contentsline {table}{\numberline {28}{\ignorespaces Additional Requirements Proposed Changes}}{65}{table.caption.65}%
+\contentsline {table}{\numberline {29}{\ignorespaces Additional Requirements - Final}}{66}{table.caption.66}%

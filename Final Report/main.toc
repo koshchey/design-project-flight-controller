@@ -1,74 +1,74 @@
 \babel@toc {australian}{}\relax 
-\contentsline {section}{\numberline {1}Introduction}{9}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Scope of This Report}{9}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Purpose of the Design}{10}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Background}{10}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Summary of Contributions}{11}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Report Structure}{12}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Design}{13}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Requirements}{13}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Design Architecture}{14}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Overall Architecture}{14}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Hardware Architecture}{15}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Hardware Justification}{16}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Firmware Architecture}{17}{subsubsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.5}Firmware Justification}{18}{subsubsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.3}Design Elements}{20}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}\gls {pcb} Hardware Elements}{20}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Frame Design Elements}{22}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Firmware Elements}{23}{subsubsection.2.3.3}%
-\contentsline {paragraph}{\numberline {2.3.3.1}\textbf {Sensor Task} \textit {sensors.c}}{23}{paragraph.2.3.3.1}%
-\contentsline {paragraph}{\numberline {2.3.3.2}\textbf {State Estimation} \textit {estimator.c}}{24}{paragraph.2.3.3.2}%
-\contentsline {paragraph}{\numberline {2.3.3.3}\textbf {Controller} \textit {controller.c}}{25}{paragraph.2.3.3.3}%
-\contentsline {paragraph}{\numberline {2.3.3.4}\textbf {Stabiliser} \textit {stabiliser.c}}{26}{paragraph.2.3.3.4}%
-\contentsline {paragraph}{\numberline {2.3.3.5}\textbf {WebSocket} \textit {websocket.c}}{26}{paragraph.2.3.3.5}%
-\contentsline {paragraph}{\numberline {2.3.3.6}\textbf {Motors} \textit {motors.c}}{26}{paragraph.2.3.3.6}%
-\contentsline {subsection}{\numberline {2.4}Testing}{28}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Hardware Verification and Reliability Tests}{28}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Firmware Verification and Reliability Tests}{29}{subsubsection.2.4.2}%
-\contentsline {paragraph}{\numberline {2.4.2.1}Stationary Testing}{29}{paragraph.2.4.2.1}%
-\contentsline {paragraph}{\numberline {2.4.2.2}Dynamic Testing}{30}{paragraph.2.4.2.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Outcome of Testing}{31}{subsubsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.5}System Integration}{32}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Stakeholder Engagement}{33}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}Stakeholder Engagement Summary}{33}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}Requirement Changes}{34}{subsubsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.7}Safety Issues}{35}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Ethical Issues}{36}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}Top 5 Risks and Mitigations}{37}{subsection.2.9}%
-\contentsline {subsection}{\numberline {2.10}Process of Assembly}{39}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}Design Outputs}{43}{subsection.2.11}%
-\contentsline {subsection}{\numberline {2.12}Final Cost}{44}{subsection.2.12}%
-\contentsline {subsubsection}{\numberline {2.12.1}PCB Fabrication}{44}{subsubsection.2.12.1}%
-\contentsline {subsubsection}{\numberline {2.12.2}Additional Surface-Mounted Components}{44}{subsubsection.2.12.2}%
-\contentsline {subsubsection}{\numberline {2.12.3}3D Printed Frame Cost}{45}{subsubsection.2.12.3}%
-\contentsline {subsubsection}{\numberline {2.12.4}Motor and Battery Cost}{45}{subsubsection.2.12.4}%
-\contentsline {subsubsection}{\numberline {2.12.5}Total Price Breakdown for Manufacturing}{45}{subsubsection.2.12.5}%
-\contentsline {section}{\numberline {3}Recommendations}{46}{section.3}%
-\contentsline {section}{\numberline {4}Manual}{47}{section.4}%
-\contentsline {section}{\numberline {5}References}{54}{section.5}%
-\contentsline {section}{\numberline {A}Appendices}{55}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Constraints}{55}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Additional Requirements}{56}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Verification and Validation}{57}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Hardware Prototypes}{59}{subsection.A.4}%
-\contentsline {subsubsection}{\numberline {A.4.1}PCB Prototype 1.0}{59}{subsubsection.A.4.1}%
-\contentsline {subsubsection}{\numberline {A.4.2}PCB Prototype 2.0}{59}{subsubsection.A.4.2}%
-\contentsline {subsubsection}{\numberline {A.4.3}Frame Prototypes}{60}{subsubsection.A.4.3}%
-\contentsline {subsubsection}{\numberline {A.4.4}Assembled Prototype 1.0}{61}{subsubsection.A.4.4}%
-\contentsline {subsubsection}{\numberline {A.4.5}Assembled Prototype 2.0 For Testing}{61}{subsubsection.A.4.5}%
-\contentsline {subsection}{\numberline {A.5}WebSocket Page}{62}{subsection.A.5}%
-\contentsline {subsection}{\numberline {A.6}Stakeholder Engagement}{63}{subsection.A.6}%
-\contentsline {subsection}{\numberline {A.7}Requirements Update Summary (Week 6)}{64}{subsection.A.7}%
-\contentsline {subsubsection}{\numberline {A.7.1}Ranked Requirements - Proposed Changes}{64}{subsubsection.A.7.1}%
-\contentsline {subsubsection}{\numberline {A.7.2}Additional Requirements - Proposed Changes}{66}{subsubsection.A.7.2}%
-\contentsline {subsubsection}{\numberline {A.7.3}Additional Requirements - Final (Post-Change List)}{67}{subsubsection.A.7.3}%
-\contentsline {subsection}{\numberline {A.8}Code}{68}{subsection.A.8}%
-\contentsline {subsubsection}{\numberline {A.8.1}File Structure}{68}{subsubsection.A.8.1}%
-\contentsline {subsubsection}{\numberline {A.8.2}sensor.c}{68}{subsubsection.A.8.2}%
-\contentsline {subsubsection}{\numberline {A.8.3}filter.c}{75}{subsubsection.A.8.3}%
-\contentsline {subsubsection}{\numberline {A.8.4}estimator.c}{76}{subsubsection.A.8.4}%
-\contentsline {subsubsection}{\numberline {A.8.5}controller.c}{81}{subsubsection.A.8.5}%
-\contentsline {subsubsection}{\numberline {A.8.6}stabiliser.c}{86}{subsubsection.A.8.6}%
-\contentsline {subsubsection}{\numberline {A.8.7}motors.c}{89}{subsubsection.A.8.7}%
-\contentsline {subsubsection}{\numberline {A.8.8}websocket.c}{93}{subsubsection.A.8.8}%
+\contentsline {section}{\numberline {1}Introduction}{8}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Scope of This Report}{8}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Purpose of the Design}{9}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Background}{9}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Summary of Contributions}{10}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Report Structure}{11}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Design}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Requirements}{12}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Design Architecture}{13}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Overall Architecture}{13}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Hardware Architecture}{14}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Hardware Justification}{15}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Firmware Architecture}{16}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Firmware Justification}{17}{subsubsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.3}Design Elements}{19}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}\gls {pcb} Hardware Elements}{19}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Frame Design Elements}{21}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Firmware Elements}{22}{subsubsection.2.3.3}%
+\contentsline {paragraph}{\numberline {2.3.3.1}\textbf {Sensor Task} \textit {sensors.c}}{22}{paragraph.2.3.3.1}%
+\contentsline {paragraph}{\numberline {2.3.3.2}\textbf {State Estimation} \textit {estimator.c}}{23}{paragraph.2.3.3.2}%
+\contentsline {paragraph}{\numberline {2.3.3.3}\textbf {Controller} \textit {controller.c}}{24}{paragraph.2.3.3.3}%
+\contentsline {paragraph}{\numberline {2.3.3.4}\textbf {Stabiliser} \textit {stabiliser.c}}{25}{paragraph.2.3.3.4}%
+\contentsline {paragraph}{\numberline {2.3.3.5}\textbf {WebSocket} \textit {websocket.c}}{25}{paragraph.2.3.3.5}%
+\contentsline {paragraph}{\numberline {2.3.3.6}\textbf {Motors} \textit {motors.c}}{25}{paragraph.2.3.3.6}%
+\contentsline {subsection}{\numberline {2.4}Testing}{27}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Hardware Verification and Reliability Tests}{27}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Firmware Verification and Reliability Tests}{28}{subsubsection.2.4.2}%
+\contentsline {paragraph}{\numberline {2.4.2.1}Stationary Testing}{28}{paragraph.2.4.2.1}%
+\contentsline {paragraph}{\numberline {2.4.2.2}Dynamic Testing}{29}{paragraph.2.4.2.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Outcome of Testing}{30}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}System Integration}{31}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Stakeholder Engagement}{32}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Stakeholder Engagement Summary}{32}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Requirement Changes}{33}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.7}Safety Issues}{34}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Ethical Issues}{35}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Top 5 Risks and Mitigations}{36}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Process of Assembly}{38}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Design Outputs}{42}{subsection.2.11}%
+\contentsline {subsection}{\numberline {2.12}Final Cost}{43}{subsection.2.12}%
+\contentsline {subsubsection}{\numberline {2.12.1}PCB Fabrication}{43}{subsubsection.2.12.1}%
+\contentsline {subsubsection}{\numberline {2.12.2}Additional Surface-Mounted Components}{43}{subsubsection.2.12.2}%
+\contentsline {subsubsection}{\numberline {2.12.3}3D Printed Frame Cost}{44}{subsubsection.2.12.3}%
+\contentsline {subsubsection}{\numberline {2.12.4}Motor and Battery Cost}{44}{subsubsection.2.12.4}%
+\contentsline {subsubsection}{\numberline {2.12.5}Total Price Breakdown for Manufacturing}{44}{subsubsection.2.12.5}%
+\contentsline {section}{\numberline {3}Recommendations}{45}{section.3}%
+\contentsline {section}{\numberline {4}Manual}{46}{section.4}%
+\contentsline {section}{\numberline {5}References}{53}{section.5}%
+\contentsline {section}{\numberline {A}Appendices}{54}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Constraints}{54}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Additional Requirements}{55}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Verification and Validation}{56}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Hardware Prototypes}{58}{subsection.A.4}%
+\contentsline {subsubsection}{\numberline {A.4.1}PCB Prototype 1.0}{58}{subsubsection.A.4.1}%
+\contentsline {subsubsection}{\numberline {A.4.2}PCB Prototype 2.0}{58}{subsubsection.A.4.2}%
+\contentsline {subsubsection}{\numberline {A.4.3}Frame Prototypes}{59}{subsubsection.A.4.3}%
+\contentsline {subsubsection}{\numberline {A.4.4}Assembled Prototype 1.0}{60}{subsubsection.A.4.4}%
+\contentsline {subsubsection}{\numberline {A.4.5}Assembled Prototype 2.0 For Testing}{60}{subsubsection.A.4.5}%
+\contentsline {subsection}{\numberline {A.5}WebSocket Page}{61}{subsection.A.5}%
+\contentsline {subsection}{\numberline {A.6}Stakeholder Engagement}{62}{subsection.A.6}%
+\contentsline {subsection}{\numberline {A.7}Requirements Update Summary (Week 6)}{63}{subsection.A.7}%
+\contentsline {subsubsection}{\numberline {A.7.1}Ranked Requirements - Proposed Changes}{63}{subsubsection.A.7.1}%
+\contentsline {subsubsection}{\numberline {A.7.2}Additional Requirements - Proposed Changes}{65}{subsubsection.A.7.2}%
+\contentsline {subsubsection}{\numberline {A.7.3}Additional Requirements - Final (Post-Change List)}{66}{subsubsection.A.7.3}%
+\contentsline {subsection}{\numberline {A.8}Code}{67}{subsection.A.8}%
+\contentsline {subsubsection}{\numberline {A.8.1}File Structure}{67}{subsubsection.A.8.1}%
+\contentsline {subsubsection}{\numberline {A.8.2}sensor.c}{67}{subsubsection.A.8.2}%
+\contentsline {subsubsection}{\numberline {A.8.3}filter.c}{74}{subsubsection.A.8.3}%
+\contentsline {subsubsection}{\numberline {A.8.4}estimator.c}{75}{subsubsection.A.8.4}%
+\contentsline {subsubsection}{\numberline {A.8.5}controller.c}{80}{subsubsection.A.8.5}%
+\contentsline {subsubsection}{\numberline {A.8.6}stabiliser.c}{85}{subsubsection.A.8.6}%
+\contentsline {subsubsection}{\numberline {A.8.7}motors.c}{88}{subsubsection.A.8.7}%
+\contentsline {subsubsection}{\numberline {A.8.8}websocket.c}{92}{subsubsection.A.8.8}%

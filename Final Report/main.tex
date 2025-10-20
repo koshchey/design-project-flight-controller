@@ -37,7 +37,11 @@
 \renewcommand*{\glossarysection}[2][]{
   \section*{#2}
 }
+{\small % or \footnotesize, \scriptsize
 \printglossary[type=\acronymtype]
+}
+
+% \include{1_header/glossary-table.tex}
 \pagebreak
 %TC:endignore
 
