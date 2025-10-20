@@ -1,6 +1,6 @@
 \subsection{Testing}
 
-Testing validated both the hardware and firmware subsystems through structured verification activities. Tests were performed in two phases: \textit{stationary testing} to evaluate sensing, communication, and control logic, and \textit{dynamic testing} to assess flight behaviour and PID stability. Hardware-specific verification ensured electrical safety, EMI robustness, and mechanical reliability.
+Testing validated both the hardware and firmware subsystems through structured verification activities. Hardware-specific verification ensured electrical safety, EMI robustness, and mechanical reliability. Firmwared-intregrated tests were performed in two phases: \textit{stationary testing} to evaluate sensing, communication, and control logic, and \textit{dynamic testing} to assess flight behaviour and PID stability. 
 
 \subsubsection{Hardware Verification and Reliability Tests}
 
@@ -30,13 +30,13 @@ Motors driven at 100\% duty for 5~min; temperature and EMI monitored. \newline
 Tested for communication stability during PWM activity. \newline
 \textit{Pass:} Error rate = 0; no bus lockups. \\ 
 \midrule
-\textbf{RF Keep-Out Validation} &
+\textbf{\gls{rf} Keep-Out Validation} &
 Antenna region visually inspected for compliance with vendor keep-out. \newline
 \textit{Pass:} No metallic intrusion or ground pours detected. \\ 
 \midrule
 \textbf{Thermal Stability (Steady-State)} &
 5~min load test in 25~°C ambient; surface temperatures measured. \newline
-\textit{Pass:} ESP32~$<$60~°C, LDO/Drivers~$<$85~°C, no PETG softening. \\ 
+\textit{Pass:} ESP32~$<$60~°C, LDO/Drivers~$<$85~°C, no \gls{petg} softening. \\ 
 \midrule
 \textbf{Connector Retention \& Polarity} &
 15~N pull test on JST and USB; polarity verification. \newline
@@ -57,7 +57,9 @@ Visual inspection for component identifiers and revision markings. \newline
 \end{longtable}
 
 %-------------------------------------------------------------%
-\subsubsection{Stationary Testing} \leavevmode
+\subsubsection{Firmware Verification and Reliability Tests}
+
+\paragraph{Stationary Testing} \leavevmode
 
 Focused on verifying hardware interfaces and firmware logic prior to flight. All components were tested under controlled, static conditions to ensure correct data acquisition and communication.
 
@@ -150,7 +152,7 @@ The algorithm accurately tracked the drone's orientation under moderate movement
 \end{table}
 
 %-------------------------------------------------------------%
-\subsubsection{Dynamic Testing} \leavevmode
+\paragraph{Dynamic Testing} \leavevmode
 
 Evaluated system-level performance including lift-off, hovering, and control tuning. Although sustained flight was not achieved, these tests revealed essential insights for future iteration — particularly regarding motor alignment and PID tuning. 
 
@@ -207,6 +209,4 @@ Hover could not be achieved, limiting assessment. Control signals were active an
 
 Overall, testing verified functional integration between hardware and firmware components. Sensor readings, communication interfaces, and power regulation behaved as intended. Dynamic flight tests confirmed lift capability but revealed instability attributed to motor thrust imbalance and tuning parameters. No critical hardware failures were observed. The tests collectively demonstrate a successful proof of concept and provide a clear direction for future refinement in control tuning and propulsion calibration.
 
-\temp{Mention V\&V table}
-
-\temp{Figures related to testing}
+The results of these tests are current as of the submission of this report. Tests covering the full set of requirements is provided in Appendix~\ref{app:v-and-v}, which includes the Verification and Validation table used to assess the final product. Any updates to this table up to the day of the demonstration will be made available on GitHub at~\cite{flightcontroller_git}.

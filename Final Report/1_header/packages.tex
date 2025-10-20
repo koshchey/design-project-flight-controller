@@ -98,21 +98,44 @@
 \definecolor{vscodeGreen}{RGB}{87,166,74}
 \definecolor{vscodeOrange}{RGB}{214,157,133}
 \definecolor{vscodeCommentGray}{RGB}{106,153,85}
+
 \lstset{
-    language=C,
-    backgroundcolor=\color{white},
-    basicstyle=\ttfamily\footnotesize\color{black},
-    keywordstyle=\color{vscodeBlue}\bfseries,
-    commentstyle=\color{vscodeCommentGray}\itshape,
-    stringstyle=\color{vscodeOrange},
-    numbers=left,
-    numberstyle=\tiny\color{gray},
-    stepnumber=1,
-    numbersep=5pt,
-    breaklines=true,
-    frame=single,
-    rulecolor=\color{vscodeGray},
-    showstringspaces=false,
-    tabsize=4,
-    captionpos=b
+  language=C,
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily\footnotesize\color{black},
+  keywordstyle=\color{vscodeBlue}\bfseries,
+  commentstyle=\color{vscodeCommentGray}\itshape,
+  stringstyle=\color{vscodeOrange},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{vscodeGray},
+  showstringspaces=false,
+  tabsize=4,
+  captionpos=b,
+  literate={_}{{\_}}1,
+  breaklines=true,
+  breakatwhitespace=true
+  % postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, listings, xparse}
+
+\newtcolorbox{manualblock}[1][]{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=black!50,
+  fonttitle=\bfseries\sffamily\large,
+  fontupper=\sffamily,
+  coltitle=black,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  sharp corners,
+  title={#1},
+  boxrule=0.4pt,
+  before skip=10pt, after skip=10pt
 }

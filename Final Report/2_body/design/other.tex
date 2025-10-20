@@ -35,16 +35,18 @@ Mechanical Fit & PCB alignment, connector access, and sensor line-of-sight confi
 \label{tab:system-integration}
 \end{table}
 
-\noindent All subsystems were integrated according to version-controlled interface definitions, and validated sequentially through subsystem and combined functional testing. Final system integration is shown in Fig.~\ref{fig:complete-drone}.
+\noindent All subsystems were integrated according to version-controlled interface definitions, and validated sequentially through subsystem and combined functional testing.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{img/frame-placeholder.png}
-    \caption{Completed Integrated Drone System \temp{placeholder}}
-    \label{fig:complete-drone}
-\end{figure}
+% Final system integration is shown in Fig.~\ref{fig:complete-drone}.
 
-\temp{Add firmware figures mayhaps}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{img/frame-placeholder.png}
+%     \caption{Completed Integrated Drone System \temp{placeholder}}
+%     \label{fig:complete-drone}
+% \end{figure}
+
+% \temp{Add firmware figures mayhaps}
 %-------------------------------------------------------------% 
 \pagebreak
 \include{2_body/design/stakeholder}
@@ -109,7 +111,7 @@ Clearance Check & 1) Ensure full clearance with guards  \newline 2) No wire chaf
 \hline
 Mechanical Tests & 1) Run shake or stability tests \textit{[location TBD]}. \\
 \hline
-Firmware Test & 1) Power on without propellers  \newline 2) Confirm ESP32 boots, sensors initialise  \newline 3) Each motor spins once  \newline 4) Verify serial output, LED states correct. \\
+Firmware Test & 1) Power on without propellers  \newline 2) Confirm ESP32 boots, sensors initialise  \newline 3) Each motor spins once  \newline 4) Verify serial output, \gls{led} states correct. \\
 \hline
 \end{tabular}
 \caption{ESP Assembly and Pre-Run Procedure}
@@ -276,15 +278,14 @@ o Four legs improve frame stability \\
 
 \textbf{Repository Contents:}
 \begin{itemize}
-    \item \texttt{ELEC5552\_FinalReport\_Team0.pdf}: This report.
+    \item \texttt{ELEC5552\_FinalReport\_Team04.pdf}: This report.
     \item \texttt{Final\_Report\_LaTeX/}: Contains all \LaTeX{} source files.
     \item \texttt{Firmware/}: Flight controller firmware (\gls{esp-idf} project).
-    \item \texttt{PCB/}: Gerber files, BOM, and Pick and Place for the PCB
-    \item \texttt{Frame/}: .stl files for 3D printer frame
-    \item \temp{V\&V/}:
+    \item \texttt{PCB Files/}: Gerber files, BOM, Pick and Place, schematic and layout for the current PCB design.
+    \item \texttt{Frame/}: .stl files for 3D printed frame.
+    \item Prototypes/: Any prototype designs and outputs.
+    \item V\&V/: Valdiation \& Verification table, up to date.
 \end{itemize}
-
-\temp{Check later}
 
 %-------------------------------------------------------------% 
 \pagebreak
@@ -348,6 +349,7 @@ Insulated Wire & 1 & 0.105 \\
 \caption{Cost breakdown of additional surface-mounted components.}
 \end{table}
 
+\pagebreak
 \subsubsection{3D Printed Frame Cost}
 
 Material: Entire frame printed in PETG with raft and tree supports (7\% gyroid infill). No shipping costs (local vendor in Perth). Cost includes filament used for supports. Printer usage is \$0.
@@ -376,7 +378,7 @@ Batteries and motors/propellers are purchased commercially for safety and compli
 \midrule
 Battery 1S 800mAH & 1 & 4.89 \\
 Motors + Propellers (1 set = 2x ACW, 2x CW) & 1 set & 5.59 \\
-JST male connectors / crimps & 4 & 0.103 \\
+\gls{jst} male connectors / crimps & 4 & 0.103 \\
 \bottomrule
 \end{tabular}
 \caption{Motor and battery cost breakdown. Recommended items and vendors listed in Appendix.}

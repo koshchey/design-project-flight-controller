@@ -13,57 +13,8 @@ Email Correspondence & Direct communication used to clarify requirements due to 
 \end{tabular}
 \end{table}
 
-% \subsection{Outcomes of Engagement}
+A detailed record of all stakeholder interactions, including questions, responses, is given in Appendix~\ref{app:stakeholder-engagement}.
 
-% A detailed record of all stakeholder interactions, including questions, responses, is given below:
-
-
-\begin{table}[H]
-\centering
-\caption{Client Meetings, Information Sessions, and Technical Queries - Summary (Weeks 1-5)}
-\begin{tabular}{|p{2cm}|p{9.5cm}|p{3cm}|}
-\hline
-\textbf{Date / Week} & \textbf{Item / Notes} & \textbf{Priority / Additional Notes} \\ \hline
-24/07/2025 (W1) & Open-source software must be used. & -- \\ \hline
- & Client requirements may be negotiated with the client. & -- \\ \hline
-31/07/2025 (W2) & \textbf{Q1:} Desired action when drone encounters obstacle (stop, reverse, turn around). & Medium \\ \hline
- & \textbf{Client Response:} Stop and hover; shutdown if obstruction persists. Both options desirable. & -- \\ \hline
- & \textbf{Q2:} Requirements for drone movement patterns—preprogrammed or flexible. & High \\ \hline
- & \textbf{Client Response:} Preprogrammed patterns given 1-2 weeks before demo. Custom pattern: simple polygon. & Plan flexible design early \\ \hline
-07/08/2025 (W3) & \textbf{Q3:} Two 1S batteries instead of one 2S? Max total capacity 800mAh? & Medium \\ \hline
- & \textbf{Client Response:} Only one battery allowed. Total capacity < 800mAh. & -- \\ \hline
- & Other relevant info: Reaction to wall/obstacles same; automatic obstacle detection and shutdown. & -- \\ \hline
-15/08/2025 (W4) & No technical queries this week. & -- \\ \hline
-23/08/2025 (W5) & \textbf{Q4:} Mounting IR sensor (VL53L0X) with perpendicular orientation to main PCB. Breakout allowed? & Medium \\ \hline
- & \textbf{Client Response:} Yes. & -- \\ \hline
- & \textbf{Q5:} Can we place coloured/reflective tape for start position? & Low \\ \hline
- & \textbf{Client Response:} Yes. & -- \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Other Information - Summary (Weeks 1-5)}
-\begin{tabular}{|p{2.5cm}|p{12cm}|}
-\hline
-\textbf{Date / Week} & \textbf{Item / Notes} \\ \hline
-24/07/2025 (W1) &
-Drifting should be below 10 cm before stabilisation.  \newline 
-Object detection is for non-transparent objects only.  \newline 
-Surveillance camera must record video and optionally allow hover height adjustment. \newline
-Final testing location: MATH151. \newline
-ESCs must be part of the PCB. \\ \hline
-07/08/2025 (W3) &
-No obstacles on ground during demo. \newline
-Can use magnetometer and multiple MCU chips, particularly for camera. \newline Camera does not need to be ESP32-based \newline \\ \hline
-\end{tabular}
-\end{table}
-
-\subsubsection{Requirement Changes} \leavevmode
-
-During Week 6, the project team and client reviewed and refined the ranked and additional requirements.  The proposed changes involved removing requirements that were no longer feasible given the reduced project capacity and the updated system scope, as the number of members had reduced significantly. This was from six members initially to four by August 1, and two by August 25. No new requirements were added; instead, the scope was greatly reduced. The description of these changes can be found in Appendix~\ref{app:req-changes}.
-
-% \pagebreak
 \subsubsection{Stakeholder Engagement Summary} \leavevmode
 
 Through structured communication, the team achieved the following: \
@@ -81,3 +32,7 @@ Week 6 Client Meeting – Requirement Review & Reviewed all ranked and additiona
 Requirement Rationalisation & Removed redundant or infeasible requirements (e.g., complex autonomous navigation and multi-pattern path options). Ensured compliance with budget and technical constraints. \\ \hline
 Final Client Approval & Confirmed revised and re-ranked requirements list with the client. Finalised scope for design and testing phases based on approved specification. \\ \hline
 \end{tabular}
+
+\subsubsection{Requirement Changes} \leavevmode
+
+During Week 6, the project team and client reviewed and refined the ranked and additional requirements.  The proposed changes involved removing requirements that were no longer feasible given the reduced project capacity and the updated system scope, as the number of members had reduced significantly. The description of these changes can be found in Appendix~\ref{app:req-changes}.

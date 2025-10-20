@@ -26,7 +26,7 @@ The following table summarises key hazards, their associated risks, and control 
 \hline
 \rowcolor{gray!15}\textbf{Hazard} & \textbf{Risks/Mechanism} & \textbf{Controls Implemented} & \textbf{Procedure} \\ \hline
 Heating & Localised MOSFET heating or soldering burns & Copper pours, current limiting, heat mats & IR checks, switch-off when idle \\ \hline
-Cuts/Abrasions & Propeller lacerations or tool injuries & Shrouds, guarded tools, PPE & Bench test first, enable arming LED cues \\ \hline
+Cuts/Abrasions & Propeller lacerations or tool injuries & Shrouds, guarded tools, PPE & Bench test first, enable arming \gls{led} cues \\ \hline
 Sparking & Short circuits or solder bridging & Heat-shrink, clearance design & continuity test, no live soldering \\ \hline
 Battery & Thermal runaway or over-discharge & Voltage alarms, visual inspection & Remove damaged cells, fire control kit on-site \\ \hline
 Trips/Spills & Loose cables/liquids in walkways & Cable trays, dry floor policy & End-of-session clearance audit \\ \hline
@@ -45,7 +45,7 @@ The onboard camera remains disabled by default and is only activated during sche
 
 \vspace{0.5em}
 \textbf{Wireless Communication:}  
-Wi-Fi telemetry operates under least-privilege access principles. No personal device identifiers are logged. RF transmissions remain within laboratory and local regulatory limits. Channels that may conflict with co-located research equipment are excluded.
+Wi-Fi telemetry operates under least-privilege access principles. No personal device identifiers are logged. \gls{rf} transmissions remain within laboratory and local regulatory limits. Channels that may conflict with co-located research equipment are excluded.
 
 \vspace{0.5em}
 \textbf{Open-Source Release and Responsible Use:}  
@@ -54,7 +54,7 @@ All CAD, firmware, and PCB files will be published under a permissive open-sourc
 \begin{itemize}
     \item Intended operation is indoor hover testing only, with shrouded rotors and fully functional fail-safes.
     \item Prohibited uses include surveillance without explicit consent, public outdoor operation, weaponisation, or disabling of safety systems.
-    \item Recommended safe substitution components, correct Li-Po disposal procedures, and repair instructions using reprintable PETG parts.
+    \item Recommended safe substitution components, correct Li-Po disposal procedures, and repair instructions using reprintable \gls{petg} parts.
 \end{itemize}
 
 This ensures that any derivative builds acknowledge ethical and safety boundaries aligned with the project's academic intent.

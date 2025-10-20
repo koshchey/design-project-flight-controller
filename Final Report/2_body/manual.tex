@@ -1,8 +1,10 @@
+\begin{manualblock}[Assembly Manual]
+
 \subsection*{PCB Ordering \& Assembly Scope}
 PCB should be ordered using Gerber files, Pick \& Place, and BOM. Select a 1.6\,mm PCB with standard solder mask and silkscreen colours. The top face should be assembled, with the \textbf{switch} and \textbf{female header pins} left unpopulated for hand-soldering.
 
 \subsection*{Bill of Materials (Selected Items)}
-\begin{longtable}{@{}m{2.2cm}m{2cm}m{2cm}m{1.5cm}m{4.5cm}m{2.5cm}@{}}
+\begin{longtable}{@{}m{2.2cm}m{1cm}m{2cm}m{1cm}m{4.5cm}m{2.5cm}@{}}
 \toprule
 \textbf{Item} & \textbf{Designator} & \textbf{Value/Spec} & \textbf{Qty} & \textbf{Notes / Supplier Ref.} & \textbf{Image}\\
 \midrule
@@ -18,12 +20,13 @@ E-Switch & SW1/2 & 4\,A max & 1 & DigiKey: \texttt{R4ABLKREDFF0} & \includegraph
 
 \pagebreak
 \subsection*{Unboxing \& Visual Inspection Checklist}
-\begin{itemize}
-  \item[] \checkbox{} Humidity sensing paper indicates no moisture; packaging shows no mechanical damage.
-  \item[] \checkbox{} Inspect all soldered joints for bridges or opens; reflow or add solder as needed.
-  \item[] \checkbox{} Continuity: verify no shorts between \texttt{3.3V$\rightarrow$GND}, \texttt{5V$\rightarrow$GND}, \texttt{BATT$\rightarrow$GND}.
-  \item[] \checkbox{} Join test: mate the JST connector to the PCB-mounted female JST and confirm correct fit.
-\end{itemize}
+\checkbox{} Humidity sensing paper indicates no moisture; packaging shows no mechanical damage.
+
+\checkbox{} Inspect all soldered joints for bridges or opens; reflow or add solder as needed.
+
+\checkbox{} Continuity: verify no shorts between \texttt{3.3V$\rightarrow$GND}, \texttt{5V$\rightarrow$GND}, \texttt{BATT$\rightarrow$GND}.
+
+\checkbox{} Join test: mate the JST connector to the PCB-mounted female JST and confirm correct fit.
 
 \subsection*{Tools \& Preparation}
 \begin{itemize}
@@ -39,7 +42,7 @@ Applicable parts: Female headers (\textit{VLXattachment1 / vlxattachment}), insu
   \item Heat the joint (lead + pad), feed solder, then remove solder first and iron second; allow to cool undisturbed.
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.5\linewidth]{img/manual/solder1.png}
   % \caption{Through-hole guide}
@@ -53,7 +56,7 @@ Applicable parts: Capacitors (10\,\textmu F, 100\,nF), ESP32-WROOM module.
 \end{itemize}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.5\linewidth]{img/manual/solder2.png}
     % \caption{SMD guide}
@@ -67,13 +70,13 @@ Applicable parts: Capacitors (10\,\textmu F, 100\,nF), ESP32-WROOM module.
   \begin{subfigure}[b]{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{img/assembly-1.png}
-    \caption{Step 1: Back}
+    \caption{Step 1: Front}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{img/assembly-2.png}
-    \caption{Step 2: Front}
+    \caption{Step 2: Back}
   \end{subfigure}
   % \caption{Component Soldering Steps}
 \end{figure}
@@ -117,16 +120,18 @@ Applicable parts: Capacitors (10\,\textmu F, 100\,nF), ESP32-WROOM module.
 
 
 \subsection*{Checklist}
-\begin{itemize}
-  \item[] \checkbox{} Continuity: all ESP32 pins are isolated (no unintended bridges).
-  \item[] \checkbox{} Switch continuity and actuation verified (ON/OFF as expected).
-  \item[] \checkbox{} C10/C9 terminal isolation confirmed (no shorts).
-  \item[] \checkbox{} Visual: all solder joints smooth, shiny, and confined to pad/pin.
-  \item[] \checkbox{} Join test: distance sensor module mates correctly in female headers.
-\end{itemize}
+\checkbox{} Continuity: all ESP32 pins are isolated (no unintended bridges).
 
-\subsection*{3D-Printed Frame (PETG)}
-The frame is to be printed in PETG. Slice locally with:
+\checkbox{} Switch continuity and actuation verified (ON/OFF as expected).
+
+\checkbox{} C10/C9 terminal isolation confirmed (no shorts).
+
+\checkbox{} Visual: all solder joints smooth, shiny, and confined to pad/pin.
+
+\checkbox{} Join test: distance sensor module mates correctly in female headers.
+
+\subsection*{3D-Printed Frame (\gls{petg})}
+The frame is to be printed in \gls{petg}. Slice locally with:
 \begin{itemize}
   \item Infill: 7\% (gyroid pattern).
   \item Supports: tree supports enabled.
@@ -134,12 +139,13 @@ The frame is to be printed in PETG. Slice locally with:
 \end{itemize}
 
 \subsection*{Print QA Checklist}
-\begin{itemize}
-  \item[] \checkbox{} Layers: consistent adhesion with no gaps.
-  \item[] \checkbox{} Edges: no warping present.
-  \item[] \checkbox{} Walls: smooth, no bumps or cracks.
-  \item[] \checkbox{} Bend test: parts flex slightly and return without splitting (if not, filament may be old/wet).
-\end{itemize}
+\checkbox{} Layers: consistent adhesion with no gaps.
+
+\checkbox{} Edges: no warping present.
+
+\checkbox{} Walls: smooth, no bumps or cracks.
+
+\checkbox{} Bend test: parts flex slightly and return without splitting (if not, filament may be old/wet).
 
 \begin{figure}[H]
   \centering
@@ -187,23 +193,64 @@ The frame is to be printed in PETG. Slice locally with:
     \caption{Main Frame}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[b]{0.48\linewidth}
+  \begin{subfigure}[b]{0.44\linewidth}
     \centering
     \includegraphics[width=\linewidth]{img/assembly-6.png}
     \caption{Camera Mount}
   \end{subfigure}
   \begin{subfigure}[b]{0.44\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img/assembly-7.png}
+    \includegraphics[width=\linewidth]{img/assembly-8.png}
     \caption{Battery Cage}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.4\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{img/assembly-7.png}
+    \caption{Feet}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.44\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{img/manual/assemb2.png}
+    \caption{Motors}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.48\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img/assembly-8.png}
-    \caption{Feet}
+    \includegraphics[width=\linewidth]{img/manual/assemb3.jpg}
+    \caption{Propellers}
   \end{subfigure}
-  \caption{3D Printing Steps}
+  \caption{Assembly Steps}
 \end{figure}
 
-\temp{Add firmware section}
+\subsection*{Firmware Instructions}
+
+\subsubsection*{Uploading Firmware to Device}
+\begin{enumerate}
+  \item \textbf{Install ESP-IDF:} Follow the official setup guide for the ESP32-S2 series:  
+  \url{https://docs.espressif.com/projects/esp-idf/en/release-v4.4/esp32s2/get-started/index.html}
+  
+  \item \textbf{Windows Setup:} The recommended method is using \textbf{WSL2} with the ESP-IDF extension.  
+  Install WSL2 using: \url{https://learn.microsoft.com/en-us/windows/wsl/install}
+  
+  \item \textbf{Build Project:} Navigate to the firmware project directory in the terminal and run the build command. Ensure the firmware compiles successfully without errors.
+  
+  \item \textbf{Flash Firmware:} Connect the drone via micro-USB and flash the firmware using ESP-IDF tools. Wait for the device to reboot automatically after flashing.
+  
+  \item \textbf{Read IP Address:} Open the debug monitor to view the assigned IP address. This will be required for the WebSocket interface.
+  
+  \item \textbf{Configure WebSocket:}  
+  Open \texttt{IndexV2.html} and update the WebSocket address to match the drone’s IP.  
+  Also, update the example connection configuration with your hotspot or Wi-Fi credentials.
+  
+  \item \textbf{Connect:} Connect your computer to the same hotspot or Wi-Fi network. The drone should automatically connect if configured correctly.
+  
+  \item \textbf{Verify Connection:}  
+  Open the WebSocket HTML interface in a browser. It should display that the connection is established.
+  
+  \item \textbf{Testing:} Press the \texttt{hello} button in the interface. If successful, the drone will return an echo message confirming communication.
+\end{enumerate}
+
+Ensure the power supply is stable during flashing. Do not disconnect the USB cable until the process is complete. Always verify Wi-Fi credentials and WebSocket settings before flight testing.
+
+\end{manualblock}

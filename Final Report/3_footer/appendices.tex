@@ -58,7 +58,7 @@ A.R.4 & A comprehensive operation manual and user guide shall be provided to the
 \hline
 A.R.6 & Placement of components on the \gls{pcb} shall minimise signal distortion and heat generation to ensure accurate flight paths and predictable behaviour. \\
 \hline
-A.R.7 & The drone shall feature a visual (LED) or audible warning system to alert personnel during flight initiation. \\
+A.R.7 & The drone shall feature a visual (\gls{led}) or audible warning system to alert personnel during flight initiation. \\
 \hline
 A.R.8 & The drone shall provide a UI alert in cases of overheating. \\
 \hline
@@ -71,6 +71,21 @@ A.R.10 & The drone shall feature visual or UI indicators showing when it is powe
 
 %----------------------------------------------------------%
 \pagebreak
+\subsection{Verification and Validation}
+\label{app:v-and-v}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/vandv1.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/vandv2.png}
+\end{figure}
+
+%----------------------------------------------------------%
+\pagebreak
 \subsection{Hardware Prototypes}
 \label{app:pcb-prototypes}
 
@@ -78,51 +93,113 @@ A.R.10 & The drone shall feature visual or UI indicators showing when it is powe
 
 \begin{figure}[H]
     \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.55\textwidth]{img/proto-pcb1.png}
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/proto-pcb1.png}
+        \caption{Overview}
+        \label{fig:pcb1-overview}
+    \end{subfigure}
+    \hfill
+    \vfill
+    \begin{subfigure}[b]{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/PCBit1_front.png}
+        \caption{Front Side}
+        \label{fig:pcb1-front}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/PCBit1_back.png}
+        \caption{Back Side}
+        \label{fig:pcb1-back}
+    \end{subfigure}
+    \label{fig:pcb1}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.55\textwidth]{img/PCBit1_front.png}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.55\textwidth]{img/PCBit1_back.png}
-\end{figure}
-
-\pagebreak
+% \pagebreak
 \subsubsection{PCB Prototype 2.0}
 
 \begin{figure}[H]
     \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.55\textwidth]{img/proto-pcb2.png}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.55\textwidth]{img/PCBit2_front.png}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.55\textwidth]{img/PCBit2_back.png}
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/proto-pcb2.png}
+        \caption{Overview}
+        \label{fig:pcb2-overview}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}[b]{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/PCBit2_front.png}
+        \caption{Front Side}
+        \label{fig:pcb2-front}
+    \end{subfigure}
+    \hfill 
+    \begin{subfigure}[b]{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/PCBit2_back.png}
+        \caption{Back Side}
+        \label{fig:pcb2-back}
+    \end{subfigure}
+    \label{fig:pcb2}
 \end{figure}
 
 \pagebreak
-\subsubsection{Frame Prototype 1.0}
+\subsubsection{Frame Prototypes}
 
 \begin{figure}[H]
     \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.55\textwidth]{img/OldFrame.png}
+    % Prototype 1.0
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/frame-1.PNG}
+        \caption{Prototype 1.0}
+        \label{fig:frame-proto1}
+    \end{subfigure}
+    \hfill
+    % Prototype 2.0
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/OldFrame.png}
+        \caption{Prototype 2.0}
+        \label{fig:frame-proto2}
+    \end{subfigure}
+    \hfill
+    % Prototype 3.0 (front)
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/frame-3.png}
+        \caption{Prototype 3.0 Front}
+        \label{fig:frame-proto3-front}
+    \end{subfigure}
+    % Prototype 3.0 (back) on a new line
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/frame-3-back.png}
+        \caption{Prototype 3.0 Back}
+        \label{fig:frame-proto3-back}
+    \end{subfigure}
+    % \caption{Development of frame prototypes 1.0 to 3.0, showing front and back views of the final iteration.}
+    \label{fig:frame-prototypes}
 \end{figure}
+
+\pagebreak
+\subsubsection{Assembled Prototype 1.0}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{img/prototype-1-2.png}
+\end{figure}
+
+\subsubsection{Assembled Prototype 2.0 For Testing}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/prototype-2.png}
+\end{figure}
+
 
 %----------------------------------------------------------%
 \subsection{WebSocket Page}
@@ -130,14 +207,59 @@ A.R.10 & The drone shall feature visual or UI indicators showing when it is powe
 
 \begin{figure}[H]
     \centering
-    \captionsetup{justification=centering, margin=1cm}
-    \includegraphics[width=0.9\textwidth]{img/websocket-page.PNG}
+    \includegraphics[width=0.98\textwidth]{img/websocket-page.PNG}
     \caption{WebSocket Client Web Page}
 \end{figure}
 
 %----------------------------------------------------------%
 \pagebreak
 
+\subsection{Stakeholder Engagement}
+\label{app:stakeholder-engagement}
+
+\begin{table}[H]
+\centering
+\caption{Client Meetings, Information Sessions, and Technical Queries - Summary (Weeks 1-5)}
+\begin{tabular}{|p{2cm}|p{9.5cm}|p{3cm}|}
+\hline
+\textbf{Date / Week} & \textbf{Item / Notes} & \textbf{Priority / Additional Notes} \\ \hline
+24/07/2025 (W1) & Open-source software must be used. & -- \\ \hline
+ & Client requirements may be negotiated with the client. & -- \\ \hline
+31/07/2025 (W2) & \textbf{Q1:} Desired action when drone encounters obstacle (stop, reverse, turn around). & Medium \\ \hline
+ & \textbf{Client Response:} Stop and hover; shutdown if obstruction persists. Both options desirable. & -- \\ \hline
+ & \textbf{Q2:} Requirements for drone movement patterns—preprogrammed or flexible. & High \\ \hline
+ & \textbf{Client Response:} Preprogrammed patterns given 1-2 weeks before demo. Custom pattern: simple polygon. & Plan flexible design early \\ \hline
+07/08/2025 (W3) & \textbf{Q3:} Two 1S batteries instead of one 2S? Max total capacity 800mAh? & Medium \\ \hline
+ & \textbf{Client Response:} Only one battery allowed. Total capacity < 800mAh. & -- \\ \hline
+ & Other relevant info: Reaction to wall/obstacles same; automatic obstacle detection and shutdown. & -- \\ \hline
+15/08/2025 (W4) & No technical queries this week. & -- \\ \hline
+23/08/2025 (W5) & \textbf{Q4:} Mounting IR sensor (VL53L0X) with perpendicular orientation to main PCB. Breakout allowed? & Medium \\ \hline
+ & \textbf{Client Response:} Yes. & -- \\ \hline
+ & \textbf{Q5:} Can we place coloured/reflective tape for start position? & Low \\ \hline
+ & \textbf{Client Response:} Yes. & -- \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Other Information - Summary (Weeks 1-5)}
+\begin{tabular}{|p{2.5cm}|p{12cm}|}
+\hline
+\textbf{Date / Week} & \textbf{Item / Notes} \\ \hline
+24/07/2025 (W1) &
+Drifting should be below 10 cm before stabilisation.  \newline 
+Object detection is for non-transparent objects only.  \newline 
+Surveillance camera must record video and optionally allow hover height adjustment. \newline
+Final testing location: MATH151. \newline
+ESCs must be part of the PCB. \\ \hline
+07/08/2025 (W3) &
+No obstacles on ground during demo. \newline
+Can use magnetometer and multiple MCU chips, particularly for camera. \newline Camera does not need to be ESP32-based \newline \\ \hline
+\end{tabular}
+\end{table}
+
+%----------------------------------------------------------%
+\pagebreak
 \subsection{Requirements Update Summary (Week 6)}
 \label{app:req-changes}
 
@@ -258,8 +380,16 @@ A.R.10 & The drone shall have indicators to show when it is powering down or ope
 \pagebreak
 \subsection{Code}
 \label{app:firmware-code}
-%---------------------------------------------------------%
 
+%---------------------------------------------------------%
+\subsubsection{File Structure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{img/code-files.PNG}
+    \caption{File Structure}
+\end{figure}
+
+%---------------------------------------------------------%
 \subsubsection{sensor.c}
 
 \begin{lstlisting}
@@ -585,6 +715,61 @@ void i2c_mpu_device_init(i2c_master_bus_handle_t *bus_handle, i2c_master_dev_han
 }
 \end{lstlisting}
 
+%---------------------------------------------------------%
+\pagebreak
+\subsubsection{filter.c}
+\label{app:code-filter}
+
+\begin{lstlisting}
+#include "filter.h"
+#include <math.h>
+
+/* Initiliase low-pass filter values */
+void init_lpf(lpf_data *lpf_data, float fs, float fc) {
+    /* Ref: CrazyFlieCore, Filter.c */
+    /* Ref: https://www.earlevel.com/main/2003/03/02/the-bilinear-z-transform/ */
+    // ohm = tan(pi*Fc/Fs) = K
+    // c = K^2 + K/Q + 1, Q = 0.707 (second order butterworth)
+    // i.e. 1/Q = 1.414
+
+    float fr = fs/fc; // sampling frequency/cutoff frequency
+    float ohm = tanf((float)M_PI/fr);
+    float c = 1.0f+2.0f*cosf((float)M_PI/4.0f)*ohm+ohm*ohm; 
+    lpf_data->b0 = ohm*ohm/c;
+    lpf_data->b1 = 2.0f*lpf_data->b0;
+    lpf_data->b2 = lpf_data->b0;
+    lpf_data->a1 = 2.0f*(ohm*ohm-1.0f)/c;
+    lpf_data->a2 = (1.0f-2.0f*cosf((float)M_PI/4.0f)*ohm+ohm*ohm)/c;
+    lpf_data->delayed1 = .0f;
+    lpf_data->delayed2 = .0f;
+}
+
+/* Apply low-pass filter */
+float apply_lpf(lpf_data *lpf_data, float sample) {
+    /* Ref: https://en.wikipedia.org/wiki/Digital_biquad_filter */
+
+    //        b0 + b1 z^-1 + b2 z^-2 
+    // H(z) = ---------------------- 
+    //        1 + a1 z^-1 + a2 z^-2  
+
+    /* Direct form 2 implementation: */
+    // w(n) = x(n) - a1 w(n-1) - a2 w(n-2) 
+    // y(n) = b0 w(n) + b1 w(n-1) + b3 w(n-2) 
+    
+    float delayed0 = sample - (lpf_data->delayed1 * lpf_data->a1) - (lpf_data->delayed2 * lpf_data->a2);
+    
+    if (!isfinite(delayed0)) {
+        delayed0 = sample;
+    }
+        
+    float output = (delayed0 * lpf_data->b0) + (lpf_data->delayed1 * lpf_data->b1) + (lpf_data->delayed2 * lpf_data->b2);
+
+    lpf_data->delayed2 = lpf_data->delayed1;
+    lpf_data->delayed1 = delayed0;
+
+    return output;
+}
+\end{lstlisting}
 %---------------------------------------------------------%
 \pagebreak
 \subsubsection{estimator.c}

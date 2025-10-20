@@ -1,22 +1,24 @@
 \babel@toc {australian}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Miniature Drone \blx@tocontentsinit {0}\cite {abbott2024}}}{8}{figure.caption.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Survelliance Drone Diagram}}{9}{figure.caption.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Surveillance Drone Diagram}}{9}{figure.caption.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Espressif ESP32 DevKit~\blx@tocontentsinit {0}\cite {iotdesignpro2019}}}{9}{figure.caption.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Printed Circuit Board \blx@tocontentsinit {0}\cite {mistral2020}}}{10}{figure.caption.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces System Architecture Process}}{12}{figure.caption.6}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Overall System Architecture with Hardware and Firmware Interfaces}}{12}{figure.caption.7}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Hardware Architecture}}{13}{figure.caption.8}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Firmware Architecture}}{15}{figure.caption.11}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Front and back sides of the final PCB design.}}{17}{figure.caption.14}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Areas of PCB design}}{17}{figure.caption.15}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Frame design}}{19}{figure.caption.16}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Thread-safe Data Availability Signalling Heurisitic}}{20}{figure.caption.17}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Real-Time State Estimate Display on WebSocket}}{21}{figure.caption.18}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Simplified Timing Decription}}{22}{figure.caption.19}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Completed Integrated Drone System \textcolor {red}{placeholder}}}{29}{figure.caption.29}%
-\contentsline {figure}{\numberline {16}{\ignorespaces ESP Soldering Steps}}{37}{figure.caption.34}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Main Frame}}{38}{figure.caption.35}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Frame Additions}}{38}{figure.caption.36}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Frame Assembly Process}}{39}{figure.caption.37}%
-\contentsline {figure}{\numberline {23}{\ignorespaces 3D Printing Steps}}{49}{figure.caption.50}%
-\contentsline {figure}{\numberline {24}{\ignorespaces WebSocket Client Web Page}}{56}{figure.caption.60}%
+\contentsline {figure}{\numberline {5}{\ignorespaces System Architecture Process}}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Overall System Architecture with Hardware and Firmware Interfaces}}{13}{figure.caption.8}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Hardware Architecture}}{14}{figure.caption.9}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Firmware Architecture}}{16}{figure.caption.12}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Front and back sides of the final PCB design.}}{18}{figure.caption.15}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Areas of \gls {pcb} design}}{18}{figure.caption.16}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Frame design}}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {12}{\ignorespaces \gls {esp-idf} Environment}}{21}{figure.caption.18}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Thread-safe Data Availability Signalling Heuristic}}{21}{figure.caption.19}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Euler Angles~\blx@tocontentsinit {0}\cite {euler_angles_wikipedia}}}{22}{figure.caption.20}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Real-Time State Estimate Display on WebSocket}}{23}{figure.caption.21}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Simplified Timing Description}}{24}{figure.caption.22}%
+\contentsline {figure}{\numberline {17}{\ignorespaces ESP Soldering Steps}}{38}{figure.caption.34}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Main Frame}}{39}{figure.caption.35}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Frame Additions}}{39}{figure.caption.36}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Frame Assembly Process}}{40}{figure.caption.37}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Assembly Steps}}{50}{figure.caption.50}%
+\contentsline {figure}{\numberline {28}{\ignorespaces WebSocket Client Web Page}}{60}{figure.caption.60}%
+\contentsline {figure}{\numberline {29}{\ignorespaces File Structure}}{66}{figure.caption.67}%
