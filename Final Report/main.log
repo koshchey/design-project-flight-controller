@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.12)  20 OCT 2025 18:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.12)  20 OCT 2025 19:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1779,8 +1779,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.23 
       [1] (./1_header/summary.tex
-Overfull \hbox (3.36612pt too wide) in paragraph at lines 1--2
-\T1/cmr/m/n/10 This pro-ject presents the design and im-ple-ment-a-tion of an autonom-ous in-door [][]Un-manned Aer-ial Vehicle 
+Overfull \hbox (1.0889pt too wide) in paragraph at lines 1--2
+\T1/cmr/m/n/10 The pro-ject presents the design and im-ple-ment-a-tion of an autonom-ous in-door [][]Un-manned Aer-ial Vehicle 
  []
 
 )
@@ -1805,63 +1805,65 @@ Overfull \hbox (3.36612pt too wide) in paragraph at lines 1--2
 
 
 
-[6] (./main.acr)
+[6] (./main.acr
 
 [7
 
-] (./2_body/introduction.tex
-<img/mini-drone.JPG, id=596, 391.2216pt x 220.1826pt>
+])
+
+[8] (./2_body/introduction.tex
+<img/mini-drone.JPG, id=613, 391.2216pt x 220.1826pt>
 File: img/mini-drone.JPG Graphic file (type jpg)
 <use img/mini-drone.JPG>
 Package pdftex.def Info: img/mini-drone.JPG  used on input line 6.
 (pdftex.def)             Requested size: 182.09486pt x 102.48463pt.
 
 
-[8 <./img/mini-drone.jpg>]
-<img/intro-drone-gray5.PNG, id=610, 167.12437pt x 114.4275pt>
+[9 <./img/mini-drone.jpg>]
+<img/intro-drone-gray5.PNG, id=627, 167.12437pt x 114.4275pt>
 File: img/intro-drone-gray5.PNG Graphic file (type png)
 <use img/intro-drone-gray5.PNG>
 Package pdftex.def Info: img/intro-drone-gray5.PNG  used on input line 25.
 (pdftex.def)             Requested size: 182.09486pt x 124.68683pt.
-<img/intro-espressif.PNG, id=614, 752.8125pt x 389.455pt>
+<img/intro-espressif.PNG, id=631, 752.8125pt x 389.455pt>
 File: img/intro-espressif.PNG Graphic file (type png)
 <use img/intro-espressif.PNG>
 Package pdftex.def Info: img/intro-espressif.PNG  used on input line 38.
 (pdftex.def)             Requested size: 191.20169pt x 98.91452pt.
 
 
-[9 <./img/intro-drone-gray5.png> <./img/intro-espressif.png>]
-<img/intro-pcb.PNG, id=625, 338.76563pt x 225.09094pt>
+[10 <./img/intro-drone-gray5.png> <./img/intro-espressif.png>]
+<img/intro-pcb.PNG, id=642, 338.76563pt x 225.09094pt>
 File: img/intro-pcb.PNG Graphic file (type png)
 <use img/intro-pcb.PNG>
 Package pdftex.def Info: img/intro-pcb.PNG  used on input line 51.
 (pdftex.def)             Requested size: 182.09486pt x 120.99431pt.
 
 
-[10 <./img/intro-pcb.png>])
+[11 <./img/intro-pcb.png>])
 
-[11] (./2_body/design.tex (./2_body/design/architecture.tex
+[12] (./2_body/design.tex (./2_body/design/architecture.tex
 Overfull \hbox (3.90352pt too wide) in paragraph at lines 15--15
  []|\T1/cmr/bx/n/10 Rank| 
  []
 
 
 
-[12]
-<img/arch-process.PNG, id=647, 462.72874pt x 142.5325pt>
+[13]
+<img/arch-process.PNG, id=665, 462.72874pt x 142.5325pt>
 File: img/arch-process.PNG Graphic file (type png)
 <use img/arch-process.PNG>
 Package pdftex.def Info: img/arch-process.PNG  used on input line 68.
 (pdftex.def)             Requested size: 295.90588pt x 91.14653pt.
-<img/block-overall-gray.PNG, id=649, 895.345pt x 344.28625pt>
+<img/block-overall-gray.PNG, id=667, 895.345pt x 344.28625pt>
 File: img/block-overall-gray.PNG Graphic file (type png)
 <use img/block-overall-gray.PNG>
 Package pdftex.def Info: img/block-overall-gray.PNG  used on input line 81.
 (pdftex.def)             Requested size: 432.48051pt x 166.30618pt.
 
 
-[13 <./img/arch-process.png> <./img/block-overall-gray.png>]
-<img/block-hardware-gray.PNG, id=661, 702.625pt x 469.755pt>
+[14 <./img/arch-process.png> <./img/block-overall-gray.png>]
+<img/block-hardware-gray.PNG, id=678, 702.625pt x 469.755pt>
 File: img/block-hardware-gray.PNG Graphic file (type png)
 <use img/block-hardware-gray.PNG>
 Package pdftex.def Info: img/block-hardware-gray.PNG  used on input line 104.
@@ -1873,49 +1875,51 @@ Overfull \hbox (14.83636pt too wide) in paragraph at lines 115--135
 
 
 
-[14 <./img/block-hardware-gray.png>]
+[15 <./img/block-hardware-gray.png>]
 Overfull \hbox (25.19997pt too wide) in paragraph at lines 147--165
  [][] 
  []
 
 
 
-[15]
-<img/block-software-gray2.PNG, id=704, 788.9475pt x 644.4075pt>
+[16]
+<img/block-software-gray2.PNG, id=718, 788.9475pt x 644.4075pt>
 File: img/block-software-gray2.PNG Graphic file (type png)
 <use img/block-software-gray2.PNG>
 Package pdftex.def Info: img/block-software-gray2.PNG  used on input line 176.
 (pdftex.def)             Requested size: 446.13727pt x 364.40556pt.
 
 
-[16 <./img/block-software-gray2.png>]
+[17]
 Overfull \hbox (2.04095pt too wide) in paragraph at lines 201--202
 []|\T1/cmr/m/n/10 Manual/Autonomous|  
  []
 
 
+
+[18 <./img/block-software-gray2.png>]
 Overfull \hbox (4.44597pt too wide) in paragraph at lines 235--235
 []|\T1/cmr/m/n/10 Timing/Stabiliser|  
  []
 
 )
 
-[17] (./2_body/design/elements-hardware.tex
+[19] (./2_body/design/elements-hardware.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\gls' on input line 1.
 
-<img/final-pcb2.png, id=745, 767.86874pt x 647.41875pt>
+<img/final-pcb2.png, id=767, 767.86874pt x 647.41875pt>
 File: img/final-pcb2.png Graphic file (type png)
 <use img/final-pcb2.png>
 Package pdftex.def Info: img/final-pcb2.png  used on input line 12.
 (pdftex.def)             Requested size: 218.51521pt x 184.23965pt.
-<img/final-pcb-back.png, id=746, 804.75656pt x 699.36281pt>
+<img/final-pcb-back.png, id=768, 804.75656pt x 699.36281pt>
 File: img/final-pcb-back.png Graphic file (type png)
 <use img/final-pcb-back.png>
 Package pdftex.def Info: img/final-pcb-back.png  used on input line 19.
 (pdftex.def)             Requested size: 218.51521pt x 189.89761pt.
-<img/pcb-sections3.PNG, id=747, 764.10469pt x 549.55313pt>
+<img/pcb-sections3.PNG, id=769, 764.10469pt x 549.55313pt>
 File: img/pcb-sections3.PNG Graphic file (type png)
 <use img/pcb-sections3.PNG>
 Package pdftex.def Info: img/pcb-sections3.PNG  used on input line 30.
@@ -1932,10 +1936,10 @@ Overfull \hbox (18.30907pt too wide) in alignment at lines 35--80
 
 
 
-[18 <./img/final-pcb2.png> <./img/final-pcb-back.png> <./img/pcb-sections3.png>]
+[20 <./img/final-pcb2.png> <./img/final-pcb-back.png> <./img/pcb-sections3.png>]
 
-[19]
-<img/main-frame.PNG, id=797, 520.94624pt x 392.96812pt>
+[21]
+<img/main-frame.PNG, id=811, 520.94624pt x 392.96812pt>
 File: img/main-frame.PNG Graphic file (type png)
 <use img/main-frame.PNG>
 Package pdftex.def Info: img/main-frame.PNG  used on input line 90.
@@ -1947,48 +1951,48 @@ Overfull \hbox (23.99953pt too wide) in alignment at lines 95--129
 
 )
 
-[20 <./img/main-frame.png>] (./2_body/design/elements-firmware.tex
-<img/firmware-flavour2.jpeg, id=817, 1363.0925pt x 983.675pt>
+[22 <./img/main-frame.png>] (./2_body/design/elements-firmware.tex
+<img/firmware-flavour2.jpeg, id=829, 1363.0925pt x 983.675pt>
 File: img/firmware-flavour2.jpeg Graphic file (type jpg)
 <use img/firmware-flavour2.jpeg>
 Package pdftex.def Info: img/firmware-flavour2.jpeg  used on input line 8.
 (pdftex.def)             Requested size: 204.85846pt x 147.83006pt.
-<img/sensor-semaphore.PNG, id=826, 864.22874pt x 592.2125pt>
+<img/sensor-semaphore.PNG, id=838, 864.22874pt x 592.2125pt>
 File: img/sensor-semaphore.PNG Graphic file (type png)
 <use img/sensor-semaphore.PNG>
 Package pdftex.def Info: img/sensor-semaphore.PNG  used on input line 22.
 (pdftex.def)             Requested size: 386.96027pt x 265.1648pt.
 
 
-[21 <./img/firmware-flavour2.jpeg> <./img/sensor-semaphore.png>]
-<img/euler.PNG, id=839, 250.9375pt x 283.0575pt>
+[23 <./img/firmware-flavour2.jpeg> <./img/sensor-semaphore.png>]
+<img/euler.PNG, id=850, 250.9375pt x 283.0575pt>
 File: img/euler.PNG Graphic file (type png)
 <use img/euler.PNG>
 Package pdftex.def Info: img/euler.PNG  used on input line 52.
 (pdftex.def)             Requested size: 113.81102pt x 128.38104pt.
 
 
-[22 <./img/euler.png>]
-<img/websocket-state.PNG, id=857, 188.95593pt x 189.70876pt>
+[24 <./img/euler.png>]
+<img/websocket-state.PNG, id=869, 188.95593pt x 189.70876pt>
 File: img/websocket-state.PNG Graphic file (type png)
 <use img/websocket-state.PNG>
 Package pdftex.def Info: img/websocket-state.PNG  used on input line 63.
 (pdftex.def)             Requested size: 182.09486pt x 182.82173pt.
 
 
-[23 <./img/websocket-state.png>]
-<img/timing.PNG, id=876, 522.95375pt x 440.64626pt>
+[25 <./img/websocket-state.png>]
+<img/timing.PNG, id=888, 522.95375pt x 440.64626pt>
 File: img/timing.PNG Graphic file (type png)
 <use img/timing.PNG>
 Package pdftex.def Info: img/timing.PNG  used on input line 96.
 (pdftex.def)             Requested size: 241.27881pt x 203.30487pt.
 
 
-[24 <./img/timing.png>])
+[26 <./img/timing.png>])
 
-[25] (./2_body/design/testing.tex
+[27] (./2_body/design/testing.tex
 
-[26]
+[28]
 Overfull \hbox (10.97357pt too wide) in paragraph at lines 69--81
  [][] 
  []
@@ -2010,7 +2014,7 @@ Overfull \hbox (10.97357pt too wide) in paragraph at lines 120--133
 
 
 
-[27]
+[29]
 Overfull \hbox (10.97357pt too wide) in paragraph at lines 138--152
  [][] 
  []
@@ -2032,11 +2036,11 @@ Overfull \hbox (10.97357pt too wide) in paragraph at lines 195--205
 
 
 
-[28])
+[30])
 
-[29] (./2_body/design/other.tex
+[31] (./2_body/design/other.tex
 
-[30]
+[32]
 \openout2 = `2_body/design/stakeholder.aux'.
 
  (./2_body/design/stakeholder.tex
@@ -2044,165 +2048,165 @@ Overfull \hbox (10.97357pt too wide) in paragraph at lines 22--35
 [][] 
  []
 
-)
-
-[31
-
-]
-
-[32]
-\openout2 = `2_body/design/safety-ethical-risk.aux'.
-
- (./2_body/design/safety-ethical-risk.tex
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 9--19
-[][] 
- []
-
-
-Overfull \hbox (3.34734pt too wide) in paragraph at lines 29--29
-[]|\T1/cmr/m/n/10 Cuts/Abrasions|  
- []
-
-
-Overfull \hbox (10.16624pt too wide) in paragraph at lines 25--36
-[][] 
- []
-
 
 
 [33
 
-
-
-]
+])
 
 [34]
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 70--84
-[][]
+\openout2 = `2_body/design/safety-ethical-risk.aux'.
+
+ (./2_body/design/safety-ethical-risk.tex
+Overfull \hbox (10.97357pt too wide) in paragraph at lines 8--18
+[][] 
  []
 
 
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 87--101
-[][]
+Overfull \hbox (3.34734pt too wide) in paragraph at lines 28--28
+[]|\T1/cmr/m/n/10 Cuts/Abrasions|  
  []
 
 
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 104--118
-[][]
- []
-
-
-
-[35]
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 122--135
-[][]
- []
-
-)
-Overfull \hbox (11.99997pt too wide) in paragraph at lines 138--55
+Overfull \hbox (10.16624pt too wide) in paragraph at lines 24--35
 [][] 
  []
 
 
 
-[36]
+[35
 
-[37
 
 
 ]
-<img/assembly-1.png, id=964, 813.79031pt x 627.09282pt>
+
+[36]
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 69--83
+[][]
+ []
+
+
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 86--100
+[][]
+ []
+
+
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 103--117
+[][]
+ []
+
+
+
+[37]
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 121--134
+[][]
+ []
+
+)
+Overfull \hbox (11.99997pt too wide) in paragraph at lines 137--55
+[][] 
+ []
+
+
+
+[38]
+
+[39
+
+
+]
+<img/assembly-1.png, id=976, 813.79031pt x 627.09282pt>
 File: img/assembly-1.png Graphic file (type png)
 <use img/assembly-1.png>
 Package pdftex.def Info: img/assembly-1.png  used on input line 130.
 (pdftex.def)             Requested size: 286.806pt x 221.00719pt.
-<img/assembly-2.png, id=965, 655.69969pt x 553.31718pt>
+<img/assembly-2.png, id=977, 655.69969pt x 553.31718pt>
 File: img/assembly-2.png Graphic file (type png)
 <use img/assembly-2.png>
 Package pdftex.def Info: img/assembly-2.png  used on input line 136.
 (pdftex.def)             Requested size: 273.14923pt x 230.50041pt.
 
 
-[38 <./img/assembly-1.png> <./img/assembly-2.png>]
-<img/assembly-3.png, id=972, 897.3525pt x 546.54187pt>
+[40 <./img/assembly-1.png> <./img/assembly-2.png>]
+<img/assembly-3.png, id=984, 897.3525pt x 546.54187pt>
 File: img/assembly-3.png Graphic file (type png)
 <use img/assembly-3.png>
 Package pdftex.def Info: img/assembly-3.png  used on input line 148.
 (pdftex.def)             Requested size: 318.66948pt x 194.08626pt.
-<img/assembly-4b.png, id=973, 347.04657pt x 338.01282pt>
+<img/assembly-4b.png, id=985, 347.04657pt x 338.01282pt>
 File: img/assembly-4b.png Graphic file (type png)
 <use img/assembly-4b.png>
 Package pdftex.def Info: img/assembly-4b.png  used on input line 179.
 (pdftex.def)             Requested size: 182.09486pt x 177.36137pt.
-<img/assembly-9b.png, id=974, 508.14844pt x 339.51843pt>
+<img/assembly-9b.png, id=986, 508.14844pt x 339.51843pt>
 File: img/assembly-9b.png Graphic file (type png)
 <use img/assembly-9b.png>
 Package pdftex.def Info: img/assembly-9b.png  used on input line 185.
 (pdftex.def)             Requested size: 204.85846pt x 136.87735pt.
-<img/assembly-5b.png, id=975, 395.22656pt x 240.9pt>
+<img/assembly-5b.png, id=987, 395.22656pt x 240.9pt>
 File: img/assembly-5b.png Graphic file (type png)
 <use img/assembly-5b.png>
 Package pdftex.def Info: img/assembly-5b.png  used on input line 191.
 (pdftex.def)             Requested size: 91.04742pt x 55.49405pt.
 
 
-[39 <./img/assembly-3.png> <./img/assembly-4b.png> <./img/assembly-9b.png> <./img/assembly-5b.png>]
-<img/assembly-6.png, id=984, 755.82375pt x 581.92406pt>
+[41 <./img/assembly-3.png> <./img/assembly-4b.png> <./img/assembly-9b.png> <./img/assembly-5b.png>]
+<img/assembly-6.png, id=997, 755.82375pt x 581.92406pt>
 File: img/assembly-6.png Graphic file (type png)
 <use img/assembly-6.png>
 Package pdftex.def Info: img/assembly-6.png  used on input line 220.
 (pdftex.def)             Requested size: 182.09486pt x 140.19739pt.
-<img/assembly-7.png, id=985, 529.98pt x 583.42969pt>
+<img/assembly-7.png, id=998, 529.98pt x 583.42969pt>
 File: img/assembly-7.png Graphic file (type png)
 <use img/assembly-7.png>
 Package pdftex.def Info: img/assembly-7.png  used on input line 226.
 (pdftex.def)             Requested size: 159.33821pt x 175.40414pt.
-<img/assembly-8.png, id=986, 618.81187pt x 493.0922pt>
+<img/assembly-8.png, id=999, 618.81187pt x 493.0922pt>
 File: img/assembly-8.png Graphic file (type png)
 <use img/assembly-8.png>
 Package pdftex.def Info: img/assembly-8.png  used on input line 232.
 (pdftex.def)             Requested size: 159.33821pt x 126.96701pt.
 
 
-[40 <./img/assembly-6.png> <./img/assembly-7.png> <./img/assembly-8.png>]
+[42 <./img/assembly-6.png> <./img/assembly-7.png> <./img/assembly-8.png>]
 
-[41]
+[43]
 
-[42]))
+[44]))
 
-[43] (./2_body/recommendations.tex)
+[45] (./2_body/recommendations.tex)
 
-[44] (./2_body/manual.tex
+[46] (./2_body/manual.tex
 Overfull \hbox (20.83522pt too wide) in paragraph at lines 9--9
 []|\T1/cmss/bx/n/10 Designator|  
  []
 
-<img/manual/item1.png, id=1024, 26.28pt x 25.2945pt>
+<img/manual/item1.png, id=1035, 26.28pt x 25.2945pt>
 File: img/manual/item1.png Graphic file (type png)
 <use img/manual/item1.png>
 Package pdftex.def Info: img/manual/item1.png  used on input line 11.
 (pdftex.def)             Requested size: 45.52458pt x 43.82137pt.
-<img/manual/item2.png, id=1025, 44.019pt x 31.8645pt>
+<img/manual/item2.png, id=1036, 44.019pt x 31.8645pt>
 File: img/manual/item2.png Graphic file (type png)
 <use img/manual/item2.png>
 Package pdftex.def Info: img/manual/item2.png  used on input line 12.
 (pdftex.def)             Requested size: 51.21504pt x 37.07611pt.
-<img/manual/item3.png, id=1026, 43.362pt x 34.4925pt>
+<img/manual/item3.png, id=1037, 43.362pt x 34.4925pt>
 File: img/manual/item3.png Graphic file (type png)
 <use img/manual/item3.png>
 Package pdftex.def Info: img/manual/item3.png  used on input line 13.
 (pdftex.def)             Requested size: 51.21504pt x 40.7413pt.
-<img/manual/item4.png, id=1027, 20.367pt x 22.338pt>
+<img/manual/item4.png, id=1038, 20.367pt x 22.338pt>
 File: img/manual/item4.png Graphic file (type png)
 <use img/manual/item4.png>
 Package pdftex.def Info: img/manual/item4.png  used on input line 14.
 (pdftex.def)             Requested size: 51.21504pt x 56.18126pt.
-<img/manual/item5.png, id=1028, 24.966pt x 21.024pt>
+<img/manual/item5.png, id=1039, 24.966pt x 21.024pt>
 File: img/manual/item5.png Graphic file (type png)
 <use img/manual/item5.png>
 Package pdftex.def Info: img/manual/item5.png  used on input line 15.
 (pdftex.def)             Requested size: 51.21504pt x 43.13025pt.
-<img/manual/item6.png, id=1029, 43.6905pt x 33.8355pt>
+<img/manual/item6.png, id=1040, 43.6905pt x 33.8355pt>
 File: img/manual/item6.png Graphic file (type png)
 <use img/manual/item6.png>
 Package pdftex.def Info: img/manual/item6.png  used on input line 16.
@@ -2212,7 +2216,7 @@ Overfull \hbox (1.53993pt too wide) in paragraph at lines 17--17
 []|\T1/cmss/m/n/10 SW1/2|  
  []
 
-<img/manual/item7.png, id=1030, 37.449pt x 37.7775pt>
+<img/manual/item7.png, id=1041, 37.449pt x 37.7775pt>
 File: img/manual/item7.png Graphic file (type png)
 <use img/manual/item7.png>
 Package pdftex.def Info: img/manual/item7.png  used on input line 17.
@@ -2224,12 +2228,12 @@ Overfull \hbox (2.82263pt too wide) in alignment at lines 7--19
 
 LaTeX Font Info:    Font shape `T1/cmss/m/it' in size <10> not available
 (Font)              Font shape `T1/cmss/m/sl' tried instead on input line 39.
-<img/manual/solder1.png, id=1031, 326.529pt x 135.6705pt>
+<img/manual/solder1.png, id=1042, 326.529pt x 135.6705pt>
 File: img/manual/solder1.png Graphic file (type png)
 <use img/manual/solder1.png>
 Package pdftex.def Info: img/manual/solder1.png  used on input line 47.
 (pdftex.def)             Requested size: 216.3768pt x 89.90506pt.
-<img/manual/solder2.png, id=1032, 453.0015pt x 168.849pt>
+<img/manual/solder2.png, id=1043, 453.0015pt x 168.849pt>
 File: img/manual/solder2.png Graphic file (type png)
 <use img/manual/solder2.png>
 Package pdftex.def Info: img/manual/solder2.png  used on input line 61.
@@ -2242,37 +2246,37 @@ File: img/assembly-2.png Graphic file (type png)
 <use img/assembly-2.png>
 Package pdftex.def Info: img/assembly-2.png  used on input line 78.
 (pdftex.def)             Requested size: 207.71988pt x 175.28365pt.
-<img/manual/solder5.png, id=1033, 581.92406pt x 537.50812pt>
+<img/manual/solder5.png, id=1044, 581.92406pt x 537.50812pt>
 File: img/manual/solder5.png Graphic file (type png)
 <use img/manual/solder5.png>
 Package pdftex.def Info: img/manual/solder5.png  used on input line 109.
 (pdftex.def)             Requested size: 207.71988pt x 191.86243pt.
-<img/manual/solder6.png, id=1034, 210.24pt x 158.0085pt>
+<img/manual/solder6.png, id=1045, 210.24pt x 158.0085pt>
 File: img/manual/solder6.png Graphic file (type png)
 <use img/manual/solder6.png>
 Package pdftex.def Info: img/manual/solder6.png  used on input line 115.
 (pdftex.def)             Requested size: 207.71988pt x 156.11784pt.
-<img/manual/3dp1.png, id=1037, 190.53pt x 126.801pt>
+<img/manual/3dp1.png, id=1048, 190.53pt x 126.801pt>
 File: img/manual/3dp1.png Graphic file (type png)
 <use img/manual/3dp1.png>
 Package pdftex.def Info: img/manual/3dp1.png  used on input line 154.
 (pdftex.def)             Requested size: 207.71988pt x 138.25096pt.
-<img/manual/3dp2.png, id=1038, 213.525pt x 142.2405pt>
+<img/manual/3dp2.png, id=1049, 213.525pt x 142.2405pt>
 File: img/manual/3dp2.png Graphic file (type png)
 <use img/manual/3dp2.png>
 Package pdftex.def Info: img/manual/3dp2.png  used on input line 160.
 (pdftex.def)             Requested size: 207.71988pt x 138.37897pt.
-<img/manual/3dp3.png, id=1039, 221.409pt x 142.2405pt>
+<img/manual/3dp3.png, id=1050, 221.409pt x 142.2405pt>
 File: img/manual/3dp3.png Graphic file (type png)
 <use img/manual/3dp3.png>
 Package pdftex.def Info: img/manual/3dp3.png  used on input line 165.
 (pdftex.def)             Requested size: 207.71988pt x 133.44562pt.
-<img/manual/3dp4.png, id=1040, 212.5395pt x 142.2405pt>
+<img/manual/3dp4.png, id=1051, 212.5395pt x 142.2405pt>
 File: img/manual/3dp4.png Graphic file (type png)
 <use img/manual/3dp4.png>
 Package pdftex.def Info: img/manual/3dp4.png  used on input line 171.
 (pdftex.def)             Requested size: 207.71988pt x 139.01924pt.
-<img/manual/assemb1.png, id=1041, 357.408pt x 176.733pt>
+<img/manual/assemb1.png, id=1052, 357.408pt x 176.733pt>
 File: img/manual/assemb1.png Graphic file (type png)
 <use img/manual/assemb1.png>
 Package pdftex.def Info: img/manual/assemb1.png  used on input line 192.
@@ -2289,154 +2293,154 @@ File: img/assembly-7.png Graphic file (type png)
 <use img/assembly-7.png>
 Package pdftex.def Info: img/assembly-7.png  used on input line 209.
 (pdftex.def)             Requested size: 173.09879pt x 190.55605pt.
-<img/manual/assemb2.png, id=1042, 182.6825pt x 175.15437pt>
+<img/manual/assemb2.png, id=1053, 182.6825pt x 175.15437pt>
 File: img/manual/assemb2.png Graphic file (type png)
 <use img/manual/assemb2.png>
 Package pdftex.def Info: img/manual/assemb2.png  used on input line 214.
 (pdftex.def)             Requested size: 190.41263pt x 182.57585pt.
-<img/manual/assemb3.jpg, id=1043, 354.57469pt x 292.09125pt>
+<img/manual/assemb3.jpg, id=1054, 354.57469pt x 292.09125pt>
 File: img/manual/assemb3.jpg Graphic file (type jpg)
 <use img/manual/assemb3.jpg>
 Package pdftex.def Info: img/manual/assemb3.jpg  used on input line 220.
 (pdftex.def)             Requested size: 207.71988pt x 171.12004pt.
 
 
-[45 <./img/manual/item1.png> <./img/manual/item2.png> <./img/manual/item3.png> <./img/manual/item4.png> <./img/manual/item5.png> <./img/manual/item6.png> <./img/manual/item7.png>]
+[47 <./img/manual/item1.png> <./img/manual/item2.png> <./img/manual/item3.png> <./img/manual/item4.png> <./img/manual/item5.png> <./img/manual/item6.png> <./img/manual/item7.png>]
 
-[46 <./img/manual/solder1.png> <./img/manual/solder2.png>]
+[48 <./img/manual/solder1.png> <./img/manual/solder2.png>]
 
-[47]
+[49]
 
-[48 <./img/manual/solder5.png> <./img/manual/solder6.png>]
+[50 <./img/manual/solder5.png> <./img/manual/solder6.png>]
 
-[49 <./img/manual/3dp1.png> <./img/manual/3dp2.png> <./img/manual/3dp3.png> <./img/manual/3dp4.png>]
+[51 <./img/manual/3dp1.png> <./img/manual/3dp2.png> <./img/manual/3dp3.png> <./img/manual/3dp4.png>]
 
-[50 <./img/manual/assemb1.png> <./img/manual/assemb2.png> <./img/manual/assemb3.jpg>])
+[52 <./img/manual/assemb1.png> <./img/manual/assemb2.png> <./img/manual/assemb3.jpg>])
 
-[51]
+[53]
 
-[52] (./3_footer/appendices.tex
+[54] (./3_footer/appendices.tex
 Overfull \hbox (4.47969pt too wide) in paragraph at lines 8--28
  [][] 
  []
 
 
 
-[53]
+[55]
 
-[54]
-<img/vandv1.png, id=1166, 678.28406pt x 640.64343pt>
+[56]
+<img/vandv1.png, id=1177, 678.28406pt x 640.64343pt>
 File: img/vandv1.png Graphic file (type png)
 <use img/vandv1.png>
 Package pdftex.def Info: img/vandv1.png  used on input line 79.
 (pdftex.def)             Requested size: 455.24411pt x 429.9718pt.
-<img/vandv2.png, id=1167, 677.53125pt x 531.48563pt>
+<img/vandv2.png, id=1178, 677.53125pt x 531.48563pt>
 File: img/vandv2.png Graphic file (type png)
 <use img/vandv2.png>
 Package pdftex.def Info: img/vandv2.png  used on input line 84.
 (pdftex.def)             Requested size: 455.24411pt x 357.12346pt.
 
 
-[55 <./img/vandv1.png>]
+[57 <./img/vandv1.png>]
 
-[56 <./img/vandv2.png>]
-<img/proto-pcb1.png, id=1180, 282.1815pt x 168.192pt>
+[58 <./img/vandv2.png>]
+<img/proto-pcb1.png, id=1191, 282.1815pt x 168.192pt>
 File: img/proto-pcb1.png Graphic file (type png)
 <use img/proto-pcb1.png>
 Package pdftex.def Info: img/proto-pcb1.png  used on input line 98.
 (pdftex.def)             Requested size: 204.85846pt x 122.10672pt.
-<img/PCBit1_front.png, id=1181, 666.49pt x 429.605pt>
+<img/PCBit1_front.png, id=1192, 666.49pt x 429.605pt>
 File: img/PCBit1_front.png Graphic file (type png)
 <use img/PCBit1_front.png>
 Package pdftex.def Info: img/PCBit1_front.png  used on input line 106.
 (pdftex.def)             Requested size: 182.09486pt x 117.37149pt.
-<img/PCBit1_back.png, id=1182, 663.47874pt x 429.605pt>
+<img/PCBit1_back.png, id=1193, 663.47874pt x 429.605pt>
 File: img/PCBit1_back.png Graphic file (type png)
 <use img/PCBit1_back.png>
 Package pdftex.def Info: img/PCBit1_back.png  used on input line 113.
 (pdftex.def)             Requested size: 182.09486pt x 117.90247pt.
-<img/proto-pcb2.png, id=1183, 296.6355pt x 211.8825pt>
+<img/proto-pcb2.png, id=1194, 296.6355pt x 211.8825pt>
 File: img/proto-pcb2.png Graphic file (type png)
 <use img/proto-pcb2.png>
 Package pdftex.def Info: img/proto-pcb2.png  used on input line 127.
 (pdftex.def)             Requested size: 204.85846pt x 146.33162pt.
-<img/PCBit2_front.png, id=1184, 647.41875pt x 477.785pt>
+<img/PCBit2_front.png, id=1195, 647.41875pt x 477.785pt>
 File: img/PCBit2_front.png Graphic file (type png)
 <use img/PCBit2_front.png>
 Package pdftex.def Info: img/PCBit2_front.png  used on input line 134.
 (pdftex.def)             Requested size: 182.09486pt x 134.38399pt.
-<img/PCBit2_back.png, id=1185, 649.42625pt x 477.785pt>
+<img/PCBit2_back.png, id=1196, 649.42625pt x 477.785pt>
 File: img/PCBit2_back.png Graphic file (type png)
 <use img/PCBit2_back.png>
 Package pdftex.def Info: img/PCBit2_back.png  used on input line 141.
 (pdftex.def)             Requested size: 182.09486pt x 133.96114pt.
 
 
-[57 <./img/proto-pcb1.png> <./img/PCBit1_front.png> <./img/PCBit1_back.png> <./img/proto-pcb2.png> <./img/PCBit2_front.png> <./img/PCBit2_back.png>]
-<img/frame-1.PNG, id=1198, 1192.455pt x 1014.79124pt>
+[59 <./img/proto-pcb1.png> <./img/PCBit1_front.png> <./img/PCBit1_back.png> <./img/proto-pcb2.png> <./img/PCBit2_front.png> <./img/PCBit2_back.png>]
+<img/frame-1.PNG, id=1209, 1192.455pt x 1014.79124pt>
 File: img/frame-1.PNG Graphic file (type png)
 <use img/frame-1.PNG>
 Package pdftex.def Info: img/frame-1.PNG  used on input line 156.
 (pdftex.def)             Requested size: 218.51521pt x 185.95273pt.
-<img/OldFrame.png, id=1199, 407.5225pt x 382.42876pt>
+<img/OldFrame.png, id=1210, 407.5225pt x 382.42876pt>
 File: img/OldFrame.png Graphic file (type png)
 <use img/OldFrame.png>
 Package pdftex.def Info: img/OldFrame.png  used on input line 164.
 (pdftex.def)             Requested size: 218.51521pt x 205.06126pt.
-<img/frame-3.png, id=1200, 771.63281pt x 462.97969pt>
+<img/frame-3.png, id=1211, 771.63281pt x 462.97969pt>
 File: img/frame-3.png Graphic file (type png)
 <use img/frame-3.png>
 Package pdftex.def Info: img/frame-3.png  used on input line 172.
 (pdftex.def)             Requested size: 218.51521pt x 131.1099pt.
-<img/frame-3-back.png, id=1201, 735.49782pt x 651.18282pt>
+<img/frame-3-back.png, id=1212, 735.49782pt x 651.18282pt>
 File: img/frame-3-back.png Graphic file (type png)
 <use img/frame-3-back.png>
 Package pdftex.def Info: img/frame-3-back.png  used on input line 180.
 (pdftex.def)             Requested size: 218.51521pt x 193.45853pt.
 
 
-[58 <./img/frame-1.png> <./img/OldFrame.png> <./img/frame-3.png> <./img/frame-3-back.png>]
-<img/prototype-1-2.png, id=1211, 868.24374pt x 997.7275pt>
+[60 <./img/frame-1.png> <./img/OldFrame.png> <./img/frame-3.png> <./img/frame-3-back.png>]
+<img/prototype-1-2.png, id=1223, 868.24374pt x 997.7275pt>
 File: img/prototype-1-2.png Graphic file (type png)
 <use img/prototype-1-2.png>
 Package pdftex.def Info: img/prototype-1-2.png  used on input line 193.
 (pdftex.def)             Requested size: 250.38564pt x 287.7198pt.
-<img/prototype-2.png, id=1212, 311.66437pt x 240.9pt>
+<img/prototype-2.png, id=1224, 311.66437pt x 240.9pt>
 File: img/prototype-2.png Graphic file (type png)
 <use img/prototype-2.png>
 Package pdftex.def Info: img/prototype-2.png  used on input line 200.
 (pdftex.def)             Requested size: 318.66948pt x 246.31757pt.
-<img/websocket-page.PNG, id=1213, 646.66594pt x 735.49782pt>
+<img/websocket-page.PNG, id=1225, 646.66594pt x 735.49782pt>
 File: img/websocket-page.PNG Graphic file (type png)
 <use img/websocket-page.PNG>
 Package pdftex.def Info: img/websocket-page.PNG  used on input line 210.
 (pdftex.def)             Requested size: 446.13727pt x 507.42671pt.
 
 
-[59 <./img/prototype-1-2.png> <./img/prototype-2.png>]
+[61 <./img/prototype-1-2.png> <./img/prototype-2.png>]
 
-[60 <./img/websocket-page.png>]
+[62 <./img/websocket-page.png>]
 Underfull \hbox (badness 5622) in paragraph at lines 230--230
 []|\T1/cmr/bx/n/10 Q2: \T1/cmr/m/n/10 Re-quire-ments for drone move-ment pat- 
  []
 
 
 
-[61]
+[63]
 Underfull \hbox (badness 1082) in paragraph at lines 291--291
 []|[]|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
  []
 
 
 
-[62]
-
-[63]
-
 [64]
 
 [65]
-<img/code-files.PNG, id=1248, 129.48375pt x 550.30594pt>
+
+[66]
+
+[67]
+<img/code-files.PNG, id=1261, 129.48375pt x 550.30594pt>
 File: img/code-files.PNG Graphic file (type png)
 <use img/code-files.PNG>
 Package pdftex.def Info: img/code-files.PNG  used on input line 388.
@@ -2448,11 +2452,7 @@ LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <8> not available
 
 
 
-[66 <./img/code-files.png>]
-
-[67]
-
-[68]
+[68 <./img/code-files.png>]
 
 [69]
 
@@ -2502,9 +2502,13 @@ LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <8> not available
 
 [92]
 
-[93])
+[93]
 
-[94] 
+[94]
+
+[95])
+
+[96] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./main.aux (./2_body/design/stakeholder.aux) (./2_body/design/safety-ethical-risk.aux))
  ***********
@@ -2522,60 +2526,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 60560 strings out of 471564
- 1204802 string characters out of 5520719
+ 60564 strings out of 471564
+ 1204844 string characters out of 5520719
  2408292 words of memory out of 5000000
- 84446 multiletter control sequences out of 15000+600000
+ 84448 multiletter control sequences out of 15000+600000
  650169 words of font info for 89 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  103i,15n,120p,2692b,2689s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{glo:esc} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:html} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:ahrs} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:isr} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:petg} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:fov} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:rf} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:led} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:rc} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:esd} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:ldo} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:jst} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:emi} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:esp32} has been referenced but does not exist, replaced by a fixed one
-
  <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit0800.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1000.720pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0700.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.720pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.720pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.1244pk> <c:/Users/sofia/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (95 pages, 7858948 bytes).
+Output written on main.pdf (97 pages, 7861353 bytes).
 PDF statistics:
- 4094 PDF objects out of 4296 (max. 8388607)
- 2971 compressed objects within 30 object streams
- 1718 named destinations out of 1728 (max. 500000)
+ 4109 PDF objects out of 4296 (max. 8388607)
+ 2981 compressed objects within 30 object streams
+ 1720 named destinations out of 1728 (max. 500000)
  1041 words of extra memory for PDF output out of 10000 (max. 10000000)
 

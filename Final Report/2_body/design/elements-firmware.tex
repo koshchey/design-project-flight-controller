@@ -1,6 +1,6 @@
 \subsubsection{Firmware Elements}
 
-The firmware elements, which are described in Fig.~\ref{fig:block-software}, are described in detail below. The detailed implementation of these elements is given in \cite{flightcontroller_git}, or to view the code as up to date with the submission of this report, refer to Appendix~\ref{app:firmware-code}.
+The firmware elements, shown in Fig.~\ref{fig:block-software}, are detailedbelow. The detailed implementation of these elements is given in \cite{flightcontroller_git}. To view the code as up to date with the submission of this report, refer to Appendix~\ref{app:firmware-code}.
 
 \begin{figure}[H]
     \centering
@@ -45,7 +45,7 @@ where \( x(n) \) is the current input sample, \( y(n) \) is the filtered output,
 
 \paragraph{\textbf{State Estimation} \textit{estimator.c}} \leavevmode 
 
-The \gls{mpu6050} measures angular rate from the gyroscope and linear acceleration from the accelerometer, which do not directly provide information about its orientation or position in space. The drone does not have inherent knowledge of its position relative to world coordinates. Simple integration can be used to estimate this, but it leads to large errors due to accumulation in the integration. A more complex technique is required.
+The \gls{mpu6050} measures angular rate from the gyroscope and linear acceleration from the accelerometer, which do not directly provide information about its orientation or position in space. The drone does not have inherent knowledge of its position relative to world coordinates. Simple integration can be used to estimate this, but leads to errors also accumulating.
 
 \begin{figure}[H]
     \centering
@@ -67,7 +67,7 @@ Quaternions and an \gls{ahrs} algorithm called Mahony's algorithm are used in th
 
 \paragraph{\textbf{Controller} \textit{controller.c}} \leavevmode 
 
-Once the state estimate is received and the setpoint is received, essentially saying \textit{this is my current state} and \textit{this is the state I want to be in}, the realisation of the control to reach the setpoint is met through the use of a control system, in this case a cascaded \gls{pid} loop. The system consists of two nested loops:
+Once the state estimate is received and the setpoint is received, representing the current and desired states, the realisation of the control to reach the setpoint is met through the use of a control system, in this case a cascaded \gls{pid} loop. The system consists of two nested loops:
 
 \begin{itemize}
     \item \textbf{Outer Loop (Attitude Control):} Computes desired angular rates from the error between the target attitude (roll, pitch, yaw) and the current attitude measured by the \gls{imu}. Separate \gls{pid} objects are used for each axis.
